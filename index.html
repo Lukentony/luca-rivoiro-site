@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luca Rivoiro — AI Engineer & Security Specialist</title>
+<meta name="description" content="AI Engineer specializzato in sicurezza degli agenti, automazione e infrastrutture self-hosted. Portfolio professionale.">
+<meta property="og:title" content="Luca Rivoiro — AI Engineer & Security Specialist">
+<meta property="og:description" content="Trasformo prototipi LLM in infrastrutture scalabili, sicure e pronte per la produzione.">
+<meta property="og:image" content="https://luca-personal-site.pages.dev/assets/images/og-image.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<link rel="icon" href="assets/images/favicon/favicon.ico" sizes="32x32">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Dark mode inline script: NO FOUC -->
+<script>
+(function() {
+  var t = localStorage.getItem('theme');
+  if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+</script>
+</head>
+<body>
+
+<!-- Skip Link -->
+<a href="#main" class="skip-link" data-en="Skip to main content">Vai al contenuto principale</a>
+
+<!-- Language Toggle -->
+<button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">
+  <span class="lang-it">EN</span>
+  <span class="lang-en">IT</span>
+</button>
+
+<!-- Theme Toggle -->
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+  <span id="theme-icon">\u263e</span>
+</button>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="main">
+  <div class="container">
+    <h1 class="hero-name">Luca Rivoiro</h1>
+    <p class="hero-headline">AI Engineer &amp; Security Specialist</p>
+    <p class="hero-tagline" data-en="Turning LLM prototypes into scalable, secure, production-ready infrastructures.">
+      Trasformo prototipi LLM in infrastrutture scalabili, sicure e pronte per la produzione.
+    </p>
+    <a href="mailto:luca.rivoiro@gmail.com" class="hero-cta" data-en="Let's talk about your infrastructure">
+      Parliamo della tua infrastruttura
+    </a>
+    <div class="hero-social">
+      <a href="https://github.com/Lukentony" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="mailto:luca.rivoiro@gmail.com" aria-label="Email">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== ABOUT ===== -->
+<main>
+<section class="section" id="about">
+  <div class="container">
+    <h2 class="section-title" data-en="About">Chi Sono</h2>
+    <div class="about-text">
+      <p data-en="I protect AI pipelines from vulnerabilities typical of language models. I design architectures where security is not an added layer, but the starting point. Automation, self-hosted infrastructure, CI/CD, monitoring.">
+        Proteggo le pipeline AI dalle vulnerabilita tipiche dei modelli linguistici.
+        Progetto architetture dove la sicurezza non e un layer aggiunto, ma il punto
+        di partenza. Automazione, infrastrutture self-hosted, CI/CD, monitoring.
+      </p>
+      <p data-en="I think like an attacker. Every system I build starts from the question: what happens if someone tries to bypass it?">
+        Penso come un attaccante. Ogni sistema che costruisco parte dalla domanda:
+        "cosa succede se qualcuno cerca di bypassarlo?"
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="section" id="projects">
+  <div class="container">
+    <h2 class="section-title" data-en="Projects">Progetti</h2>
+    <div class="projects-grid">
+
+      <article class="card">
+        <img class="card-image" src="assets/images/projects/ai-guardian.jpg"
+             alt='AI Guardian Lab: schema architetturale firewall 4 layer'
+             srcset="assets/images/projects/ai-guardian-400w.jpg 400w,
+                     assets/images/projects/ai-guardian-600w.jpg 600w"
+             sizes="(max-width: 600px) 400px, 600px"
+             loading="lazy">
+        <h3 class="card-title"><a href="https://github.com/Lukentony/AI-guardian-lab" target="_blank" rel="noopener">AI Guardian Lab</a></h3>
+        <p class="card-desc" data-en="Blocks prompt injection attempts and malicious commands in real time. A 4-layer validation pipeline ensuring an AI agent executes only what it should. Used in production to mitigate LLM risks.">
+          Blocca tentativi di prompt injection e comandi malevoli in tempo reale.
+          Un layer di validazione a 4 livelli che garantisce che un AI agent esegua
+          solo cio che dovrebbe. Utilizzato in produzione per mitigare rischi LLM.
+        </p>
+        <div class="card-tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Docker</span><span class="tag">Security</span></div>
+      </article>
+
+      <article class="card">
+        <img class="card-image" src="assets/images/projects/boxbox.jpg"
+             alt='BoxBox: classifica fantasy MotoGP su mobile'
+             srcset="assets/images/projects/boxbox-400w.jpg 400w,
+                     assets/images/projects/boxbox-600w.jpg 600w"
+             sizes="(max-width: 600px) 400px, 600px"
+             loading="lazy">
+        <h3 class="card-title"><a href="https://github.com/Lukentony" target="_blank" rel="noopener">BoxBox MotoGP Fantasy</a></h3>
+        <p class="card-desc" data-en="Automated management of complex scoring logic and session handling. A zero-maintenance system processing real-time data with no human intervention, including auto-renew of session cookies.">
+          Gestione automatizzata di logiche di punteggio complesse e session handling.
+          Un sistema a zero manutenzione che processa dati in tempo reale senza
+          intervento umano, incluso auto-renew di cookie di sessione.
+        </p>
+        <div class="card-tags"><span class="tag">Vanilla JS</span><span class="tag">Node.js</span><span class="tag">Docker</span><span class="tag">PWA</span></div>
+      </article>
+
+      <article class="card">
+        <img class="card-image" src="assets/images/projects/homesync.jpg"
+             alt='HomeSync: task list con calendario'
+             srcset="assets/images/projects/homesync-400w.jpg 400w,
+                     assets/images/projects/homesync-600w.jpg 600w"
+             sizes="(max-width: 600px) 400px, 600px"
+             loading="lazy">
+        <h3 class="card-title">HomeSync</h3>
+        <p class="card-desc" data-en="Performance-first task management. Minimalist architecture (0.3s load time) designed for maximum reliability in multi-user contexts.">
+          Architettura minimalista (0.3s load time) progettata per la massima
+          affidabilita in contesti multi-utente.
+        </p>
+        <div class="card-tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Docker</span><span class="tag">SQLite</span></div>
+      </article>
+
+      <article class="card">
+        <img class="card-image" src="assets/images/projects/n8n-ecosystem.jpg"
+             alt='n8n Ecosystem: workflow automation'
+             srcset="assets/images/projects/n8n-ecosystem-400w.jpg 400w,
+                     assets/images/projects/n8n-ecosystem-600w.jpg 600w"
+             sizes="(max-width: 600px) 400px, 600px"
+             loading="lazy">
+        <h3 class="card-title">n8n Ecosystem</h3>
+        <p class="card-desc" data-en="Thirty automation workflows on a self-hosted server: intelligent link routing via LLM, auto-healer that diagnoses and repairs failing workflows, API management, Telegram integration, monitoring. Using n8n both via UI and CLI.">
+          Trenta workflow di automazione su server self-hosted: routing intelligente
+          di link via LLM, auto-healer che diagnostica e ripara workflow falliti,
+          gestione API, integrazione Telegram, monitoraggio. Uso n8n sia da UI
+          che da CLI.
+        </p>
+        <div class="card-tags"><span class="tag">n8n</span><span class="tag">Docker</span><span class="tag">LLM</span><span class="tag">API</span></div>
+      </article>
+
+      <article class="card">
+        <img class="card-image" src="assets/images/projects/srv1-infra.jpg"
+             alt='srv1 Infrastructure: dashboard monitoring'
+             srcset="assets/images/projects/srv1-infra-400w.jpg 400w,
+                     assets/images/projects/srv1-infra-600w.jpg 600w"
+             sizes="(max-width: 600px) 400px, 600px"
+             loading="lazy">
+        <h3 class="card-title">srv1 Infrastructure</h3>
+        <p class="card-desc" data-en="Scalable self-hosted infrastructure with enterprise-level security hardening: 30 Docker containers, automated backups, Tailscale VPN, monitoring dashboard.">
+          Infrastruttura self-hosted scalabile con security hardening di livello
+          enterprise: 30 container Docker, backup automatici, VPN Tailscale,
+          dashboard monitoring.
+        </p>
+        <div class="card-tags"><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">Tailscale</span><span class="tag">DevOps</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section class="section" id="skills">
+  <div class="container">
+    <h2 class="section-title" data-en="Skills">Competenze</h2>
+    <div class="skills-grid">
+      <div class="skills-cat">
+        <p class="skills-cat-title">Linguaggi</p>
+        <p class="skills-cat-items">Python, JavaScript, HTML/CSS, Bash</p>
+      </div>
+      <div class="skills-cat">
+        <p class="skills-cat-title">Framework</p>
+        <p class="skills-cat-items">Flask, FastAPI, n8n, Node.js</p>
+      </div>
+      <div class="skills-cat">
+        <p class="skills-cat-title">DevOps</p>
+        <p class="skills-cat-items">Docker, Docker Compose, Nginx, GitHub Actions</p>
+      </div>
+      <div class="skills-cat">
+        <p class="skills-cat-title">Sistemi</p>
+        <p class="skills-cat-items">Linux Ubuntu, Tailscale, UFW</p>
+      </div>
+      <div class="skills-cat">
+        <p class="skills-cat-title">Database</p>
+        <p class="skills-cat-items">SQLite, PostgreSQL</p>
+      </div>
+      <div class="skills-cat">
+        <p class="skills-cat-title">AI / LLM</p>
+        <p class="skills-cat-items">OpenAI, Groq, DeepSeek, LiteLLM, Ollama</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact">
+  <div class="container">
+    <h2 class="section-title" data-en="Contact">Contatti</h2>
+    <a href="mailto:luca.rivoiro@gmail.com" class="contact-cta" data-en="Let's talk about your infrastructure">
+      Parliamo della tua infrastruttura
+    </a>
+    <div class="contact-links">
+      <a href="mailto:luca.rivoiro@gmail.com">luca.rivoiro@gmail.com</a>
+      <a href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener">linkedin.com/in/luca-rivoiro</a>
+      <a href="https://github.com/Lukentony" target="_blank" rel="noopener">github.com/Lukentony</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 Luca Rivoiro. AI Engineer &amp; Security Specialist.</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
