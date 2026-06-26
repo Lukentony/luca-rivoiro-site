@@ -8,11 +8,11 @@
 /* ---- Custom Properties ---- */
 :root {
   /* Light palette */
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a4a6a;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --accent-light: #dbeafe;
+  --text-primary: #2C3E50;
+  --text-secondary: #555555;
+  --accent: #2980B9;
+  --accent-hover: #2176A0;
+  --accent-light: #E8F0FE;
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
   --border: #e2e8f0;
@@ -44,8 +44,8 @@
   :root {
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
-    --accent: #60a5fa;
-    --accent-hover: #93c5fd;
+    --accent: #5B9BD5;
+    --accent-hover: #7FBAE8;
     --accent-light: #1e3a5f;
     --bg-primary: #0f172a;
     --bg-secondary: #1e293b;
@@ -58,8 +58,8 @@
 [data-theme="dark"] {
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
-  --accent: #60a5fa;
-  --accent-hover: #93c5fd;
+  --accent: #5B9BD5;
+  --accent-hover: #7FBAE8;
   --accent-light: #1e3a5f;
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
@@ -149,7 +149,7 @@ a:focus-visible {
 }
 
 .section {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-3xl) 0 var(--space-3xl);
 }
 
 .section:nth-child(even) {
@@ -284,10 +284,11 @@ a:focus-visible {
 
 .card {
   background: var(--bg-primary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: none;
+  border-radius: 0;
+  padding: var(--space-lg) 0;
+  box-shadow: none;
+  border-bottom: 1px solid var(--border);
   transition: box-shadow 0.2s ease;
 }
 
@@ -499,3 +500,5 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+.card:last-child { border-bottom: none; }
