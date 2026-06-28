@@ -1,65 +1,68 @@
 /* =========================================
-   main.js — Dark mode, lingua toggle
-   Minimo, zero dipendenze
+   main.js — Dark mode, lingua, accordion
    ========================================= */
 
-// ---- Language Toggle ----
-function toggleLang() {
-  var html = document.documentElement;
-  var current = html.getAttribute('lang');
-  var next = (current === 'it') ? 'en' : 'it';
-  html.setAttribute('lang', next);
-  localStorage.setItem('lang', next);
-  updateLang();
+// ---- Accordion toggle ----
+function toggleProj(idx) {
+  var body = document.getElementById('proj-' + idx);
+  var arrow = document.getElementById('arrow-' + idx);
+  if (!body || !arrow) return;
+  var isOpen = body.classList.contains('open');
+  // Close all
+  var allBodies = document.querySelectorAll('.proj-body');
+  var allArrows = document.querySelectorAll('.proj-arrow');
+  for (var i = 0; i < allBodies.length; i++) {
+    allBodies[i].classList.remove('open');
+    if (allArrows[i]) allArrows[i].classList.remove('open');
+  }
+  // Open clicked (if was closed)
+  if (!isOpen) {
+    body.classList.add('open');
+    arrow.classList.add('open');
+  }
 }
 
-function updateLang() {
-  var lang = document.documentElement.getAttribute('lang');
-  // Update all elements with data-en attribute
+// ---- Language ----
+function setLang(l) {
+  var html = document.documentElement;
+  html.setAttribute('lang', l);
+  localStorage.setItem('lang', l);
+  // Update active button
+  document.getElementById('lang-it').classList.toggle('active', l === 'it');
+  document.getElementById('lang-en').classList.toggle('active', l === 'en');
+  // Update all translatable elements
   var els = document.querySelectorAll('[data-en]');
   for (var i = 0; i < els.length; i++) {
     var el = els[i];
-    var en = el.getAttribute('data-en');
-    var it = el.getAttribute('data-it');
-    if (lang === 'en' && en) {
-      el.textContent = en;
-    } else if (lang === 'it' && it) {
-      el.textContent = it;
+    if (l === 'en' && el.getAttribute('data-en')) {
+      el.innerHTML = el.getAttribute('data-en');
+    } else if (l === 'it' && el.getAttribute('data-it')) {
+      el.innerHTML = el.getAttribute('data-it');
     }
-  }
-  // Update aria-label on lang toggle button
-  var btn = document.querySelector('.lang-toggle');
-  if (btn) {
-    btn.setAttribute('aria-label',
-      lang === 'en' ? 'Switch to Italian' : 'Switch to English');
   }
 }
 
-// ---- Dark Mode Toggle ----
+// ---- Theme ----
 function toggleTheme() {
   var html = document.documentElement;
   var current = html.getAttribute('data-theme');
   var next = (current === 'dark') ? '' : 'dark';
   html.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
-  updateThemeIcon();
-}
-
-function updateThemeIcon() {
   var icon = document.getElementById('theme-icon');
-  if (!icon) return;
-  var theme = document.documentElement.getAttribute('data-theme');
-  icon.textContent = (theme === 'dark') ? '\u2600' : '\u263e';
+  if (icon) icon.textContent = (next === 'dark') ? '\u2600' : '\u263e';
 }
 
 // ---- Init ----
 (function() {
-  // Restore language preference
   var savedLang = localStorage.getItem('lang');
-  if (savedLang) {
-    document.documentElement.setAttribute('lang', savedLang);
+  if (savedLang) setLang(savedLang);
+  var savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
   }
-  // Update elements
-  updateLang();
-  updateThemeIcon();
+  // Open first project by default on desktop
+  if (window.innerWidth > 768) {
+    toggleProj(0);
+  }
 })();
