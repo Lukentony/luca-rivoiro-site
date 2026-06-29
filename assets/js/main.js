@@ -43,5 +43,5 @@ function toggleTheme() {
   if (savedLang === 'en') setLang('en');
   // Restore saved theme
   var savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') html.setAttribute('data-theme', 'dark');
+  var html = document.documentElement; if (savedTheme === 'dark') html.setAttribute('data-theme', 'dark');
 })();
