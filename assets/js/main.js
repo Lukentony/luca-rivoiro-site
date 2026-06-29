@@ -16,8 +16,17 @@ function toggleTheme() {
   localStorage.setItem('theme', n);
 }
 (function(){
-  var l = localStorage.getItem('lang');
-  if (l === 'en') setLang('en');
+  var l = localStorage.getItem('lang') || 'it';
   var t = localStorage.getItem('theme');
-  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  var h = document.documentElement;
+  h.setAttribute('lang', l);
+  if (t === 'dark') h.setAttribute('data-theme', 'dark');
+  var it = document.getElementById('lang-it');
+  var en = document.getElementById('lang-en');
+  if (it && en) {
+    it.classList.toggle('active', l === 'it');
+    en.classList.toggle('active', l === 'en');
+    it.setAttribute('aria-pressed', l === 'it');
+    en.setAttribute('aria-pressed', l === 'en');
+  }
 })();
