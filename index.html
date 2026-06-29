@@ -10,9 +10,12 @@
 <meta property="og:image" content="https://luca-rivoiro-site.pages.dev/assets/images/og-image.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'">
 <link rel="icon" href="assets/images/favicon/favicon.ico" sizes="32x32">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script>document.documentElement.classList.add("js-lang")</script>
 </head>
 <body>
 <a href="#main" class="skip-link"><span class="lang-it">Vai al contenuto principale</span><span class="lang-en">Skip to main content</span></a>
@@ -22,8 +25,8 @@
 <header class="topbar">
   <span class="monogram">LR &copy; 2026</span>
   <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('it')" id="lang-it">IT</button>
-    <button class="lang-btn" onclick="setLang('en')" id="lang-en">EN</button>
+    <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
+    <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
   </div>
 </header>
 

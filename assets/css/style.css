@@ -261,3 +261,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 [lang="en"] h1 .lang-it,
 [lang="en"] p .lang-it,
 [lang="en"] span.lang-it { display: none; }
+
+/* ---- Language toggle v2 ---- */
+.js-lang .lang-en { display: none !important; }
+[lang="en"].js-lang .lang-en { display: inline-block !important; }
+[lang="en"].js-lang .lang-it { display: none !important; }

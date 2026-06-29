@@ -2,8 +2,12 @@
 function setLang(l) {
   document.documentElement.setAttribute('lang', l);
   localStorage.setItem('lang', l);
-  document.getElementById('lang-it').classList.toggle('active', l === 'it');
-  document.getElementById('lang-en').classList.toggle('active', l === 'en');
+  var it = document.getElementById('lang-it');
+  var en = document.getElementById('lang-en');
+  it.classList.toggle('active', l === 'it');
+  en.classList.toggle('active', l === 'en');
+  it.setAttribute('aria-pressed', l === 'it');
+  en.setAttribute('aria-pressed', l === 'en');
 }
 function toggleTheme() {
   var h = document.documentElement;
