@@ -9,18 +9,25 @@ function setLang(l) {
   it.setAttribute('aria-pressed', l === 'it');
   en.setAttribute('aria-pressed', l === 'en');
 }
+function isDarkActive() {
+  var t = document.documentElement.getAttribute('data-theme');
+  if (t) return t === 'dark';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+function syncThemeButton() {
+  var btn = document.getElementById('theme-toggle');
+  if (btn) btn.setAttribute('aria-pressed', isDarkActive());
+}
 function toggleTheme() {
-  var h = document.documentElement;
-  var n = h.getAttribute('data-theme') === 'dark' ? '' : 'dark';
-  h.setAttribute('data-theme', n);
-  localStorage.setItem('theme', n);
+  var next = isDarkActive() ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  syncThemeButton();
 }
 (function(){
   var l = localStorage.getItem('lang') || 'it';
-  var t = localStorage.getItem('theme');
   var h = document.documentElement;
   h.setAttribute('lang', l);
-  if (t === 'dark') h.setAttribute('data-theme', 'dark');
   var it = document.getElementById('lang-it');
   var en = document.getElementById('lang-en');
   if (it && en) {
@@ -29,4 +36,5 @@ function toggleTheme() {
     it.setAttribute('aria-pressed', l === 'it');
     en.setAttribute('aria-pressed', l === 'en');
   }
+  syncThemeButton();
 })();

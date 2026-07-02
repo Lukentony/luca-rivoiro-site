@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>Luca Rivoiro — AI Engineer & Security Specialist</title>
 <meta name="description" content="AI Engineer specializzato in sicurezza degli agenti, automazione e infrastrutture self-hosted.">
 <meta property="og:title" content="Luca Rivoiro — AI Engineer & Security Specialist">
@@ -24,9 +25,12 @@
 
 <header class="topbar">
   <span class="monogram">LR &copy; 2026</span>
-  <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
-    <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
+  <div class="controls">
+    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span class="lang-it">Scuro</span><span class="lang-en">Dark</span></button>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
+      <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
+    </div>
   </div>
 </header>
 

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>BoxBox · Luca Rivoiro</title>
 <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
 <link rel="stylesheet" href="/assets/css/style.css">
@@ -12,9 +13,12 @@
 <div class="container">
 <header class="topbar">
   <span class="monogram">LR &copy; 2026</span>
-  <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
-    <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
+  <div class="controls">
+    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span class="lang-it">Scuro</span><span class="lang-en">Dark</span></button>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
+      <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
+    </div>
   </div>
 </header>
 
