@@ -23,7 +23,7 @@
 <header class="topbar">
   <span class="monogram">LR &copy; 2026</span>
   <div class="controls">
-    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span class="lang-it">Scuro</span><span class="lang-en">Dark</span></button>
+    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span class="lang-it">Scuro</span><span class="lang-en" hidden>Dark</span></button>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
       <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
@@ -32,22 +32,22 @@
 </header>
 
 <main id="main">
-<a href="/" class="back-link">&larr; <span class="lang-it">Torna alla home</span><span class="lang-en">Back to home</span></a>
+<a href="/" class="back-link">&larr; <span class="lang-it">Torna alla home</span><span class="lang-en" hidden>Back to home</span></a>
 
 <section class="proj-hero">
   <p class="proj-hero-tag">Progetti / Infrastructure</p>
   <h1 class="proj-hero-title">srv1 Infrastructure</h1>
-  <p class="proj-hero-sub"><span class="lang-it">L architettura invisibile dietro la massima disponibilita.</span><span class="lang-en">The invisible architecture behind maximum availability.</span></p>
+  <p class="proj-hero-sub"><span class="lang-it">L architettura invisibile dietro la massima disponibilita.</span><span class="lang-en" hidden>The invisible architecture behind maximum availability.</span></p>
 </section>
 
 <section class="proj-section">
-  <p class="proj-label"><span class="lang-it">La sfida</span><span class="lang-en">The challenge</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Creare una base infrastrutturale per hostare 30 container Docker garantendo sicurezza perimetrale, ridondanza dati e monitoraggio costante. Su hardware consumer, senza servizi enterprise.</span><span class="lang-en">Creating an infrastructure foundation to host 30 Docker containers ensuring perimeter security, data redundancy, and constant monitoring. On consumer hardware, without enterprise services.</span></p></div>
+  <p class="proj-label"><span class="lang-it">La sfida</span><span class="lang-en" hidden>The challenge</span></p>
+  <div class="proj-body-text"><p><span class="lang-it">Creare una base infrastrutturale per hostare 30 container Docker garantendo sicurezza perimetrale, ridondanza dati e monitoraggio costante. Su hardware consumer, senza servizi enterprise.</span><span class="lang-en" hidden>Creating an infrastructure foundation to host 30 Docker containers ensuring perimeter security, data redundancy, and constant monitoring. On consumer hardware, without enterprise services.</span></p></div>
 </section>
 
 <section class="proj-section">
-  <p class="proj-label"><span class="lang-it">La soluzione</span><span class="lang-en">The solution</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Ho implementato una strategia di difesa in profondita: hardening UFW, networking privato via Tailscale e Headscale, pipeline di backup 3-2-1 con rsync offsite. Il monitoraggio e centralizzato su dashboard personalizzata.</span><span class="lang-en">I implemented a defense-in-depth strategy: UFW hardening, private networking via Tailscale and Headscale, 3-2-1 backup pipeline with offsite rsync. Monitoring is centralized on a custom dashboard.</span></p></div>
+  <p class="proj-label"><span class="lang-it">La soluzione</span><span class="lang-en" hidden>The solution</span></p>
+  <div class="proj-body-text"><p><span class="lang-it">Ho implementato una strategia di difesa in profondita: hardening UFW, networking privato via Tailscale e Headscale, pipeline di backup 3-2-1 con rsync offsite. Il monitoraggio e centralizzato su dashboard personalizzata.</span><span class="lang-en" hidden>I implemented a defense-in-depth strategy: UFW hardening, private networking via Tailscale and Headscale, 3-2-1 backup pipeline with offsite rsync. Monitoring is centralized on a custom dashboard.</span></p></div>
 </section>
 
 <section class="proj-section">
@@ -59,8 +59,8 @@
     <span class="proj-tech-item">Headscale</span>
     <span class="proj-tech-item">rsync</span>
   </div>
-  <p class="proj-note"><span class="lang-it">Codice privato, repository non pubblico. Demo su richiesta.</span><span class="lang-en">Private code, repository not public. Demo on request.</span></p>
-  <a href="mailto:luca.rivoiro@gmail.com" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Parlami del tuo progetto</span><span class="lang-en">Tell me about your project</span></a>
+  <p class="proj-note"><span class="lang-it">Codice privato, repository non pubblico. Demo su richiesta.</span><span class="lang-en" hidden>Private code, repository not public. Demo on request.</span></p>
+  <a href="mailto:luca.rivoiro@gmail.com" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Parlami del tuo progetto</span><span class="lang-en" hidden>Tell me about your project</span></a>
 </section>
 
 </main>
@@ -70,7 +70,7 @@
     <span>&copy; 2026 Luca Rivoiro</span>
     <span>AI Engineer &amp; Security Specialist</span>
   </div>
-  <p class="footer-a11y"><span class="lang-it">Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;? <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span><span class="lang-en">WCAG 2.1 AA compliant. Found an accessibility issue? <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span></p>
+  <p class="footer-a11y"><span class="lang-it">Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;? <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span><span class="lang-en" hidden>WCAG 2.1 AA compliant. Found an accessibility issue? <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span></p>
 </footer>
 </div>
 <script src="/assets/js/main.js"></script>
