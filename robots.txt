@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://luca-rivoiro-site.pages.dev/sitemap.xml
+
 # Luca Rivoiro — Personal Portfolio

@@ -283,10 +283,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 /* ---- Language toggle (CSS-based) ---- */
 /* (rimosso v1, vedi v2 sotto) */
 
-/* ---- Language toggle v2 ---- */
-.js-lang .lang-en { display: none !important; }
-[lang="en"].js-lang .lang-en { display: inline-block !important; }
-[lang="en"].js-lang .lang-it { display: none !important; }
+/* ---- Language toggle v3 (default nascosto anche senza esecuzione JS: i crawler non renderizzano) ---- */
+.lang-en { display: none !important; }
+[lang="en"] .lang-en { display: inline-block !important; }
+[lang="en"] .lang-it { display: none !important; }
 
 /* ---- Sottopagine Progetti ---- */
 .proj-hero { padding: var(--space-xl) 0 var(--space-xl); }
