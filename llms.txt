@@ -1,0 +1,19 @@
+# Luca Rivoiro
+
+> AI Engineer & Security Specialist. Trasforma prototipi LLM in infrastrutture scalabili, sicure e pronte per la produzione (self-hosted, Docker, CI/CD, monitoring).
+
+Prima di specializzarsi in AI security ha lavorato come programmatore in ambienti multi-sede (automazioni Python, gestione infrastrutture IT, deployment software per oltre 20 strutture). Ha poi approfondito LLM e agentic AI con un Master dedicato (ProfessionAI, 400h, 28/30). Lavora ogni giorno con Python, Docker, LLM: AI applicata, automazione, infrastruttura self-hosted.
+
+## Progetti
+
+- [AI Guardian Lab](https://lukentony.it/progetti/ai-guardian-lab): layer di validazione a 4 livelli che blocca prompt injection e comandi malevoli in tempo reale su agenti LLM in produzione.
+- [BoxBox](https://lukentony.it/progetti/boxbox): PWA per MotoGP 2026 con classifica fantasy, pipeline Node.js zero-dipendenze, auto-renew sessione via Playwright/CDP.
+- [HomeSync](https://lukentony.it/progetti/homesync): task management self-hosted multi-utente, backend FastAPI, frontend React no-build, 0.3s load time.
+- [n8n Ecosystem](https://lukentony.it/progetti/n8n-ecosystem): trenta workflow di automazione self-hosted, routing intelligente via LLM, auto-healer.
+- [srv1 Infrastructure](https://lukentony.it/progetti/srv1-infrastructure): infrastruttura self-hosted con security hardening enterprise, 30 container Docker, VPN Tailscale.
+
+## Contatti
+
+- Email: luca.rivoiro@gmail.com
+- GitHub: https://github.com/Lukentony
+- LinkedIn: https://linkedin.com/in/luca-rivoiro

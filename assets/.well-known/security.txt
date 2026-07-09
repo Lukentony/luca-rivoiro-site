@@ -1,5 +1,5 @@
 Contact: mailto:luca.rivoiro@gmail.com
 Preferred-Languages: en, it
-Canonical: https://luca-personal-site.pages.dev/.well-known/security.txt
+Canonical: https://lukentony.it/.well-known/security.txt
 
-# Security disclosure for luca-personal-site.pages.dev
+# Security disclosure for lukentony.it

@@ -3,7 +3,13 @@
    Palette CV + DM Fonts + struttura originale
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+/* Font self-hosted (prima @import da fonts.googleapis.com): evita round-trip esterno e invio IP visitatori a Google */
+@font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 300; font-display: swap; src: url('/assets/fonts/dm-mono-300.woff2') format('woff2'); }
+@font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/dm-mono-400.woff2') format('woff2'); }
+@font-face { font-family: 'DM Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('/assets/fonts/dm-mono-500.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 300 500; font-display: swap; src: url('/assets/fonts/dm-sans-variable.woff2') format('woff2'); }
+@font-face { font-family: 'DM Serif Display'; font-style: italic; font-weight: 400; font-display: swap; src: url('/assets/fonts/dm-serif-display-italic.woff2') format('woff2'); }
+@font-face { font-family: 'DM Serif Display'; font-style: normal; font-weight: 400; font-display: swap; src: url('/assets/fonts/dm-serif-display-normal.woff2') format('woff2'); }
 
 :root {
   --bg: #f5f3ee;
