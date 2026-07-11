@@ -273,6 +273,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 .proj-shot { margin: var(--space-xl) 0; text-align: center; }
 .proj-shot img { max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); }
 
+/* Galleria orizzontale (piu' screenshot per progetto): scroll nativo, no JS */
+.proj-gallery { display: flex; gap: var(--space-md); overflow-x: auto; scroll-snap-type: x mandatory; margin: var(--space-xl) 0; padding-bottom: var(--space-sm); }
+.proj-gallery img { height: 480px; width: auto; max-width: none; flex: 0 0 auto; scroll-snap-align: start; border-radius: 8px; border: 1px solid var(--border); }
+.proj-gallery:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 600px) { .proj-gallery img { height: 380px; } }
+
 /* Calcolatore RAL: form + breakdown */
 .ral-form { display: flex; gap: var(--space-lg); flex-wrap: wrap; margin-bottom: var(--space-xl); }
 .ral-field { display: flex; flex-direction: column; gap: 0.3rem; border: 1px solid var(--border); border-radius: 4px; padding: 0.7rem 1.2rem; }
