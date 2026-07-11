@@ -10,7 +10,7 @@ Prima di specializzarsi in AI security ha lavorato come programmatore in ambient
 - [Calcolatore RAL](https://lukentony.it/progetti/calcolatore-ral): calcolatore netto da RAL per il mercato italiano (INPS, IRPEF, addizionali), scritto da zero, zero backend, zero tracking.
 - [BoxBox](https://lukentony.it/progetti/boxbox): PWA per MotoGP 2026 con classifica fantasy, pipeline Node.js zero-dipendenze, auto-renew sessione via Playwright/CDP.
 - [HomeSync](https://lukentony.it/progetti/homesync): task management self-hosted multi-utente, backend FastAPI, frontend React no-build, 0.3s load time.
-- [n8n Ecosystem](https://lukentony.it/progetti/n8n-ecosystem): trenta workflow di automazione self-hosted, routing intelligente via LLM, auto-healer.
+- [n8n Ecosystem](https://lukentony.it/progetti/n8n-ecosystem): 12 workflow di automazione self-hosted, routing intelligente via LLM, auto-healer.
 - [srv1 Infrastructure](https://lukentony.it/progetti/srv1-infrastructure): infrastruttura self-hosted con security hardening enterprise, 30 container Docker, VPN Tailscale.
 
 ## Contatti
