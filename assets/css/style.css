@@ -92,11 +92,21 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   margin-bottom: var(--space-lg);
 }
 
-/* ---- Topbar ---- */
-.topbar { display: flex; justify-content: space-between; align-items: center; padding: var(--space-xl) 0; }
+/* ---- Topbar ----
+   Sticky: e' il modo in cui GitHub/LinkedIn/Email restano raggiungibili durante
+   lo scroll, senza dover ricostruire la riga link gia' presente nell'hero. */
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: var(--space-md) 0; position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
 .monogram { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--muted); }
 
 .controls { display: flex; align-items: center; gap: var(--space-sm); }
+
+.topbar-links { display: flex; align-items: center; gap: var(--space-md); margin-right: var(--space-md); }
+.topbar-links a { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); }
+.topbar-links a:hover { color: var(--text); }
+@media (max-width: 480px) {
+  .topbar { flex-wrap: wrap; row-gap: var(--space-sm); }
+  .topbar-links { gap: var(--space-sm); margin-right: 0; }
+}
 
 .lang-toggle { display: flex; }
 .lang-btn {
@@ -165,8 +175,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 }
 .hero-links a:hover { color: var(--text); border-bottom-color: var(--text); }
 
-/* ---- Hero Terminal Demo ---- */
-.hero-terminal { max-width: 560px; margin: var(--space-xl) auto 0; text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+/* ---- Terminal demo (era nell'hero, spostato sulla sottopagina AI Guardian Lab:
+   troppo jargon-y come prima cosa vista da un pubblico non tecnico) ---- */
+.proj-terminal { margin: var(--space-xl) 0; text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
 .term-bar { display: flex; align-items: center; gap: 6px; padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border); }
 .term-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--border); display: inline-block; }
 .term-title { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); margin-left: var(--space-sm); }
@@ -207,6 +218,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   color: var(--muted);
   margin-bottom: 0.3rem;
 }
+/* Sottotitolo "Dove sto andando", stesso stile di Competenze: e' una direzione
+   dichiarata, non una competenza gia' padroneggiata come le tag sopra. */
+.stack-title { margin-top: var(--space-lg); }
 .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 .tag {
   font-family: var(--mono);
@@ -248,26 +262,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 .proj-mockup-bar .proj-mockup-title { font-size: 0.7rem; margin-left: var(--space-sm); opacity: 0.6; }
 .proj-mockup-body { padding: var(--space-xl); font-size: 0.85rem; line-height: 1.6; }
 
-.proj-mockup--guardian { background: var(--surface); color: var(--text); }
-.proj-mockup--guardian .proj-mockup-bar { border-color: var(--border); }
-.proj-mockup--guardian .term-dot { background: var(--border); }
-
 .proj-mockup--ral { background: var(--surface); color: var(--text); }
 .proj-mockup--ral .proj-mockup-bar { border-color: var(--border); }
 .proj-mockup--ral .term-dot { background: var(--border); }
 
 @media (max-width: 600px) { .proj-mockup-body { padding: var(--space-lg); font-size: 0.78rem; } }
-
-/* AI Guardian Lab: pipeline + log */
-.gl-pipeline { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: var(--space-xl); }
-.gl-stage { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border: 1px solid var(--border); border-radius: 4px; font-size: 0.78rem; }
-.gl-stage-n { font-weight: 700; color: var(--accent-text); }
-.gl-arrow { color: var(--muted); }
-.gl-log { border-top: 1px solid var(--border); padding-top: var(--space-lg); display: flex; flex-direction: column; gap: 0.5rem; }
-.gl-log-line { margin: 0; }
-.gl-ok { color: var(--muted); }
-.gl-block { color: var(--accent-text); font-weight: 600; }
-.gl-log-sub { margin: 0; color: var(--muted); font-size: 0.75rem; }
 
 /* Screenshot reali sottopagine progetto */
 .proj-shot { margin: var(--space-xl) 0; text-align: center; }
@@ -307,6 +306,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   line-height: 1.7;
   margin-bottom: var(--space-md);
 }
+
+/* La card intera e' gia' un link (::after sopra); questi devono restare cliccabili
+   in modo indipendente, quindi serve uno stacking context sopra quell'overlay. */
+.card-links { display: flex; flex-wrap: wrap; gap: var(--space-md); position: relative; z-index: 1; }
+.card-links a { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); }
+.card-links a:hover { color: var(--accent-hover); border-bottom-color: var(--accent); }
 
 /* ---- Contact ---- */
 .contact-flex {

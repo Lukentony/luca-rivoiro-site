@@ -21,10 +21,10 @@ Funziona da telefono o computer, zero installazioni.
 
 ## Modo alternativo: da terminale
 
-Il repo è già clonato su questa macchina in `~/luca-personal-site`.
+Il repo è già clonato su questa macchina in `~/luca-rivoiro-site`.
 
 ```bash
-cd ~/luca-personal-site
+cd ~/luca-rivoiro-site
 # modifica index.html con un editor qualsiasi
 git add index.html
 git commit -m "descrizione della modifica"
@@ -48,6 +48,20 @@ subito prima del `</div>` di chiusura della sezione:
 
 `LINK` è `/progetti/nome-pagina` se hai creato una sottopagina, oppure un link GitHub diretto
 (aggiungi `target="_blank" rel="noopener"` nel tag `<a>`) se è un progetto piccolo senza sottopagina.
+
+Per aggiungere anche un link diretto (repo o demo) visibile sulla card stessa, subito dopo
+il `<div class="tags">` di quel progetto:
+
+```html
+<div class="card-links"><a href="LINK_REPO" target="_blank" rel="noopener">GitHub</a></div>
+```
+
+Se il repo è privato, usa un mailto invece del link GitHub, come già fatto per n8n Ecosystem
+e srv1 Infrastructure:
+
+```html
+<div class="card-links"><a href="mailto:luca.rivoiro@gmail.com"><span class="lang-it">Demo su richiesta</span><span class="lang-en">Demo on request</span></a></div>
+```
 
 ### Aggiungere una competenza
 

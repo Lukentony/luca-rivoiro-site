@@ -23,6 +23,11 @@
 <header class="topbar">
   <span class="monogram">LR &copy; 2026</span>
   <div class="controls">
+    <div class="topbar-links">
+      <a href="https://github.com/Lukentony" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:luca.rivoiro@gmail.com">Email</a>
+    </div>
     <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span id="theme-btn-label">Scuro</span></button>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
@@ -40,29 +45,28 @@
   <p class="proj-hero-sub"><span class="lang-it">Proteggere l'intelligenza artificiale, un layer alla volta.</span><span class="lang-en" hidden>Securing artificial intelligence, layer by layer.</span></p>
 </section>
 
-<div class="proj-mockup proj-mockup--guardian">
-  <div class="proj-mockup-bar" aria-hidden="true">
+<div class="proj-terminal">
+  <div class="term-bar" aria-hidden="true">
     <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
-    <span class="proj-mockup-title">guardian-lab &mdash; pipeline</span>
+    <span class="term-title">guardian-lab &mdash; zsh</span>
   </div>
-  <div class="proj-mockup-body" aria-hidden="true">
-    <div class="gl-pipeline">
-      <div class="gl-stage"><span class="gl-stage-n">1</span>allowlist</div>
-      <span class="gl-arrow">&rarr;</span>
-      <div class="gl-stage"><span class="gl-stage-n">2</span>regex</div>
-      <span class="gl-arrow">&rarr;</span>
-      <div class="gl-stage"><span class="gl-stage-n">3</span>intent</div>
-      <span class="gl-arrow">&rarr;</span>
-      <div class="gl-stage"><span class="gl-stage-n">4</span>LLM check</div>
-    </div>
-    <div class="gl-log">
-      <p class="gl-log-line gl-ok">task: "analizza lo spazio disco" &middot; comando: rm -rf /tmp</p>
-      <p class="gl-log-line gl-ok">[1/4] allowlist......... ok</p>
-      <p class="gl-log-line gl-ok">[2/4] regex pattern...... ok</p>
-      <p class="gl-log-line gl-block">[3/4] intent coerente.... FAIL (task=read, comando=delete)</p>
-      <p class="gl-log-sub">&gt;&gt; BLOCKED &middot; fail-closed: conflitto d'intento, L4 non interpellato</p>
-    </div>
-  </div>
+  <pre class="term-body lang-it" id="term-it"><span class="term-line">$ task: "analizza lo spazio disco"  &middot;  comando: rm -rf /tmp</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line">[1/4] allowlist......... ok</span>
+<span class="term-line">[2/4] pattern regex..... ok</span>
+<span class="term-line">[3/4] coerenza intento.. <b class="t-fail">FAIL</b> (task=read, comando=delete)</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line t-blocked">&gt;&gt; BLOCKED. Fail-closed: conflitto d'intento.</span></pre>
+  <pre class="term-body lang-en" id="term-en" hidden><span class="term-line">$ task: "analyze disk usage"  &middot;  command: rm -rf /tmp</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line">[1/4] allowlist......... ok</span>
+<span class="term-line">[2/4] regex pattern..... ok</span>
+<span class="term-line">[3/4] intent match...... <b class="t-fail">FAIL</b> (task=read, command=delete)</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line t-blocked">&gt;&gt; BLOCKED. Fail-closed: intent conflict.</span></pre>
+  <button type="button" class="term-replay" id="term-replay">
+    <span class="lang-it">&#9654; Rivedi l&rsquo;animazione</span><span class="lang-en" hidden>&#9654; Replay animation</span>
+  </button>
 </div>
 
 <section class="proj-section">

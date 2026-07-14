@@ -53,6 +53,11 @@
 <header class="topbar">
   <span class="monogram">LR &copy; 2026</span>
   <div class="controls">
+    <div class="topbar-links">
+      <a href="https://github.com/Lukentony" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:luca.rivoiro@gmail.com">Email</a>
+    </div>
     <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span id="theme-btn-label">Scuro</span></button>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
@@ -72,30 +77,6 @@
     <a href="https://github.com/Lukentony" target="_blank" rel="noopener">GitHub</a>
     <a href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener">LinkedIn</a>
     <a href="mailto:luca.rivoiro@gmail.com">Email</a>
-  </div>
-
-  <div class="hero-terminal">
-    <div class="term-bar" aria-hidden="true">
-      <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
-      <span class="term-title">guardian-lab &mdash; zsh</span>
-    </div>
-    <pre class="term-body lang-it" id="term-it"><span class="term-line">$ task: "analizza lo spazio disco"  &middot;  comando: rm -rf /tmp</span>
-<span class="term-line">&nbsp;</span>
-<span class="term-line">[1/4] allowlist......... ok</span>
-<span class="term-line">[2/4] pattern regex..... ok</span>
-<span class="term-line">[3/4] coerenza intento.. <b class="t-fail">FAIL</b> (task=read, comando=delete)</span>
-<span class="term-line">&nbsp;</span>
-<span class="term-line t-blocked">&gt;&gt; BLOCKED. Fail-closed: conflitto d'intento.</span></pre>
-    <pre class="term-body lang-en" id="term-en" hidden><span class="term-line">$ task: "analyze disk usage"  &middot;  command: rm -rf /tmp</span>
-<span class="term-line">&nbsp;</span>
-<span class="term-line">[1/4] allowlist......... ok</span>
-<span class="term-line">[2/4] regex pattern..... ok</span>
-<span class="term-line">[3/4] intent match...... <b class="t-fail">FAIL</b> (task=read, command=delete)</span>
-<span class="term-line">&nbsp;</span>
-<span class="term-line t-blocked">&gt;&gt; BLOCKED. Fail-closed: intent conflict.</span></pre>
-    <button type="button" class="term-replay" id="term-replay">
-      <span class="lang-it">&#9654; Rivedi l&rsquo;animazione</span><span class="lang-en" hidden>&#9654; Replay animation</span>
-    </button>
   </div>
 </section>
 
@@ -121,6 +102,8 @@
         <div><p class="skills-cat-title">Data / ML</p><div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">scikit-learn</span><span class="tag">Matplotlib</span></div></div>
         <div><p class="skills-cat-title">Systems</p><div class="tags"><span class="tag">Linux Ubuntu</span><span class="tag">Tailscale</span><span class="tag">UFW</span><span class="tag">AWS</span></div></div>
       </div>
+      <p class="section-title stack-title"><span class="lang-it">Dove sto andando</span><span class="lang-en" hidden>Where I'm headed</span></p>
+      <div class="tags"><span class="tag">LangGraph</span><span class="tag">RAG / Vector DB</span><span class="tag">Claude API</span><span class="tag">MCP</span><span class="tag">Multi-agent orchestration</span><span class="tag">LLM evals</span></div>
     </div>
   </div>
 </section>
@@ -133,36 +116,42 @@
       <h3 class="card-title"><a href="/progetti/ai-guardian-lab">AI Guardian Lab</a></h3>
       <p class="card-desc"><span class="lang-it">Mi preoccupa cosa succede quando un LLM ha accesso a una shell. Questo &egrave; un firewall a 4 layer per i comandi che un AI agent vuole eseguire: allowlist, regex, coerenza con la richiesta, controllo LLM finale. Principio fail-closed, se qualcosa si rompe il comando non passa. Punto.</span><span class="lang-en" hidden>It worries me what happens when an LLM gets shell access. This is a 4-layer firewall for the commands an AI agent wants to run: allowlist, regex checks, intent coherence with the original request, final LLM validation. Fail-closed by design. If something breaks, the command doesn't go through. Period.</span></p>
       <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Docker</span><span class="tag">Security</span></div>
+      <div class="card-links"><a href="https://github.com/Lukentony/AI-guardian-lab" target="_blank" rel="noopener">GitHub</a></div>
     </article>
 
     <article class="card">
       <h3 class="card-title"><a href="/progetti/calcolatore-ral">Calcolatore RAL</a></h3>
       <p class="card-desc"><span class="lang-it">Durante un test tecnico per un colloquio mi hanno chiesto un calcolatore netto da RAL. L&rsquo;ho scritto da zero, senza librerie, per avere il controllo completo su ogni formula: INPS, IRPEF, addizionali. Zero backend, zero tracking.</span><span class="lang-en" hidden>For a job interview's technical test I had to build a gross-to-net salary calculator. I wrote it from scratch, no libraries, for full control over every formula: INPS, IRPEF, surcharges. Zero backend, zero tracking.</span></p>
       <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span></div>
+      <div class="card-links"><a href="https://jethr-calcolatore-ral.vercel.app/" target="_blank" rel="noopener"><span class="lang-it">Demo</span><span class="lang-en" hidden>Demo</span></a><a href="https://github.com/Lukentony/jethr-calcolatore-ral" target="_blank" rel="noopener">GitHub</a></div>
     </article>
 
     <article class="card">
       <h3 class="card-title"><a href="/progetti/boxbox">BoxBox MotoGP Fantasy</a></h3>
       <p class="card-desc"><span class="lang-it">Una PWA che uso con un gruppo di amici per seguire il fantasy MotoGP, ogni weekend di gara. La pipeline scarica i dati, rinnova da sola il cookie di sessione, calcola i punteggi. I golden booster? Gestiti.</span><span class="lang-en" hidden>A PWA I use with a group of friends to follow the MotoGP fantasy league, every race weekend. The pipeline pulls the data, renews the session cookie on its own, calculates scores. Golden boosters? Handled.</span></p>
       <div class="tags"><span class="tag">Vanilla JS</span><span class="tag">Node.js</span><span class="tag">Docker</span><span class="tag">PWA</span></div>
+      <div class="card-links"><a href="https://github.com/Lukentony/boxbox" target="_blank" rel="noopener">GitHub</a></div>
     </article>
 
     <article class="card">
       <h3 class="card-title"><a href="/progetti/homesync">HomeSync</a></h3>
       <p class="card-desc"><span class="lang-it">Task management self-hostato per due persone: io e la mia compagna lo usiamo tutti i giorni. Niente app che si impalla o perde pezzi, deve solo funzionare.</span><span class="lang-en" hidden>Self-hosted task management for two people: my partner and I use it every day. No app that freezes or drops things, it just has to work.</span></p>
       <div class="tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Docker</span><span class="tag">SQLite</span></div>
+      <div class="card-links"><a href="https://github.com/Lukentony/homesync" target="_blank" rel="noopener">GitHub</a></div>
     </article>
 
     <article class="card">
       <h3 class="card-title"><a href="/progetti/n8n-ecosystem">n8n Ecosystem</a></h3>
       <p class="card-desc"><span class="lang-it">Mi arrivano di continuo link su Telegram: articoli, ricette, cose da guardare dopo. Un workflow li legge, li classifica via LLM e li smista da solo: bookmark manager, ricettario, monitoring. Sono 12 automazioni cos&igrave; sul mio server, e se una si rompe c&rsquo;&egrave; un auto-healer che se ne accorge e la ripara.</span><span class="lang-en" hidden>Links keep landing in my Telegram: articles, recipes, stuff to watch later. One workflow reads them, classifies them with an LLM, and routes them on its own: bookmark manager, recipe box, monitoring. There are 12 automations like that on my server, and if one breaks, an auto-healer notices and fixes it.</span></p>
       <div class="tags"><span class="tag">n8n</span><span class="tag">Docker</span><span class="tag">LLM</span><span class="tag">API</span></div>
+      <div class="card-links"><a href="mailto:luca.rivoiro@gmail.com"><span class="lang-it">Demo su richiesta</span><span class="lang-en" hidden>Demo on request</span></a></div>
     </article>
 
     <article class="card">
       <h3 class="card-title"><a href="/progetti/srv1-infrastructure">srv1 Infrastructure</a></h3>
       <p class="card-desc"><span class="lang-it">Preferisco sapere esattamente dove girano i miei servizi. Gestisco da solo un server con 30 container Docker, backup automatici, VPN Tailscale. Ogni tanto qualcosa si rompe. E va bene cos&igrave;.</span><span class="lang-en" hidden>I like knowing exactly where my services run. I manage a server on my own with 30 Docker containers, automated backups, Tailscale VPN. Every so often something breaks. And that's fine.</span></p>
       <div class="tags"><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">Tailscale</span><span class="tag">DevOps</span></div>
+      <div class="card-links"><a href="mailto:luca.rivoiro@gmail.com"><span class="lang-it">Demo su richiesta</span><span class="lang-en" hidden>Demo on request</span></a></div>
     </article>
 
   </div>
