@@ -21,7 +21,11 @@ Funziona da telefono o computer, zero installazioni.
 
 ## Modo alternativo: da terminale
 
-Il repo è già clonato su questa macchina in `~/luca-rivoiro-site`.
+Se il repo non è ancora clonato su questa macchina:
+
+```bash
+git clone git@github.com:Lukentony/luca-rivoiro-site.git ~/luca-rivoiro-site
+```
 
 ```bash
 cd ~/luca-rivoiro-site
@@ -62,6 +66,23 @@ e srv1 Infrastructure:
 ```html
 <div class="card-links"><a href="mailto:luca.rivoiro@gmail.com"><span class="lang-it">Demo su richiesta</span><span class="lang-en">Demo on request</span></a></div>
 ```
+
+### Aggiornare il CV
+
+Il link "CV" (topbar + hero, presente su tutte e 7 le pagine) punta sempre allo stesso file:
+`assets/cv/luca-rivoiro-cv.pdf`. Per aggiornarlo non serve toccare nessun HTML, basta sostituire
+il file e pusharlo:
+
+```bash
+cp /percorso/del/nuovo/cv.pdf assets/cv/luca-rivoiro-cv.pdf
+git add assets/cv/luca-rivoiro-cv.pdf
+git commit -m "Aggiornato CV"
+git push
+```
+
+Da GitHub web: apri `assets/cv/luca-rivoiro-cv.pdf`, icona matita non disponibile per i PDF —
+usa "Upload files" nella cartella `assets/cv/` trascinando il nuovo file con lo stesso nome
+(GitHub chiede conferma di sovrascrittura).
 
 ### Aggiungere una competenza
 
