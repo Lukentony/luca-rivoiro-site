@@ -193,13 +193,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 @media (max-width: 600px) { .term-body { font-size: 0.72rem; } }
 
 /* ---- About ---- */
-.about-layout {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: var(--space-2xl);
-}
-
-.about-text { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+.about-text { font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: 720px; }
 .about-text p + p { margin-top: var(--space-md); }
 .bio-pull {
   font-family: var(--serif);
@@ -207,10 +201,11 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   font-size: clamp(1.25rem, 2.2vw, 1.5rem);
   line-height: 1.3;
   margin-bottom: var(--space-md);
+  max-width: 640px;
   color: var(--text);
 }
 
-.skills-grid { display: flex; flex-direction: column; gap: var(--space-md); }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--space-lg) var(--space-md); }
 .skills-cat-title {
   font-family: var(--mono);
   font-size: 0.6rem;
@@ -221,7 +216,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 }
 /* Sottotitolo "Dove sto andando", stesso stile di Competenze: e' una direzione
    dichiarata, non una competenza gia' padroneggiata come le tag sopra. */
-.stack-title { margin-top: var(--space-lg); }
+.skills-title { margin-top: var(--space-2xl); }
+.stack-title { margin-top: var(--space-2xl); }
 .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 .tag {
   font-family: var(--mono);
@@ -382,7 +378,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 
 /* ---- Responsive ---- */
 @media (max-width: 768px) {
-  .about-layout { grid-template-columns: 1fr; gap: var(--space-xl); }
   .contact-flex { flex-direction: column; gap: var(--space-lg); }
   .contact-links { align-items: flex-start; }
 }
