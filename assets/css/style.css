@@ -96,7 +96,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
    Sticky: e' il modo in cui GitHub/LinkedIn/Email restano raggiungibili durante
    lo scroll, senza dover ricostruire la riga link gia' presente nell'hero. */
 .topbar { display: flex; justify-content: space-between; align-items: center; padding: var(--space-md) 0; position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
-.monogram { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--muted); }
+.monogram { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--muted); border-bottom: none; padding-bottom: 0; }
+.monogram:hover { color: var(--text); border-bottom: none; }
 
 .controls { display: flex; align-items: center; gap: var(--space-sm); }
 
@@ -244,9 +245,21 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   background: var(--bg);
   border: 1px solid var(--border);
   padding: var(--space-lg);
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, transform 0.2s;
 }
-.card:hover { border-color: var(--accent); }
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card-cover {
+  display: block;
+  width: calc(100% + var(--space-lg) * 2);
+  max-width: none;
+  height: 180px;
+  object-fit: cover;
+  object-position: top;
+  margin: calc(var(--space-lg) * -1) calc(var(--space-lg) * -1) var(--space-lg);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+@media (max-width: 600px) { .card-cover { height: 150px; } }
 
 /* ---- Project mockup (sottopagine progetto) ----
    Pannello grande "ispirato a" screenshot reali, non temizzato sul sito:
@@ -351,7 +364,15 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   text-transform: uppercase;
 }
 .footer-row { display: flex; justify-content: space-between; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: var(--space-md); margin-top: var(--space-sm); }
+.footer-nav a { color: var(--muted); }
+.footer-nav a:hover { color: var(--text); border-bottom-color: var(--accent); }
 .footer-a11y { margin-top: var(--space-sm); }
+
+/* ---- Reveal on scroll ---- */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal.revealed { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
 /* ---- Animations ---- */
 @keyframes fu {

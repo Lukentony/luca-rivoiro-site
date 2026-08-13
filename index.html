@@ -51,7 +51,7 @@
 <div class="container">
 
 <header class="topbar">
-  <span class="monogram">LR &copy; 2026</span>
+  <a class="monogram" href="/">LR &copy; 2026</a>
   <div class="controls">
     <div class="topbar-links">
       <a href="https://github.com/Lukentony" target="_blank" rel="noopener">GitHub</a>
@@ -84,7 +84,7 @@
 
 <main>
 
-<section class="section" id="about">
+<section class="section reveal" id="about">
   <h2 class="section-title"><span class="lang-it">Chi sono</span><span class="lang-en" hidden>About</span></h2>
   <div class="about-layout">
     <div>
@@ -110,56 +110,70 @@
   </div>
 </section>
 
-<section class="section" id="projects">
+<section class="section reveal" id="projects">
   <h2 class="section-title"><span class="lang-it">Progetti</span><span class="lang-en" hidden>Projects</span></h2>
   <div class="projects-grid">
 
     <article class="card">
-      <h3 class="card-title"><a href="/progetti/ai-guardian-lab">AI Guardian Lab</a></h3>
+      <img class="card-cover" src="/assets/images/projects/guardian-terminal.webp" width="1856" height="750" loading="lazy" alt="Terminale demo: richiesta di analisi disco bloccata dalla pipeline fail-closed, layer 3 su 4">
+  <h3 class="card-title"><a href="/progetti/ai-guardian-lab">AI Guardian Lab</a></h3>
       <p class="card-desc"><span class="lang-it">Mi preoccupa cosa succede quando un LLM ha accesso a una shell. Questo &egrave; un firewall a 4 layer per i comandi che un AI agent vuole eseguire: allowlist, regex, coerenza con la richiesta, controllo LLM finale. Principio fail-closed, se qualcosa si rompe il comando non passa. Punto.</span><span class="lang-en" hidden>It worries me what happens when an LLM gets shell access. This is a 4-layer firewall for the commands an AI agent wants to run: allowlist, regex checks, intent coherence with the original request, final LLM validation. Fail-closed by design. If something breaks, the command doesn't go through. Period.</span></p>
       <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Docker</span><span class="tag">Security</span></div>
       <div class="card-links"><a href="https://github.com/Lukentony/AI-guardian-lab" target="_blank" rel="noopener">GitHub</a></div>
     </article>
 
     <article class="card">
-      <h3 class="card-title"><a href="/progetti/calcolatore-ral">Calcolatore RAL</a></h3>
+      <img class="card-cover" src="/assets/images/projects/ral-mockup.webp" width="1856" height="830" loading="lazy" alt="Calcolo netto da RAL: contributi INPS, scaglioni IRPEF, addizionali e netto mensile">
+  <h3 class="card-title"><a href="/progetti/calcolatore-ral">Calcolatore RAL</a></h3>
       <p class="card-desc"><span class="lang-it">Durante un test tecnico per un colloquio mi hanno chiesto un calcolatore netto da RAL. L&rsquo;ho scritto da zero, senza librerie, per avere il controllo completo su ogni formula: INPS, IRPEF, addizionali. Zero backend, zero tracking.</span><span class="lang-en" hidden>For a job interview's technical test I had to build a gross-to-net salary calculator. I wrote it from scratch, no libraries, for full control over every formula: INPS, IRPEF, surcharges. Zero backend, zero tracking.</span></p>
       <div class="tags"><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span></div>
       <div class="card-links"><a href="https://jethr-calcolatore-ral.vercel.app/" target="_blank" rel="noopener"><span class="lang-it">Demo</span><span class="lang-en" hidden>Demo</span></a><a href="https://github.com/Lukentony/jethr-calcolatore-ral" target="_blank" rel="noopener">GitHub</a></div>
     </article>
 
     <article class="card">
-      <h3 class="card-title"><a href="/progetti/boxbox">BoxBox MotoGP Fantasy</a></h3>
+      <img class="card-cover" src="/assets/images/projects/boxbox-home.webp" width="420" height="429" loading="lazy" alt="Home della PWA: round in corso, classifica top 3 di stagione, punteggio gara in tempo reale">
+  <h3 class="card-title"><a href="/progetti/boxbox">BoxBox MotoGP Fantasy</a></h3>
       <p class="card-desc"><span class="lang-it">Una PWA che uso con un gruppo di amici per seguire il fantasy MotoGP, ogni weekend di gara. La pipeline scarica i dati, rinnova da sola il cookie di sessione, calcola i punteggi. I golden booster? Gestiti.</span><span class="lang-en" hidden>A PWA I use with a group of friends to follow the MotoGP fantasy league, every race weekend. The pipeline pulls the data, renews the session cookie on its own, calculates scores. Golden boosters? Handled.</span></p>
       <div class="tags"><span class="tag">Vanilla JS</span><span class="tag">Node.js</span><span class="tag">Docker</span><span class="tag">PWA</span></div>
       <div class="card-links"><a href="https://github.com/Lukentony/boxbox" target="_blank" rel="noopener">GitHub</a></div>
     </article>
 
     <article class="card">
-      <h3 class="card-title"><a href="/progetti/homesync">HomeSync</a></h3>
+      <img class="card-cover" src="/assets/images/projects/homesync-home.webp" width="420" height="935" loading="lazy" alt="Home: task da fare oggi, punteggi dei due utenti, lista task in arrivo e completati">
+  <h3 class="card-title"><a href="/progetti/homesync">HomeSync</a></h3>
       <p class="card-desc"><span class="lang-it">Task management self-hostato per due persone: io e la mia compagna lo usiamo tutti i giorni. Niente app che si impalla o perde pezzi, deve solo funzionare.</span><span class="lang-en" hidden>Self-hosted task management for two people: my partner and I use it every day. No app that freezes or drops things, it just has to work.</span></p>
       <div class="tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Docker</span><span class="tag">SQLite</span></div>
       <div class="card-links"><a href="https://github.com/Lukentony/homesync" target="_blank" rel="noopener">GitHub</a></div>
     </article>
 
     <article class="card">
-      <h3 class="card-title"><a href="/progetti/n8n-ecosystem">n8n Ecosystem</a></h3>
+      <img class="card-cover" src="/assets/images/projects/n8n-workflows.webp" width="900" height="1029" loading="lazy" alt="Elenco dei 12 workflow n8n con nome, data ultimo aggiornamento e stato">
+  <h3 class="card-title"><a href="/progetti/n8n-ecosystem">n8n Ecosystem</a></h3>
       <p class="card-desc"><span class="lang-it">Mi arrivano di continuo link su Telegram: articoli, ricette, cose da guardare dopo. Un workflow li legge, li classifica via LLM e li smista da solo: bookmark manager, ricettario, monitoring. Sono 12 automazioni cos&igrave; sul mio server, e se una si rompe c&rsquo;&egrave; un auto-healer che se ne accorge e la ripara.</span><span class="lang-en" hidden>Links keep landing in my Telegram: articles, recipes, stuff to watch later. One workflow reads them, classifies them with an LLM, and routes them on its own: bookmark manager, recipe box, monitoring. There are 12 automations like that on my server, and if one breaks, an auto-healer notices and fixes it.</span></p>
       <div class="tags"><span class="tag">n8n</span><span class="tag">Docker</span><span class="tag">LLM</span><span class="tag">API</span></div>
       <div class="card-links"><a href="mailto:luca.rivoiro@gmail.com"><span class="lang-it">Demo su richiesta</span><span class="lang-en" hidden>Demo on request</span></a></div>
     </article>
 
     <article class="card">
-      <h3 class="card-title"><a href="/progetti/srv1-infrastructure">srv1 Infrastructure</a></h3>
+      <img class="card-cover" src="/assets/images/projects/srv1-dashboard.webp" width="900" height="996" loading="lazy" alt="Dashboard di monitoraggio: CPU, RAM, rete, container Docker attivi, dispositivi LAN e Tailscale">
+  <h3 class="card-title"><a href="/progetti/srv1-infrastructure">srv1 Infrastructure</a></h3>
       <p class="card-desc"><span class="lang-it">Preferisco sapere esattamente dove girano i miei servizi. Gestisco da solo un server con 30 container Docker, backup automatici, VPN Tailscale. Ogni tanto qualcosa si rompe. E va bene cos&igrave;.</span><span class="lang-en" hidden>I like knowing exactly where my services run. I manage a server on my own with 30 Docker containers, automated backups, Tailscale VPN. Every so often something breaks. And that's fine.</span></p>
       <div class="tags"><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">Tailscale</span><span class="tag">DevOps</span></div>
       <div class="card-links"><a href="mailto:luca.rivoiro@gmail.com"><span class="lang-it">Demo su richiesta</span><span class="lang-en" hidden>Demo on request</span></a></div>
     </article>
 
+    <article class="card">
+      <img class="card-cover" src="/assets/images/projects/orizzonte-sole.webp" width="1536" height="1155" loading="lazy" alt="Orizzonte Sole: mappa con il punto di osservazione selezionato e il calcolo di visibilità del Sole eclissato sull'orizzonte">
+      <h3 class="card-title"><a href="/progetti/orizzonte-sole">Orizzonte Sole</a></h3>
+      <p class="card-desc"><span class="lang-it">Un adattamento personale di Orizzonte Sole, una webapp che usa DEM TINITALY a 10 metri e calcoli astronomici reali per capire se il Sole eclissato sar&agrave; visibile dal tuo punto di osservazione.</span><span class="lang-en" hidden>A personal adaptation of Orizzonte Sole, a webapp that uses a 10-metre TINITALY DEM and real astronomical calculations to tell whether the eclipsed Sun will be visible from your spot.</span></p>
+      <div class="tags"><span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">MapLibre</span><span class="tag">GIS</span></div>
+      <div class="card-links"><a href="https://github.com/Lukentony/orizzonte-sole" target="_blank" rel="noopener">GitHub</a></div>
+    </article>
+
   </div>
 </section>
 
-<section class="section" id="contact">
+<section class="section reveal" id="contact">
   <div class="contact-flex">
     <h4 class="contact-title"><a href="mailto:luca.rivoiro@gmail.com"><span class="lang-it">Parlami del tuo progetto</span><span class="lang-en" hidden>Work with me</span></a></h4>
     <div class="contact-links">
@@ -177,6 +191,12 @@
     <span>&copy; 2026 Luca Rivoiro</span>
     <span>AI Engineer &amp; Security Specialist</span>
   </div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="/"><span class="lang-it">Home</span><span class="lang-en" hidden>Home</span></a>
+    <a href="/#projects"><span class="lang-it">Progetti</span><span class="lang-en" hidden>Projects</span></a>
+    <a href="/#contact"><span class="lang-it">Contatti</span><span class="lang-en" hidden>Contact</span></a>
+    <a href="/assets/cv/luca-rivoiro-cv.pdf" target="_blank" rel="noopener">CV</a>
+  </nav>
   <p class="footer-a11y"><span class="lang-it">Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;? <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span><span class="lang-en" hidden>WCAG 2.1 AA compliant. Found an accessibility issue? <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span></p>
 </footer>
 

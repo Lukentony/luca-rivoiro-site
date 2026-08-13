@@ -12,6 +12,7 @@ Prima di specializzarsi in AI security ha lavorato come programmatore in ambient
 - [HomeSync](https://lukentony.it/progetti/homesync): task management self-hosted multi-utente, backend FastAPI, frontend React no-build, 0.3s load time.
 - [n8n Ecosystem](https://lukentony.it/progetti/n8n-ecosystem): 12 workflow di automazione self-hosted, routing intelligente via LLM, auto-healer.
 - [srv1 Infrastructure](https://lukentony.it/progetti/srv1-infrastructure): infrastruttura self-hosted con security hardening enterprise, 30 container Docker, VPN Tailscale.
+- [Orizzonte Sole](https://lukentony.it/progetti/orizzonte-sole): webapp che calcola se il Sole eclissato sarà visibile dal tuo punto di osservazione usando il profilo reale del terreno (DEM TINITALY a 10 metri). Adattamento e deploy self-hosted di un progetto di Luca Malinverno.
 
 ## Contatti
 
