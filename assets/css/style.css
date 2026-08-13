@@ -193,7 +193,14 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 @media (max-width: 600px) { .term-body { font-size: 0.72rem; } }
 
 /* ---- About ---- */
-.about-text { font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: 720px; }
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+.about-main { max-width: 640px; }
+.about-text { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
 .about-text p + p { margin-top: var(--space-md); }
 .bio-pull {
   font-family: var(--serif);
@@ -201,11 +208,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
   font-size: clamp(1.25rem, 2.2vw, 1.5rem);
   line-height: 1.3;
   margin-bottom: var(--space-md);
-  max-width: 640px;
   color: var(--text);
 }
 
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--space-lg) var(--space-md); }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md) var(--space-lg); }
 .skills-cat-title {
   font-family: var(--mono);
   font-size: 0.6rem;
@@ -216,8 +222,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 }
 /* Sottotitolo "Dove sto andando", stesso stile di Competenze: e' una direzione
    dichiarata, non una competenza gia' padroneggiata come le tag sopra. */
-.skills-title { margin-top: var(--space-2xl); }
-.stack-title { margin-top: var(--space-2xl); }
+.skills-title { margin-top: 0; }
+.stack-title { margin-top: var(--space-lg); }
 .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 .tag {
   font-family: var(--mono);
@@ -365,10 +371,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 .footer-nav a:hover { color: var(--text); border-bottom-color: var(--accent); }
 .footer-a11y { margin-top: var(--space-sm); }
 
-/* ---- Reveal on scroll ---- */
-.reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
-.reveal.revealed { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+/* ---- Reveal on scroll (rimosso: animazione decorativa, viola #5 Modest di simple-web-design) ---- */
 
 /* ---- Animations ---- */
 @keyframes fu {
@@ -378,6 +381,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 
 /* ---- Responsive ---- */
 @media (max-width: 768px) {
+  .about-layout { grid-template-columns: 1fr; gap: var(--space-xl); }
   .contact-flex { flex-direction: column; gap: var(--space-lg); }
   .contact-links { align-items: flex-start; }
 }

@@ -1,19 +1,4 @@
-/* main.js — Lingua, tema e reveal on scroll */
-function setupReveal() {
-  if (!('IntersectionObserver' in window)) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var els = document.querySelectorAll('.reveal');
-  if (!els.length) return;
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('revealed');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  els.forEach(function (el) { io.observe(el); });
-}
+/* main.js — Lingua e tema (minimo) */
 function applyLangVisibility(l) {
   var itEls = document.querySelectorAll('.lang-it');
   var enEls = document.querySelectorAll('.lang-en');
@@ -86,7 +71,6 @@ function replayTerminal() {
     en.setAttribute('aria-pressed', l === 'en');
   }
   syncThemeButton();
-  setupReveal();
   var replayBtn = document.getElementById('term-replay');
   if (replayBtn) replayBtn.addEventListener('click', replayTerminal);
 })();
