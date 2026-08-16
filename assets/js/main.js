@@ -57,6 +57,72 @@ function replayTerminal() {
     setTimeout(next, 220);
   })();
 }
+
+/* ---- Form di contatto (POST a n8n via Cloudflare Tunnel, fallback mailto) ---- */
+var CONTACT_ENDPOINT = 'https://contatti.lukentony.it/webhook/contatto';
+
+function fingerprint() {
+  var tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) {}
+  return {
+    referrer: document.referrer || '',
+    pagina: window.location.pathname,
+    browser: navigator.userAgent || '',
+    lingua: navigator.language || '',
+    timezone: tz,
+    screen: (window.screen ? window.screen.width + 'x' + window.screen.height : '')
+  };
+}
+
+function fallbackMailto(nome, email, messaggio) {
+  var subj = encodeURIComponent('Progetto: ' + nome);
+  var body = encodeURIComponent(messaggio + '\n\n— ' + nome + ' (' + email + ')');
+  window.location.href = 'mailto:luca.rivoiro@gmail.com?subject=' + subj + '&body=' + body;
+}
+
+function setupContactForm() {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var status = document.getElementById('form-status');
+  var submit = document.getElementById('form-submit');
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var nome = document.getElementById('cf-nome').value.trim();
+    var email = document.getElementById('cf-email').value.trim();
+    var messaggio = document.getElementById('cf-messaggio').value.trim();
+    var website = document.getElementById('cf-website').value.trim();
+    if (!nome || !email || !messaggio) {
+      status.hidden = false;
+      status.textContent = document.documentElement.getAttribute('lang') === 'en' ? 'Fill in name, email and message.' : 'Compila nome, email e messaggio.';
+      return;
+    }
+    submit.disabled = true;
+    var payload = {
+      nome: nome,
+      email: email,
+      messaggio: messaggio,
+      website: website,
+      fingerprint: fingerprint()
+    };
+    fetch(CONTACT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      submit.disabled = false;
+      if (r.ok) {
+        status.hidden = false;
+        status.textContent = document.documentElement.getAttribute('lang') === 'en' ? 'Message sent, thanks.' : 'Messaggio inviato, grazie.';
+        form.reset();
+      } else {
+        throw new Error('n8n ha risposto ' + r.status);
+      }
+    }).catch(function () {
+      submit.disabled = false;
+      fallbackMailto(nome, email, messaggio);
+    });
+  });
+}
 (function(){
   var l = localStorage.getItem('lang') || 'it';
   var h = document.documentElement;
@@ -71,6 +137,7 @@ function replayTerminal() {
     en.setAttribute('aria-pressed', l === 'en');
   }
   syncThemeButton();
+  setupContactForm();
   var replayBtn = document.getElementById('term-replay');
   if (replayBtn) replayBtn.addEventListener('click', replayTerminal);
 })();
