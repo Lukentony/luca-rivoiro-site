@@ -1,6 +1,6 @@
 # Luca Rivoiro
 
-> AI Engineer & Security Specialist. Trasforma prototipi LLM in infrastrutture scalabili, sicure e pronte per la produzione (self-hosted, Docker, CI/CD, monitoring).
+> Software & AI Developer. Costruisce siti, app, automazioni e l'infrastruttura che li fa girare, spesso con agenti AI a fare da moltiplicatore.
 
 Prima di specializzarsi in AI security ha lavorato come programmatore in ambienti multi-sede (automazioni Python, gestione infrastrutture IT, deployment software per oltre 20 strutture). Ha poi approfondito LLM e agentic AI con un Master dedicato (ProfessionAI, 400h, 28/30). Lavora ogni giorno con Python, Docker, LLM: AI applicata, automazione, infrastruttura self-hosted.
 
