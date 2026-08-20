@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>BoxBox · Luca Rivoiro</title>
-<meta name="description" content="Gestione automatizzata di logiche di punteggio complesse e session handling. Sistema a zero manutenzione che processa dati in tempo reale.">
+<meta name="description" content="Gestione automatizzata di logiche di punteggio complesse e session handling. La pipeline dati gira da sola ogni ora, senza intervento manuale.">
 <link rel="canonical" href="https://lukentony.it/progetti/boxbox">
 <meta property="og:title" content="BoxBox · Luca Rivoiro">
-<meta property="og:description" content="Gestione automatizzata di logiche di punteggio complesse e session handling. Sistema a zero manutenzione che processa dati in tempo reale.">
+<meta property="og:description" content="Gestione automatizzata di logiche di punteggio complesse e session handling. La pipeline dati gira da sola ogni ora, senza intervento manuale.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lukentony.it/progetti/boxbox">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BoxBox · Luca Rivoiro">
-<meta name="twitter:description" content="Gestione automatizzata di logiche di punteggio complesse e session handling. Sistema a zero manutenzione che processa dati in tempo reale.">
+<meta name="twitter:description" content="Gestione automatizzata di logiche di punteggio complesse e session handling. La pipeline dati gira da sola ogni ora, senza intervento manuale.">
 <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
 <link rel="stylesheet" href="/assets/css/style.css">
 <script>document.documentElement.classList.add('js-lang')</script>
@@ -59,7 +59,7 @@
 
 <section class="proj-section">
   <p class="proj-label"><span class="lang-it">La soluzione</span><span class="lang-en" hidden>The solution</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Ho costruito una PWA in vanilla HTML/CSS/JS con service worker, auto-refresh durante i weekend e notifiche push. Una pipeline Node.js zero-dipendenze gira ogni ora via cron: scarica i dati dall'API fantasy.motogp.com, rinnova automaticamente il cookie di sessione via Playwright/CDP quando scade, calcola il breakdown Q/Sprint/Gara/Bonus per ogni giocatore e fa il deploy su nginx:alpine. Zero manutenzione, zero intervento umano.</span><span class="lang-en" hidden>I built a PWA in vanilla HTML/CSS/JS with service worker, auto-refresh during weekends and push notifications. A zero-dependency Node.js pipeline runs hourly via cron: fetches data from fantasy.motogp.com API, auto-renews session cookies via Playwright/CDP when they expire, computes Q/Sprint/Race/Bonus breakdown for each player and deploys to nginx:alpine. Zero maintenance, zero human intervention.</span></p></div>
+  <div class="proj-body-text"><p><span class="lang-it">Ho costruito una PWA in vanilla HTML/CSS/JS con service worker, auto-refresh durante i weekend e notifiche push. Una pipeline Node.js zero-dipendenze gira ogni ora via cron: scarica i dati dall'API fantasy.motogp.com, rinnova automaticamente il cookie di sessione via Playwright/CDP quando scade, calcola il breakdown Q/Sprint/Gara/Bonus per ogni giocatore e fa il deploy su nginx:alpine. La pipeline dati gira da sola ogni ora, senza intervento manuale.</span><span class="lang-en" hidden>I built a PWA in vanilla HTML/CSS/JS with service worker, auto-refresh during weekends and push notifications. A zero-dependency Node.js pipeline runs hourly via cron: fetches data from fantasy.motogp.com API, auto-renews session cookies via Playwright/CDP when they expire, computes Q/Sprint/Race/Bonus breakdown for each player and deploys to nginx:alpine. The data pipeline runs on its own every hour, no manual intervention needed.</span></p></div>
 </section>
 
 <section class="proj-section">
