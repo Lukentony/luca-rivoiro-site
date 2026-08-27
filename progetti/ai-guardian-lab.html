@@ -1,113 +1,281 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it" data-theme="">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
-<title>AI Guardian Lab · Luca Rivoiro</title>
-<meta name="description" content="Middleware di sicurezza per agenti AI: pipeline deterministica a 4 layer che decide quali comandi shell vengono davvero eseguiti, fail-closed by design.">
-<link rel="canonical" href="https://lukentony.it/progetti/ai-guardian-lab">
-<meta property="og:title" content="AI Guardian Lab · Luca Rivoiro">
-<meta property="og:description" content="Middleware di sicurezza per agenti AI: pipeline deterministica a 4 layer che decide quali comandi shell vengono davvero eseguiti, fail-closed by design.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://lukentony.it/progetti/ai-guardian-lab">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI Guardian Lab · Luca Rivoiro">
-<meta name="twitter:description" content="Middleware di sicurezza per agenti AI: pipeline deterministica a 4 layer che decide quali comandi shell vengono davvero eseguiti, fail-closed by design.">
-<link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
-<link rel="stylesheet" href="/assets/css/style.css">
-<script>document.documentElement.classList.add('js-lang')</script>
-</head>
-<body>
-<div class="container">
-<header class="topbar">
-  <a class="monogram" href="/">LR &copy; 2026</a>
-  <div class="controls">
-    <div class="topbar-links">
-      <a href="https://github.com/Lukentony" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:luca.rivoiro@gmail.com">Email</a>
-      <a href="/assets/cv/luca-rivoiro-cv.pdf" target="_blank" rel="noopener">CV</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
+    <title>AI Guardian Lab · Luca Rivoiro</title>
+    <meta
+      name="description"
+      content="Prototipo di ricerca e demo: pipeline deterministica a 4 fasi che valida i comandi shell richiesti da un agente AI, con esecuzione containerizzata a privilegi ridotti e dry-run."
+    />
+    <link
+      rel="canonical"
+      href="https://lukentony.it/progetti/ai-guardian-lab"
+    />
+    <meta property="og:title" content="AI Guardian Lab · Luca Rivoiro" />
+    <meta
+      property="og:description"
+      content="Prototipo di ricerca e demo: pipeline deterministica a 4 fasi che valida i comandi shell richiesti da un agente AI, con esecuzione containerizzata a privilegi ridotti e dry-run."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://lukentony.it/progetti/ai-guardian-lab"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AI Guardian Lab · Luca Rivoiro" />
+    <meta
+      name="twitter:description"
+      content="Prototipo di ricerca e demo: pipeline deterministica a 4 fasi che valida i comandi shell richiesti da un agente AI, con esecuzione containerizzata a privilegi ridotti e dry-run."
+    />
+    <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script>
+      document.documentElement.classList.add("js-lang");
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <a class="monogram" href="/">LR &copy; 2026</a>
+        <div class="controls">
+          <div class="topbar-links">
+            <a
+              href="https://github.com/Lukentony"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              href="https://linkedin.com/in/luca-rivoiro"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+            <a href="mailto:luca.rivoiro@gmail.com">Email</a>
+            <a
+              href="/assets/cv/luca-rivoiro-cv.pdf"
+              target="_blank"
+              rel="noopener"
+              >CV</a
+            >
+          </div>
+          <button
+            class="theme-btn"
+            onclick="toggleTheme()"
+            id="theme-toggle"
+            aria-pressed="false"
+          >
+            <span id="theme-btn-label">Scuro</span>
+          </button>
+          <div class="lang-toggle">
+            <button
+              class="lang-btn active"
+              onclick="setLang('it')"
+              id="lang-it"
+              aria-pressed="true"
+            >
+              IT
+            </button>
+            <button
+              class="lang-btn"
+              onclick="setLang('en')"
+              id="lang-en"
+              aria-pressed="false"
+            >
+              EN
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main id="main">
+        <a href="/" class="back-link"
+          >&larr; <span class="lang-it">Torna alla home</span
+          ><span class="lang-en" hidden>Back to home</span></a
+        >
+
+        <section class="proj-hero">
+          <p class="proj-hero-tag">Progetti / Security</p>
+          <h1 class="proj-hero-title">AI Guardian Lab</h1>
+          <p class="proj-hero-sub">
+            <span class="lang-it"
+              >Un prototipo di ricerca tra l&rsquo;agente AI e la shell.</span
+            ><span class="lang-en" hidden
+              >A research prototype between the AI agent and the shell.</span
+            >
+          </p>
+        </section>
+
+        <div class="proj-terminal">
+          <div class="term-bar" aria-hidden="true">
+            <span class="term-dot"></span><span class="term-dot"></span
+            ><span class="term-dot"></span>
+            <span class="term-title">guardian-lab &mdash; zsh</span>
+          </div>
+          <pre
+            class="term-body lang-it"
+            id="term-it"
+          ><span class="term-line">$ task: "analizza lo spazio disco"  &middot;  comando: rm -rf /tmp</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line">[1/4] allowlist......... <b class="t-fail">FAIL</b> (rm non in allowlist)</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line t-blocked">&gt;&gt; BLOCKED: binario non ammesso.</span></pre>
+          <pre
+            class="term-body lang-en"
+            id="term-en"
+            hidden
+          ><span class="term-line">$ task: "analyze disk usage"  &middot;  command: rm -rf /tmp</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line">[1/4] allowlist......... <b class="t-fail">FAIL</b> (rm not in allowlist)</span>
+<span class="term-line">&nbsp;</span>
+<span class="term-line t-blocked">&gt;&gt; BLOCKED: binary not allowed.</span></pre>
+          <button type="button" class="term-replay" id="term-replay">
+            <span class="lang-it">&#9654; Rivedi l&rsquo;animazione</span
+            ><span class="lang-en" hidden>&#9654; Replay animation</span>
+          </button>
+        </div>
+
+        <section class="proj-section">
+          <p class="proj-label">
+            <span class="lang-it">La sfida</span
+            ><span class="lang-en" hidden>The challenge</span>
+          </p>
+          <div class="proj-body-text">
+            <p>
+              <span class="lang-it"
+                >Gli agenti AI possono eseguire comandi shell sulla mia
+                macchina. Nella maggior parte delle implementazioni la sicurezza
+                si basa solo sulla buona volont&agrave; del modello di seguire
+                le istruzioni di sistema, ma l'obbedienza di un modello non
+                &egrave; la stessa cosa di un vincolo di sicurezza. Serviva un
+                livello deterministico che decidesse quali comandi vengono
+                davvero eseguiti, prima che arrivino alla shell.</span
+              ><span class="lang-en" hidden
+                >AI agents can run shell commands on my machine. In most
+                implementations, security relies entirely on the model's
+                willingness to follow system instructions, but model compliance
+                is not the same thing as security enforcement. I needed a
+                deterministic layer to decide which commands actually run,
+                before they reach the shell.</span
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="proj-section">
+          <p class="proj-label">
+            <span class="lang-it">La soluzione</span
+            ><span class="lang-en" hidden>The solution</span>
+          </p>
+          <div class="proj-body-text">
+            <p>
+              <span class="lang-it"
+                >Ho costruito un prototipo di ricerca con una validazione
+                deterministica a 4 fasi: se una fase ha un dubbio, il comando
+                non passa. L1 &egrave; l&rsquo;allowlist dei binari ammessi:
+                &laquo;rm&raquo; non c&rsquo;&egrave; e viene bloccato subito,
+                come nel terminale qui sopra. L2 &egrave; un motore regex
+                anti-offuscamento. L3 confronta l&rsquo;intento del task con
+                l&rsquo;azione del comando: un task di lettura con un comando di
+                cancellazione viene bloccato per conflitto d&rsquo;intento,
+                anche se il binario preso da solo fosse ammesso. L4 &egrave; un
+                controllo semantico via LLM, riservato ai casi ambigui che le
+                fasi deterministiche non risolvono. L&rsquo;esecuzione avviene
+                in container con privilegi ridotti, con una modalit&agrave;
+                dry-run.</span
+              ><span class="lang-en" hidden
+                >I built a research prototype with a deterministic 4-phase
+                validation: if a phase has doubt, the command doesn&rsquo;t go
+                through. L1 is the allowlist of permitted binaries:
+                &ldquo;rm&rdquo; isn&rsquo;t on it and gets blocked right away,
+                as in the terminal above. L2 is an anti-obfuscation regex
+                engine. L3 compares the task&rsquo;s intent with the
+                command&rsquo;s action: a read task with a delete command gets
+                blocked for intent conflict, even if the binary on its own would
+                be allowed. L4 is an LLM semantic check, reserved for the
+                ambiguous cases the deterministic phases can&rsquo;t resolve.
+                Execution happens in a container with reduced privileges, with a
+                dry-run mode.</span
+              >
+            </p>
+          </div>
+          <p class="proj-note">
+            <span class="lang-it"
+              >Prototipo di ricerca e demo: ci&ograve; che resta fuori dalla
+              pipeline non &egrave; coperto, e una sandbox forte non &egrave;
+              inclusa.</span
+            ><span class="lang-en" hidden
+              >Research prototype and demo: whatever falls outside the pipeline
+              isn&rsquo;t covered, and a strong sandbox isn&rsquo;t
+              included.</span
+            >
+          </p>
+        </section>
+
+        <section class="proj-section">
+          <p class="proj-label">Tech Stack</p>
+          <div class="proj-tech-grid">
+            <span class="proj-tech-item">Python</span>
+            <span class="proj-tech-item">Flask</span>
+            <span class="proj-tech-item">Docker</span>
+            <span class="proj-tech-item">LLM Validation</span>
+            <span class="proj-tech-item">CI/CD</span>
+            <span class="proj-tech-item">Dry-run</span>
+          </div>
+          <a
+            href="https://github.com/Lukentony/AI-guardian-lab"
+            class="proj-cta"
+            target="_blank"
+            rel="noopener"
+            ><span class="lang-it">Vai al repository GitHub</span
+            ><span class="lang-en" hidden>View GitHub repository</span></a
+          >
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <span>&copy; 2026 Luca Rivoiro</span>
+          <span>Software &amp; AI Developer</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/"
+            ><span class="lang-it">Home</span
+            ><span class="lang-en" hidden>Home</span></a
+          >
+          <a href="/#projects"
+            ><span class="lang-it">Progetti</span
+            ><span class="lang-en" hidden>Projects</span></a
+          >
+          <a href="/#contact"
+            ><span class="lang-it">Contatti</span
+            ><span class="lang-en" hidden>Contact</span></a
+          >
+          <a
+            href="/assets/cv/luca-rivoiro-cv.pdf"
+            target="_blank"
+            rel="noopener"
+            >CV</a
+          >
+        </nav>
+        <p class="footer-a11y">
+          <span class="lang-it"
+            >Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;?
+            <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span
+          ><span class="lang-en" hidden
+            >WCAG 2.1 AA compliant. Found an accessibility issue?
+            <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span
+          >
+        </p>
+      </footer>
     </div>
-    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span id="theme-btn-label">Scuro</span></button>
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
-      <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
-    </div>
-  </div>
-</header>
-
-<main id="main">
-<a href="/" class="back-link">&larr; <span class="lang-it">Torna alla home</span><span class="lang-en" hidden>Back to home</span></a>
-
-<section class="proj-hero">
-  <p class="proj-hero-tag">Progetti / Security</p>
-  <h1 class="proj-hero-title">AI Guardian Lab</h1>
-  <p class="proj-hero-sub"><span class="lang-it">Proteggere l'intelligenza artificiale, un layer alla volta.</span><span class="lang-en" hidden>Securing artificial intelligence, layer by layer.</span></p>
-</section>
-
-<div class="proj-terminal">
-  <div class="term-bar" aria-hidden="true">
-    <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
-    <span class="term-title">guardian-lab &mdash; zsh</span>
-  </div>
-  <pre class="term-body lang-it" id="term-it"><span class="term-line">$ task: "analizza lo spazio disco"  &middot;  comando: rm -rf /tmp</span>
-<span class="term-line">&nbsp;</span>
-<span class="term-line">[1/4] allowlist......... ok</span>
-<span class="term-line">[2/4] pattern regex..... ok</span>
-<span class="term-line">[3/4] coerenza intento.. <b class="t-fail">FAIL</b> (task=read, comando=delete)</span>
-<span class="term-line">&nbsp;</span>
-<span class="term-line t-blocked">&gt;&gt; BLOCKED. Fail-closed: conflitto d'intento.</span></pre>
-  <pre class="term-body lang-en" id="term-en" hidden><span class="term-line">$ task: "analyze disk usage"  &middot;  command: rm -rf /tmp</span>
-<span class="term-line">&nbsp;</span>
-<span class="term-line">[1/4] allowlist......... ok</span>
-<span class="term-line">[2/4] regex pattern..... ok</span>
-<span class="term-line">[3/4] intent match...... <b class="t-fail">FAIL</b> (task=read, command=delete)</span>
-<span class="term-line">&nbsp;</span>
-<span class="term-line t-blocked">&gt;&gt; BLOCKED. Fail-closed: intent conflict.</span></pre>
-  <button type="button" class="term-replay" id="term-replay">
-    <span class="lang-it">&#9654; Rivedi l&rsquo;animazione</span><span class="lang-en" hidden>&#9654; Replay animation</span>
-  </button>
-</div>
-
-<section class="proj-section">
-  <p class="proj-label"><span class="lang-it">La sfida</span><span class="lang-en" hidden>The challenge</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Gli agenti AI possono eseguire comandi shell sulla mia macchina. Nella maggior parte delle implementazioni la sicurezza si basa solo sulla buona volont&agrave; del modello di seguire le istruzioni di sistema, ma l'obbedienza di un modello non &egrave; la stessa cosa di un vincolo di sicurezza. Serviva un livello deterministico che decidesse quali comandi vengono davvero eseguiti, prima che arrivino alla shell.</span><span class="lang-en" hidden>AI agents can run shell commands on my machine. In most implementations, security relies entirely on the model's willingness to follow system instructions, but model compliance is not the same thing as security enforcement. I needed a deterministic layer to decide which commands actually run, before they reach the shell.</span></p></div>
-</section>
-
-<section class="proj-section">
-  <p class="proj-label"><span class="lang-it">La soluzione</span><span class="lang-en" hidden>The solution</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Ho costruito una pipeline deterministica a 4 layer, fail-closed by design: se un layer ha un dubbio, il comando viene bloccato. L1 &egrave; l'allowlist dei binari ammessi. L2 &egrave; un motore regex anti-offuscamento. L3 confronta l'intento del task con l'azione del comando: task &laquo;analizza lo spazio disco&raquo; e comando &laquo;rm -rf /tmp&raquo; vengono bloccati per conflitto d'intento, anche se &quot;rm&quot; da solo sarebbe un binario ammesso. L4 &egrave; un controllo semantico via LLM, riservato ai casi ambigui che i layer deterministici non risolvono: mai la prima linea di difesa.</span><span class="lang-en" hidden>I built a deterministic 4-layer pipeline, fail-closed by design: if a layer has doubt, the command is blocked. L1 is an allowlist of permitted binaries. L2 is an anti-obfuscation regex engine. L3 compares the task's intent with the command's action: task "analyze disk usage" and command "rm -rf /tmp" get blocked for intent conflict, even though "rm" alone would be an allowed binary. L4 is an LLM semantic check, reserved for ambiguous cases the deterministic layers can't resolve: never the first line of defense.</span></p></div>
-</section>
-
-<section class="proj-section">
-  <p class="proj-label">Tech Stack</p>
-  <div class="proj-tech-grid">    <span class="proj-tech-item">Python</span>
-    <span class="proj-tech-item">Flask</span>
-    <span class="proj-tech-item">Docker</span>
-    <span class="proj-tech-item">LLM Validation</span>
-    <span class="proj-tech-item">CI/CD</span>
-    <span class="proj-tech-item">Chain Hashing</span>
-  </div>
-  <a href="https://github.com/Lukentony/AI-guardian-lab" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Vai al repository GitHub</span><span class="lang-en" hidden>View GitHub repository</span></a>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-row">
-    <span>&copy; 2026 Luca Rivoiro</span>
-    <span>Software &amp; AI Developer</span>
-  </div>
-  <nav class="footer-nav" aria-label="Footer">
-    <a href="/"><span class="lang-it">Home</span><span class="lang-en" hidden>Home</span></a>
-    <a href="/#projects"><span class="lang-it">Progetti</span><span class="lang-en" hidden>Projects</span></a>
-    <a href="/#contact"><span class="lang-it">Contatti</span><span class="lang-en" hidden>Contact</span></a>
-    <a href="/assets/cv/luca-rivoiro-cv.pdf" target="_blank" rel="noopener">CV</a>
-  </nav>
-  <p class="footer-a11y"><span class="lang-it">Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;? <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span><span class="lang-en" hidden>WCAG 2.1 AA compliant. Found an accessibility issue? <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span></p>
-</footer>
-</div>
-<script src="/assets/js/main.js"></script>
-</body>
+    <script src="/assets/js/main.js"></script>
+  </body>
 </html>
