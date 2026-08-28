@@ -12,13 +12,13 @@
     <title>n8n Ecosystem · Luca Rivoiro</title>
     <meta
       name="description"
-      content="Automazioni n8n su server self-hosted: router Telegram con classificazione LLM, coda di processamento, integrazioni e gestione degli errori."
+      content="Ecosistema n8n self-hosted per orchestrare automazioni, classificare input con LLM, processare code, collegare servizi e gestire errori."
     />
     <link rel="canonical" href="https://lukentony.it/progetti/n8n-ecosystem" />
     <meta property="og:title" content="n8n Ecosystem · Luca Rivoiro" />
     <meta
       property="og:description"
-      content="Automazioni n8n su server self-hosted: router Telegram con classificazione LLM, coda di processamento, integrazioni e gestione degli errori."
+      content="Ecosistema n8n self-hosted per orchestrare automazioni, classificare input con LLM, processare code, collegare servizi e gestire errori."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -29,7 +29,7 @@
     <meta name="twitter:title" content="n8n Ecosystem · Luca Rivoiro" />
     <meta
       name="twitter:description"
-      content="Automazioni n8n su server self-hosted: router Telegram con classificazione LLM, coda di processamento, integrazioni e gestione degli errori."
+      content="Ecosistema n8n self-hosted per orchestrare automazioni, classificare input con LLM, processare code, collegare servizi e gestire errori."
     />
     <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32" />
     <link rel="stylesheet" href="/assets/css/style.css" />
@@ -103,9 +103,9 @@
           <h1 class="proj-hero-title">n8n Ecosystem</h1>
           <p class="proj-hero-sub">
             <span class="lang-it"
-              >Automazioni self-hosted che uso ogni giorno.</span
+              >Un sistema operativo personale per le mie automazioni.</span
             ><span class="lang-en" hidden
-              >Self-hosted automations I use every day.</span
+              >A personal operating system for my automations.</span
             >
           </p>
         </section>
@@ -114,9 +114,9 @@
           <img
             src="/assets/images/projects/n8n-workflows.webp"
             width="900"
-            height="1029"
+            height="1120"
             loading="lazy"
-            alt="Mockup sintetico di pattern di automazione con router, coda, reportistica e controlli di recupero"
+            alt="Panoramica n8n e workflow con router, classificazione LLM, coda e processor"
           />
         </div>
 
@@ -128,15 +128,15 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Mi arrivano link di continuo su Telegram: articoli, ricette,
-                cose da guardare dopo. Serve un percorso che li legga, li
-                classifichi e li smisti senza che io debba copiare e incollare
-                nulla a mano.</span
+                >Non mi serviva un singolo workflow, ma un sistema di
+                mattoni riutilizzabili. Ogni automazione deve poter ricevere un
+                input, trasformarlo, consegnarlo al servizio giusto e rendere
+                visibile quando qualcosa va storto.</span
               ><span class="lang-en" hidden
-                >Links keep landing on my Telegram: articles, recipes, stuff to
-                watch later. I need a path that reads them, classifies them and
-                routes them without me copying and pasting anything by
-                hand.</span
+                >I didn&rsquo;t need a single workflow, but a system of reusable
+                building blocks. Every automation should be able to receive an
+                input, transform it, deliver it to the right service and make
+                failures visible.</span
               >
             </p>
           </div>
@@ -150,21 +150,30 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Ho costruito un ecosistema di workflow n8n su un singolo
-                server. Un router Telegram legge i link in arrivo e li
-                classifica via LLM; una coda li processa e li smista verso le
-                integrazioni (bookmark, ricette, eccetera), con gestione degli
-                errori per i casi che falliscono. Uptime Kuma si occupa di
-                monitoraggio e notifiche; un auto-healer raccoglie le diagnosi e
-                propone gli interventi, che resto io ad approvare.</span
+                >Ho costruito un ecosistema n8n che coordina flussi diversi:
+                routing di link da Telegram, classificazione per dominio,
+                trascrizione video, riassunti di newsletter, suggerimenti per le
+                skill, aggiornamenti dei container, notifiche e gestione degli
+                errori. Nel Link Router, i domini noti seguono regole
+                deterministiche; quelli nuovi passano da un LLM. Una coda separa
+                la ricezione dal processamento e invia i contenuti a servizi come
+                Karakeep e Mealie. Il workflow mostrato qui sotto rende esplicito
+                il percorso: trigger, branching, LLM, preparazione del messaggio,
+                scrittura della coda e processor. L&rsquo;auto-healer raccoglie il
+                contesto degli errori e propone diagnosi e interventi; il risultato
+                resta sotto il mio controllo.</span
               ><span class="lang-en" hidden
-                >I built an ecosystem of n8n workflows on a single server. A
-                Telegram router reads incoming links and classifies them with an
-                LLM; a queue processes them and routes them to the integrations
-                (bookmarks, recipes, and so on), with error handling for the
-                cases that fail. Uptime Kuma takes care of monitoring and
-                notifications; an auto-healer collects diagnoses and proposes
-                fixes, which I still approve myself.</span
+                >I built an n8n ecosystem that coordinates different flows:
+                Telegram link routing, domain classification, video
+                transcription, newsletter summaries, skill suggestions, container
+                updates, notifications and error handling. In the Link Router,
+                known domains follow deterministic rules; new ones go through an
+                LLM. A queue separates intake from processing and sends content
+                to services such as Karakeep and Mealie. The workflow below makes
+                the path explicit: trigger, branching, LLM, message preparation,
+                queue writing and processor. The auto-healer collects error
+                context and proposes diagnoses and interventions; the result stays
+                under my control.</span
               >
             </p>
           </div>
