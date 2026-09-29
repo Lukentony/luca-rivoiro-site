@@ -146,15 +146,15 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Il fantasy lo giocavamo tra amici e nei weekend di gara
-                servivano dati aggiornati. L'app ufficiale è lenta, piena di
-                pubblicità e non ti dice come nasce il punteggio: qualifiche,
-                sprint, gara e bonus restano un numero unico.</span
+                >Nel fantasy tra amici guardavamo i punteggi nei weekend di
+                gara, ma nell'app ufficiale vedevamo solo il totale. Volevo
+                distinguere qualifiche, sprint, gara e bonus e avere i dati
+                aggiornati senza ricaricarli a mano.</span
               ><span class="lang-en" hidden
-                >We played the fantasy league with friends and needed fresh data
-                on race weekends. The official app is slow, full of ads, and
-                never shows how the score is put together: qualifying, sprint,
-                race and bonus stay a single number.</span
+                >During race weekends, my friends and I checked our fantasy
+                scores, but the official app showed us only the total. I wanted
+                to see qualifying, sprint, race and bonus separately, with data
+                that updates without a manual reload.</span
               >
             </p>
           </div>
@@ -168,27 +168,19 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >BoxBox è una PWA scritta in HTML, CSS e JS vanilla, con service
-                worker e aggiornamento automatico nei weekend di gara. Dietro
-                c'è una pipeline Node.js senza dipendenze che gira ogni ora da
-                cron: prende i dati pubblici e quelli autenticati dall'API del
-                fantasy, rinnova il cookie di sessione da sola con un browser
-                headless quando scade, calcola il punteggio di qualifiche,
-                sprint, gara e bonus e pubblica i file che poi serve
-                nginx:alpine. Se un passaggio fallisce, l'errore arriva su
-                Discord. È un'app per una lega privata, quindi vive in
-                manutenzione ogni volta che l'API cambia.</span
+                >Ho fatto una PWA per la nostra lega privata. Ogni ora una
+                pipeline Node.js prende dati pubblici e dati dell'API fantasy,
+                calcola i punteggi e aggiorna i file del sito. La sessione
+                autenticata scade: un browser headless rinnova il cookie quando
+                serve. Se la pipeline fallisce, ricevo un messaggio su Discord.
+                Quando cambia l'API devo rimetterci mano.</span
               ><span class="lang-en" hidden
-                >BoxBox is a PWA written in vanilla HTML, CSS and JS, with a
-                service worker and automatic refresh on race weekends. Behind
-                it there's a zero-dependency Node.js pipeline that runs every
-                hour from cron: it pulls public and authenticated data from the
-                fantasy API, renews the session cookie by itself with a
-                headless browser when it expires, computes the qualifying,
-                sprint, race and bonus scores, and publishes the files that
-                nginx:alpine then serves. If a step fails, the error lands on
-                Discord. It's an app for a private league, so it lives in
-                maintenance whenever the API changes.</span
+                >I made a PWA for our private league. Each hour a Node.js
+                pipeline fetches public and fantasy API data, calculates scores
+                and updates the site files. The authenticated session expires:
+                a headless browser renews the cookie when needed. If the pipeline
+                fails, I get a Discord message. When the API changes, I have to
+                adjust the code.</span
               >
             </p>
           </div>

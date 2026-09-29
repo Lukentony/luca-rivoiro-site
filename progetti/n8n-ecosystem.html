@@ -130,17 +130,16 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Le automazioni crescono una per volta e finiscono scollegate:
-                fonti diverse, servizi diversi, e nessun posto dove vedere cosa
-                si è rotto. Non serviva l'ennesimo workflow, servivano pezzi
-                riutilizzabili: ogni flusso riceve un input, lo trasforma e lo
-                consegna, e quando qualcosa fallisce lo si vede.</span
+                >I link che salvo da Telegram e i riepiloghi delle newsletter
+                devono arrivare a servizi diversi. Quando i flussi erano
+                separati, dovevo cercare in ciascuno per capire cosa si era
+                fermato. Ho messo in comune l'ingresso e la gestione degli
+                errori.</span
               ><span class="lang-en" hidden
-                >Automations grow one at a time and end up disconnected:
-                different sources, different services, and nowhere to see what
-                broke. What I needed wasn't one more workflow but reusable
-                pieces: each flow takes an input, transforms it and delivers
-                it, and when something fails you can see it.</span
+                >Links I save from Telegram and newsletter summaries need to
+                reach different services. When the flows were separate, I had
+                to look through each one to find what had stopped. I brought
+                intake and error handling together.</span
               >
             </p>
           </div>
@@ -154,26 +153,18 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >L'ecosistema gira su n8n self-hosted e tiene insieme flussi
-                separati: link da Telegram, trascrizioni di video, riepiloghi
-                di newsletter, suggerimenti, aggiornamenti dei container e
-                notifiche. Nel Link Router i domini noti seguono regole
-                deterministiche, quelli nuovi passano da un LLM. Una coda
-                separa la ricezione dal processamento e consegna i contenuti a
-                servizi come Karakeep e Mealie. C'è anche un workflow che
-                raccoglie il contesto degli errori e propone una diagnosi; poi
-                decido io se e come correggere. Il monitoraggio l'ho
-                appoggiato a Uptime Kuma.</span
+                >Ho collegato i flussi su n8n self-hosted. Il Link Router usa
+                regole per i domini noti e un LLM per quelli nuovi. Una coda
+                separa la ricezione dal processamento, poi i contenuti arrivano
+                a servizi come Karakeep e Mealie. Per gli errori raccolgo il
+                contesto in un flusso che propone una diagnosi; la correzione
+                resta manuale.</span
               ><span class="lang-en" hidden
-                >The ecosystem runs on self-hosted n8n and holds separate flows
-                together: Telegram links, video transcriptions, newsletter
-                summaries, suggestions, container updates and notifications. In
-                the Link Router, known domains follow deterministic rules and
-                new ones go through an LLM. A queue separates intake from
-                processing and delivers content to services such as Karakeep
-                and Mealie. There's also a workflow that collects the context
-                around failures and proposes a diagnosis; I still decide what to
-                fix. Monitoring is delegated to Uptime Kuma.</span
+                >I connected the flows on self-hosted n8n. The Link Router uses
+                rules for known domains and an LLM for new ones. A queue
+                separates intake from processing; content then reaches services
+                such as Karakeep and Mealie. For errors, I collect context in
+                a flow that suggests a diagnosis; I still make the fixes myself.</span
               >
             </p>
           </div>
@@ -191,13 +182,11 @@
           </div>
           <p class="proj-note">
             <span class="lang-it"
-              >Codice privato, niente repository pubblico: i dati e i nomi dei
-              servizi del mio ambiente restano fuori dal sito. Il case study
-              tecnico è in preparazione.</span
+              >Il codice non è pubblico perché contiene dettagli del mio
+              ambiente. Posso raccontare le scelte, non mostrare i flussi reali.</span
             ><span class="lang-en" hidden
-              >Private code, no public repository: the data and service names of
-              my environment stay off the site. The technical case study is in
-              progress.</span
+              >The code isn't public because it contains details of my setup.
+              I can explain the choices without showing the real flows.</span
             >
           </p>
           <a
@@ -205,8 +194,8 @@
             class="proj-cta"
             target="_blank"
             rel="noopener"
-            ><span class="lang-it">Chiedimi il case study</span
-            ><span class="lang-en" hidden>Ask me about the case study</span></a
+            ><span class="lang-it">Chiedimi dei flussi</span
+            ><span class="lang-en" hidden>Ask me about the flows</span></a
           >
         </section>
       </main>

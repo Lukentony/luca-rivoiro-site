@@ -133,13 +133,13 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Un server in casa deve restare su mentre ospita più servizi.
-                Non ci sono SLA né un reparto IT: accessi, aggiornamenti, dati
-                e guasti se li prende chi lo gestisce.</span
+                >Sul server di casa girano servizi che uso ogni giorno. Se
+                salta un backup o un container, me ne devo accorgere io;
+                se lascio esposto un accesso, devo correggerlo io.</span
               ><span class="lang-en" hidden
-                >A home server has to keep running while it hosts several
-                services. There are no SLAs and no IT department: access,
-                updates, data and failures are on whoever runs it.</span
+                >Services I use every day run on my home server. If a backup
+                or a container fails, I have to notice it; if I leave an access
+                path exposed, I have to fix it.</span
               >
             </p>
           </div>
@@ -153,21 +153,19 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Il server gira su hardware consumer e ospita i servizi che uso
-                ogni giorno. La rete è divisa tra servizi pubblici, accessi
-                amministrativi e una rete overlay privata: UFW per il firewall
-                e Tailscale con control plane Headscale per gli accessi. I
-                backup hanno una copia offsite e controlli sulla destinazione.
-                La dashboard raccoglie risorse, servizi, container, eventi e
-                stato dei backup; l'ho scritta io e continuo a mantenerla.</span
+                >Ho separato i servizi pubblici dagli accessi amministrativi.
+                Per gli accessi privati uso Tailscale con Headscale, per il
+                firewall UFW. I backup hanno una copia fuori casa e verifico
+                la destinazione. Ho scritto una dashboard che mostra risorse,
+                container, eventi e stato dei backup: continuo a mantenerla
+                perché è il posto da cui controllo il server.</span
               ><span class="lang-en" hidden
-                >The server runs on consumer hardware and hosts the services I
-                use every day. The network is split between public services,
-                administrative access and a private overlay network: UFW for
-                the firewall, Tailscale with a Headscale control plane for
-                access. Backups have an offsite copy and destination checks.
-                The dashboard collects resources, services, containers, events
-                and backup status; I wrote it and still maintain it.</span
+                >I separated public services from administrative access. For
+                private access I use Tailscale with Headscale; UFW handles the
+                firewall. Backups have an offsite copy and I check the
+                destination. I wrote a dashboard that shows resources,
+                containers, events and backup status: I still maintain it
+                because that's where I check the server.</span
               >
             </p>
           </div>
@@ -185,13 +183,13 @@
           </div>
           <p class="proj-note">
             <span class="lang-it"
-              >Codice privato, nessun repository pubblico: l'ambiente reale non
-              si espone. Sono capacità che documento e uso ogni giorno, non
-              certificazioni.</span
+              >Il codice e i dettagli del server restano privati. Posso
+              spiegare come organizzo accessi, backup e controlli, senza
+              pubblicare la configurazione.</span
             ><span class="lang-en" hidden
-              >Private code, no public repository: the real environment stays
-              off the site. These are capabilities I document and use daily,
-              not certifications.</span
+              >The code and server details stay private. I can explain how I
+              handle access, backups and checks without publishing the
+              configuration.</span
             >
           </p>
           <a
