@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>Calcolatore RAL · Luca Rivoiro</title>
-<meta name="description" content="Calcolatore netto da RAL per il mercato italiano: INPS, IRPEF, addizionali. Scritto da zero, zero backend, zero tracking.">
+<meta name="description" content="Calcolatore netto da RAL per il mercato italiano: contributi INPS, scaglioni IRPEF, detrazioni e addizionali. Scritto da zero, senza librerie, gira nel browser.">
 <link rel="canonical" href="https://lukentony.it/progetti/calcolatore-ral">
 <meta property="og:title" content="Calcolatore RAL · Luca Rivoiro">
-<meta property="og:description" content="Calcolatore netto da RAL per il mercato italiano: INPS, IRPEF, addizionali. Scritto da zero, zero backend, zero tracking.">
+<meta property="og:description" content="Calcolatore netto da RAL per il mercato italiano: contributi INPS, scaglioni IRPEF, detrazioni e addizionali. Scritto da zero, senza librerie, gira nel browser.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lukentony.it/progetti/calcolatore-ral">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Calcolatore RAL · Luca Rivoiro">
-<meta name="twitter:description" content="Calcolatore netto da RAL per il mercato italiano: INPS, IRPEF, addizionali. Scritto da zero, zero backend, zero tracking.">
+<meta name="twitter:description" content="Calcolatore netto da RAL per il mercato italiano: contributi INPS, scaglioni IRPEF, detrazioni e addizionali. Scritto da zero, senza librerie, gira nel browser.">
 <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
 <link rel="stylesheet" href="/assets/css/style.css">
 <script>document.documentElement.classList.add('js-lang')</script>
@@ -43,7 +43,7 @@
 <section class="proj-hero">
   <p class="proj-hero-tag">Progetti / Tool</p>
   <h1 class="proj-hero-title">Calcolatore RAL</h1>
-  <p class="proj-hero-sub"><span class="lang-it">Calcolatore netto da RAL per il mercato italiano, zero backend.</span><span class="lang-en" hidden>Gross-to-net salary calculator for Italy, zero backend.</span></p>
+  <p class="proj-hero-sub"><span class="lang-it">Calcolatore netto da RAL per il mercato italiano: contributi, IRPEF e addizionali, tutto nel browser.</span><span class="lang-en" hidden>Gross-to-net salary calculator for Italy: contributions, IRPEF and local surcharges, all in the browser.</span></p>
 </section>
 
 <div class="proj-mockup proj-mockup--ral">
@@ -68,13 +68,13 @@
 </div>
 
 <section class="proj-section">
-  <p class="proj-label"><span class="lang-it">La sfida</span><span class="lang-en" hidden>The challenge</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Durante un test tecnico per un ruolo di Product Builder mi hanno chiesto di costruire, in poco tempo, uno strumento che calcolasse lo stipendio netto a partire dalla RAL. Le calcolatrici che si trovano online sono spesso scatole nere: non mostrano quali trattenute applicano n&eacute; perch&eacute;.</span><span class="lang-en" hidden>During a technical test for a Product Builder role, I was asked to build, in a short time, a tool that calculates net salary starting from gross salary (RAL). Most calculators you find online are black boxes: they don't show which deductions they apply or why.</span></p></div>
+  <p class="proj-label"><span class="lang-it">Il problema</span><span class="lang-en" hidden>The problem</span></p>
+  <div class="proj-body-text"><p><span class="lang-it">Durante un test tecnico per un ruolo di Product Builder mi è stato chiesto un calcolatore netto da RAL in tempi brevi. Le calcolatrici che si trovano online spesso non mostrano quali trattenute applicano né perché.</span><span class="lang-en" hidden>During a technical test for a Product Builder role I was asked to build a gross-to-net calculator at short notice. Most calculators online don't show which deductions they apply or why.</span></p></div>
 </section>
 
 <section class="proj-section">
-  <p class="proj-label"><span class="lang-it">La soluzione</span><span class="lang-en" hidden>The solution</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">L'ho scritto da zero, senza librerie di calcolo, per avere il controllo completo su ogni formula. Applica in sequenza i contributi INPS (9,19% a carico del dipendente), calcola l'imponibile fiscale, applica gli scaglioni IRPEF (23/33/43%), le detrazioni per reddito e le addizionali regionali e comunali. Il profilo di riferimento &egrave; un dipendente a tempo indeterminato residente a Milano, con mensilit&agrave; selezionabili tra 12, 13 e 14. Tutto il calcolo gira nel browser: zero backend, zero tracking, risultato in tempo reale mentre scrivi la RAL.</span><span class="lang-en" hidden>I wrote it from scratch, without calculation libraries, to have full control over every formula. It applies INPS contributions (9.19% employee share) in sequence, computes taxable income, applies IRPEF brackets (23/33/43%), income-based deductions, and regional/municipal surcharges. The reference profile is a permanent employee based in Milan, with 12, 13, or 14 monthly payments selectable. Everything runs in the browser: zero backend, zero tracking, results update live as you type.</span></p></div>
+  <p class="proj-label"><span class="lang-it">Cosa ho costruito</span><span class="lang-en" hidden>What I built</span></p>
+  <div class="proj-body-text"><p><span class="lang-it">L'ho scritto da zero, senza librerie di calcolo, per tenere leggibile ogni formula. Il calcolo applica in ordine: contributi INPS al 9,19% a carico del dipendente, imponibile fiscale, scaglioni IRPEF 23/33/43%, detrazioni per reddito e addizionali regionali e comunali. Il profilo di riferimento è un dipendente a tempo indeterminato residente a Milano, con 12, 13 o 14 mensilità. Gira interamente nel browser: nessun backend, nessun tracking, risultato mentre digiti la RAL.</span><span class="lang-en" hidden>I wrote it from scratch, without calculation libraries, to keep every formula readable. The calculation applies, in order: INPS contributions at 9.19% paid by the employee, taxable income, IRPEF brackets 23/33/43%, income-based deductions and regional/municipal surcharges. The reference profile is a permanent employee living in Milan, with 12, 13 or 14 monthly payments. It runs entirely in the browser: no backend, no tracking, results as you type the gross salary.</span></p></div>
 </section>
 
 <section class="proj-section">
@@ -84,8 +84,8 @@
     <span class="proj-tech-item">HTML/CSS</span>
   </div>
   <div class="proj-cta-group">
-    <a href="https://jethr-calcolatore-ral.vercel.app/" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Prova la demo</span><span class="lang-en" hidden>Try the demo</span></a>
-    <a href="https://github.com/Lukentony/jethr-calcolatore-ral" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Vai al repository GitHub</span><span class="lang-en" hidden>View GitHub repository</span></a>
+    <a href="https://jethr-calcolatore-ral.vercel.app/" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Apri la demo</span><span class="lang-en" hidden>Open the demo</span></a>
+    <a href="https://github.com/Lukentony/jethr-calcolatore-ral" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Apri il repository su GitHub</span><span class="lang-en" hidden>Open the repository on GitHub</span></a>
   </div>
 </section>
 
@@ -94,7 +94,7 @@
 <footer class="footer">
   <div class="footer-row">
     <span>&copy; 2026 Luca Rivoiro</span>
-    <span>Software &amp; AI Developer</span>
+    <span>Python Backend &amp; AI Developer</span>
   </div>
   <nav class="footer-nav" aria-label="Footer">
     <a href="/"><span class="lang-it">Home</span><span class="lang-en" hidden>Home</span></a>

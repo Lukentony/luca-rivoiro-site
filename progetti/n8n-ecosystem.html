@@ -12,13 +12,13 @@
     <title>n8n Ecosystem · Luca Rivoiro</title>
     <meta
       name="description"
-      content="Ecosistema n8n self-hosted per orchestrare automazioni, classificare input con LLM, processare code, collegare servizi e gestire errori."
+      content="Ecosistema n8n self-hosted: link da Telegram classificati per dominio, coda di processamento, servizi downstream, notifiche e gestione degli errori. Codice privato."
     />
     <link rel="canonical" href="https://lukentony.it/progetti/n8n-ecosystem" />
     <meta property="og:title" content="n8n Ecosystem · Luca Rivoiro" />
     <meta
       property="og:description"
-      content="Ecosistema n8n self-hosted per orchestrare automazioni, classificare input con LLM, processare code, collegare servizi e gestire errori."
+      content="Ecosistema n8n self-hosted: link da Telegram classificati per dominio, coda di processamento, servizi downstream, notifiche e gestione degli errori. Codice privato."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -29,7 +29,7 @@
     <meta name="twitter:title" content="n8n Ecosystem · Luca Rivoiro" />
     <meta
       name="twitter:description"
-      content="Ecosistema n8n self-hosted per orchestrare automazioni, classificare input con LLM, processare code, collegare servizi e gestire errori."
+      content="Ecosistema n8n self-hosted: link da Telegram classificati per dominio, coda di processamento, servizi downstream, notifiche e gestione degli errori. Codice privato."
     />
     <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32" />
     <link rel="stylesheet" href="/assets/css/style.css" />
@@ -103,9 +103,11 @@
           <h1 class="proj-hero-title">n8n Ecosystem</h1>
           <p class="proj-hero-sub">
             <span class="lang-it"
-              >Un sistema operativo personale per le mie automazioni.</span
+              >Un ecosistema self-hosted che riceve input, li classifica, li
+              mette in coda e li consegna ai servizi giusti.</span
             ><span class="lang-en" hidden
-              >A personal operating system for my automations.</span
+              >A self-hosted ecosystem that takes inputs, classifies them,
+              queues them and delivers them to the right services.</span
             >
           </p>
         </section>
@@ -122,21 +124,23 @@
 
         <section class="proj-section">
           <p class="proj-label">
-            <span class="lang-it">La sfida</span
-            ><span class="lang-en" hidden>The challenge</span>
+            <span class="lang-it">Il problema</span
+            ><span class="lang-en" hidden>The problem</span>
           </p>
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Non mi serviva un singolo workflow, ma un sistema di
-                mattoni riutilizzabili. Ogni automazione deve poter ricevere un
-                input, trasformarlo, consegnarlo al servizio giusto e rendere
-                visibile quando qualcosa va storto.</span
+                >Le automazioni crescono una alla volta e finiscono scollegate:
+                fonti diverse, servizi diversi, nessun punto unico dove vedere
+                cosa è fallito. Servivano mattoni riutilizzabili, non un
+                workflow in più: ogni flusso riceve un input, lo trasforma e lo
+                consegna, e gli errori restano visibili.</span
               ><span class="lang-en" hidden
-                >I didn&rsquo;t need a single workflow, but a system of reusable
-                building blocks. Every automation should be able to receive an
-                input, transform it, deliver it to the right service and make
-                failures visible.</span
+                >Automations grow one at a time and end up disconnected:
+                different sources, different services, no single place to see
+                what failed. What I needed were reusable building blocks, not
+                one more workflow: each flow takes an input, transforms it and
+                delivers it, and failures stay visible.</span
               >
             </p>
           </div>
@@ -144,36 +148,32 @@
 
         <section class="proj-section">
           <p class="proj-label">
-            <span class="lang-it">La soluzione</span
-            ><span class="lang-en" hidden>The solution</span>
+            <span class="lang-it">Cosa ho costruito</span
+            ><span class="lang-en" hidden>What I built</span>
           </p>
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Ho costruito un ecosistema n8n che coordina flussi diversi:
-                routing di link da Telegram, classificazione per dominio,
-                trascrizione video, riassunti di newsletter, suggerimenti per le
-                skill, aggiornamenti dei container, notifiche e gestione degli
-                errori. Nel Link Router, i domini noti seguono regole
-                deterministiche; quelli nuovi passano da un LLM. Una coda separa
-                la ricezione dal processamento e invia i contenuti a servizi come
-                Karakeep e Mealie. Il workflow mostrato qui sotto rende esplicito
-                il percorso: trigger, branching, LLM, preparazione del messaggio,
-                scrittura della coda e processor. L&rsquo;auto-healer raccoglie il
-                contesto degli errori e propone diagnosi e interventi; il risultato
-                resta sotto il mio controllo.</span
+                >L'ecosistema gira su n8n self-hosted e coordina flussi
+                separati: link da Telegram, trascrizioni video, riepiloghi di
+                newsletter, suggerimenti, aggiornamenti dei container e
+                notifiche. Nel Link Router i domini noti seguono regole
+                deterministiche; quelli nuovi passano da un LLM. Una coda
+                separa la ricezione dal processamento e consegna i contenuti a
+                servizi come Karakeep e Mealie. Un workflow di gestione degli
+                errori raccoglie il contesto e propone una diagnosi;
+                l'intervento resta sotto il mio controllo. Il monitoraggio è
+                affidato a Uptime Kuma.</span
               ><span class="lang-en" hidden
-                >I built an n8n ecosystem that coordinates different flows:
-                Telegram link routing, domain classification, video
-                transcription, newsletter summaries, skill suggestions, container
-                updates, notifications and error handling. In the Link Router,
-                known domains follow deterministic rules; new ones go through an
-                LLM. A queue separates intake from processing and sends content
-                to services such as Karakeep and Mealie. The workflow below makes
-                the path explicit: trigger, branching, LLM, message preparation,
-                queue writing and processor. The auto-healer collects error
-                context and proposes diagnoses and interventions; the result stays
-                under my control.</span
+                >The ecosystem runs on self-hosted n8n and coordinates separate
+                flows: Telegram links, video transcriptions, newsletter
+                summaries, suggestions, container updates and notifications. In
+                the Link Router, known domains follow deterministic rules; new
+                ones go through an LLM. A queue separates intake from
+                processing and delivers content to services such as Karakeep
+                and Mealie. An error-handling workflow collects context and
+                proposes a diagnosis; the fix stays under my control.
+                Monitoring is delegated to Uptime Kuma.</span
               >
             </p>
           </div>
@@ -187,13 +187,16 @@
             <span class="proj-tech-item">LLM</span>
             <span class="proj-tech-item">Telegram API</span>
             <span class="proj-tech-item">Uptime Kuma</span>
-            <span class="proj-tech-item">Auto-Healer</span>
+            <span class="proj-tech-item">Error handling</span>
           </div>
           <p class="proj-note">
             <span class="lang-it"
-              >Codice privato, repository non pubblico. Case study in preparazione.</span
+              >Codice privato, nessun repository pubblico: i dati e i nomi dei
+              servizi dell'ambiente restano fuori dal sito. Case study tecnico
+              in preparazione.</span
             ><span class="lang-en" hidden
-              >Private code, repository not public. Case study in progress.</span
+              >Private code, no public repository: environment data and service
+              names stay off the site. Technical case study in progress.</span
             >
           </p>
           <a
@@ -201,8 +204,8 @@
             class="proj-cta"
             target="_blank"
             rel="noopener"
-            ><span class="lang-it">Scopri di piu sul progetto</span
-            ><span class="lang-en" hidden>Learn more about the project</span></a
+            ><span class="lang-it">Chiedimi il case study</span
+            ><span class="lang-en" hidden>Ask me about the case study</span></a
           >
         </section>
       </main>
@@ -210,7 +213,7 @@
       <footer class="footer">
         <div class="footer-row">
           <span>&copy; 2026 Luca Rivoiro</span>
-          <span>Software &amp; AI Developer</span>
+          <span>Python Backend &amp; AI Developer</span>
         </div>
         <nav class="footer-nav" aria-label="Footer">
           <a href="/"

@@ -12,7 +12,7 @@
     <title>srv1 Infrastructure · Luca Rivoiro</title>
     <meta
       name="description"
-      content="Infrastruttura self-hosted su hardware consumer: osservabilit&agrave;, gestione degli accessi e backup con copie offsite. Capacit&agrave; documentate, non certificate."
+      content="Server self-hosted su hardware consumer: rete separata con UFW, Tailscale e Headscale, backup con copia offsite, dashboard di monitoraggio scritta su misura. Codice privato."
     />
     <link
       rel="canonical"
@@ -21,7 +21,7 @@
     <meta property="og:title" content="srv1 Infrastructure · Luca Rivoiro" />
     <meta
       property="og:description"
-      content="Infrastruttura self-hosted su hardware consumer: osservabilit&agrave;, gestione degli accessi e backup con copie offsite. Capacit&agrave; documentate, non certificate."
+      content="Server self-hosted su hardware consumer: rete separata con UFW, Tailscale e Headscale, backup con copia offsite, dashboard di monitoraggio scritta su misura. Codice privato."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -32,7 +32,7 @@
     <meta name="twitter:title" content="srv1 Infrastructure · Luca Rivoiro" />
     <meta
       name="twitter:description"
-      content="Infrastruttura self-hosted su hardware consumer: osservabilit&agrave;, gestione degli accessi e backup con copie offsite. Capacit&agrave; documentate, non certificate."
+      content="Server self-hosted su hardware consumer: rete separata con UFW, Tailscale e Headscale, backup con copia offsite, dashboard di monitoraggio scritta su misura. Codice privato."
     />
     <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32" />
     <link rel="stylesheet" href="/assets/css/style.css" />
@@ -106,11 +106,11 @@
           <h1 class="proj-hero-title">srv1 Infrastructure</h1>
           <p class="proj-hero-sub">
             <span class="lang-it"
-              >Un server self-hosted su hardware consumer, gestito in prima
-              persona.</span
+              >Un server self-hosted su hardware consumer: più servizi, rete
+              controllata, backup con copia offsite.</span
             ><span class="lang-en" hidden
-              >A self-hosted server on consumer hardware, managed
-              first-hand.</span
+              >A self-hosted server on consumer hardware: multiple services,
+              controlled network access, backups with offsite copies.</span
             >
           </p>
         </section>
@@ -127,21 +127,20 @@
 
         <section class="proj-section">
           <p class="proj-label">
-            <span class="lang-it">La sfida</span
-            ><span class="lang-en" hidden>The challenge</span>
+            <span class="lang-it">Il problema</span
+            ><span class="lang-en" hidden>The problem</span>
           </p>
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Farsi carico da soli di un server, su hardware consumer, senza
-                servizi enterprise: servizi da tenere in esecuzione, accessi da
-                tenere sotto controllo, dati di cui occuparsi prima che sia
-                troppo tardi.</span
+                >Un server in casa deve restare in funzione mentre ospita più
+                servizi. Non ci sono SLA né servizi enterprise: accessi,
+                aggiornamenti, dati e guasti se li prende chi lo
+                gestisce.</span
               ><span class="lang-en" hidden
-                >Taking care of a server on your own, on consumer hardware,
-                without enterprise services: services to keep running, access to
-                keep under control, data to look after before it&rsquo;s too
-                late.</span
+                >A home server has to keep running while hosting several
+                services. There are no SLAs or enterprise services: access,
+                updates, data and failures are on whoever runs it.</span
               >
             </p>
           </div>
@@ -149,24 +148,27 @@
 
         <section class="proj-section">
           <p class="proj-label">
-            <span class="lang-it">La soluzione</span
-            ><span class="lang-en" hidden>The solution</span>
+            <span class="lang-it">Cosa ho costruito</span
+            ><span class="lang-en" hidden>What I built</span>
           </p>
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Ho costruito un approccio a strati: hardening UFW, networking
-                privato via Tailscale e Headscale, backup con rsync e copie
-                offsite. L&rsquo;osservabilit&agrave; passa per una
-                dashboard che ho costruito e mantengo. Sono capacit&agrave;
-                che ho documentato e che uso ogni giorno, non certificazioni
-                esterne.</span
+                >Il server gira su hardware consumer e ospita i servizi che uso
+                ogni giorno. La rete è separata tra servizi pubblici, accessi
+                amministrativi e rete overlay privata: UFW per il firewall,
+                Tailscale con control plane Headscale per gli accessi. I backup
+                hanno una copia offsite e controlli sulla destinazione. Una
+                dashboard che ho scritto e mantengo raccoglie risorse, servizi,
+                container, eventi e stato dei backup.</span
               ><span class="lang-en" hidden
-                >I built a layered approach: UFW hardening, private networking
-                via Tailscale and Headscale, backups with rsync and offsite
-                copies. Observability comes through a dashboard I built and
-                maintain. These are capabilities I&rsquo;ve documented and use every
-                day, not external certifications.</span
+                >The server runs on consumer hardware and hosts the services I
+                use every day. The network is split between public services,
+                administrative access and a private overlay network: UFW for the
+                firewall, Tailscale with a Headscale control plane for access.
+                Backups have an offsite copy and destination checks. A dashboard
+                I wrote and maintain collects resources, services, containers,
+                events and backup status.</span
               >
             </p>
           </div>
@@ -184,9 +186,13 @@
           </div>
           <p class="proj-note">
             <span class="lang-it"
-              >Codice privato, repository non pubblico. Case study in preparazione.</span
+              >Codice privato, nessun repository pubblico: l'ambiente reale non
+              si espone. Capacità documentate e usate ogni giorno, non
+              certificazioni.</span
             ><span class="lang-en" hidden
-              >Private code, repository not public. Case study in progress.</span
+              >Private code, no public repository: the real environment stays
+              off the site. Capabilities documented and used daily, not
+              certifications.</span
             >
           </p>
           <a
@@ -194,8 +200,8 @@
             class="proj-cta"
             target="_blank"
             rel="noopener"
-            ><span class="lang-it">Parlami del tuo progetto</span
-            ><span class="lang-en" hidden>Tell me about your project</span></a
+            ><span class="lang-it">Chiedimi del progetto</span
+            ><span class="lang-en" hidden>Ask me about the project</span></a
           >
         </section>
       </main>
@@ -203,7 +209,7 @@
       <footer class="footer">
         <div class="footer-row">
           <span>&copy; 2026 Luca Rivoiro</span>
-          <span>Software &amp; AI Developer</span>
+          <span>Python Backend &amp; AI Developer</span>
         </div>
         <nav class="footer-nav" aria-label="Footer">
           <a href="/"

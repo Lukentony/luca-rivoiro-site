@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>Orizzonte Sole · Luca Rivoiro</title>
-<meta name="description" content="Una webapp che calcola se il Sole eclissato sarà visibile dal tuo punto di osservazione, usando il profilo reale del terreno (DEM TINITALY a 10 metri). Adattamento e deploy self-hosted di un progetto di Luca Malinverno.">
+<meta name="description" content="Fork del progetto Orizzonte Sole: calcolo di visibilità del Sole eclissato con DEM TINITALY a 10 metri ed effemeridi, adattato e messo in self-hosting per l'eclissi del 12 agosto 2026.">
 <link rel="canonical" href="https://lukentony.it/progetti/orizzonte-sole">
 <meta property="og:title" content="Orizzonte Sole · Luca Rivoiro">
-<meta property="og:description" content="Una webapp che calcola se il Sole eclissato sarà visibile dal tuo punto di osservazione, usando il profilo reale del terreno (DEM TINITALY a 10 metri).">
+<meta property="og:description" content="Fork del progetto Orizzonte Sole: calcolo di visibilità del Sole eclissato con DEM TINITALY a 10 metri ed effemeridi, adattato e messo in self-hosting per l'eclissi del 12 agosto 2026.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lukentony.it/progetti/orizzonte-sole">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Orizzonte Sole · Luca Rivoiro">
-<meta name="twitter:description" content="Una webapp che calcola se il Sole eclissato sarà visibile dal tuo punto di osservazione, usando il profilo reale del terreno.">
+<meta name="twitter:description" content="Fork del progetto Orizzonte Sole: calcolo di visibilità del Sole eclissato con DEM TINITALY a 10 metri ed effemeridi, adattato e messo in self-hosting per l'eclissi del 12 agosto 2026.">
 <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
 <link rel="stylesheet" href="/assets/css/style.css">
 <script>document.documentElement.classList.add('js-lang')</script>
@@ -43,7 +43,7 @@
 <section class="proj-hero">
   <p class="proj-hero-tag"><span class="lang-it">Progetti / Web App</span><span class="lang-en" hidden>Projects / Web App</span></p>
   <h1 class="proj-hero-title">Orizzonte Sole</h1>
-  <p class="proj-hero-sub"><span class="lang-it">Il Sole eclissato, visto dal tuo orizzonte reale.</span><span class="lang-en" hidden>The eclipsed Sun, seen from your real horizon.</span></p>
+  <p class="proj-hero-sub"><span class="lang-it">Fork di una webapp che calcola se il Sole eclissato sarà visibile dal tuo punto di osservazione.</span><span class="lang-en" hidden>A fork of a webapp that calculates whether the eclipsed Sun will be visible from your viewpoint.</span></p>
 </section>
 
 <div class="proj-shot">
@@ -51,15 +51,15 @@
 </div>
 
 <section class="proj-section">
-  <p class="proj-label"><span class="lang-it">La sfida</span><span class="lang-en" hidden>The challenge</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Il progetto doveva poter essere condiviso con altre persone durante l'eclissi del 12 agosto 2026. Il primo calcolo doveva usare un modello digitale del terreno a 10 metri senza scaricare l'intero mosaico italiano, e l'interfaccia doveva funzionare bene anche da telefono.</span><span class="lang-en" hidden>The project had to be shareable with other people during the eclipse on 12 August 2026. Each calculation had to use a 10-metre digital elevation model without downloading the entire Italian mosaic, and the interface had to work well on a phone.</span></p></div>
+  <p class="proj-label"><span class="lang-it">Il problema</span><span class="lang-en" hidden>The problem</span></p>
+  <div class="proj-body-text"><p><span class="lang-it">L'eclissi del 12 agosto 2026 andava condivisa con altre persone. Serviva un calcolo che usasse il profilo reale del terreno, non una mappa piatta, che reggesse l'uso da telefono e che non scaricasse l'intero mosaico DEM italiano per ogni richiesta.</span><span class="lang-en" hidden>The 12 August 2026 eclipse had to be shared with other people. The calculation had to use the real terrain profile, not a flat map, work on a phone and avoid downloading the whole Italian DEM mosaic for every request.</span></p></div>
 </section>
 
 <section class="proj-section">
-  <p class="proj-label"><span class="lang-it">La soluzione</span><span class="lang-en" hidden>The solution</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Ho curato l'adattamento per il deploy su un server self-hosted: Docker multi-container, una griglia DEM locale sul Piemonte con fallback al servizio WCS di INGV, cache dei corridoi e delle tile cartografiche.</span><span class="lang-en" hidden>I handled the deployment adaptation for a self-hosted server: multi-container Docker, a local DEM grid for Piedmont with fallback to the INGV WCS service, and caching for terrain corridors and map tiles.</span></p>
-  <p><span class="lang-it">Ho aggiunto rate limiting sulle analisi più costose e un limite alla concorrenza, così più richieste non mandano il calcolo in coda senza spiegazioni. L'interfaccia è stata resa mobile-first, con supporto GPS, link condivisibili e visualizzazione del profilo dell'orizzonte verso il Sole.</span><span class="lang-en" hidden>I added rate limiting for expensive analyses and a concurrency limit, so several requests could be handled without silently queuing the calculation. The interface was adapted for mobile use, with GPS support, shareable links and a profile of the horizon towards the Sun.</span></p></div>
-  <p class="proj-note"><span class="lang-it">Adattamento e deploy personale di un progetto originale di <a href="https://github.com/lucamalinverno-datapizza/orizzonte-sole" target="_blank" rel="noopener">Luca Malinverno</a>.</span><span class="lang-en" hidden>Personal adaptation and deployment of an original project by <a href="https://github.com/lucamalinverno-datapizza/orizzonte-sole" target="_blank" rel="noopener">Luca Malinverno</a>.</span></p>
+  <p class="proj-label"><span class="lang-it">Cosa ho costruito</span><span class="lang-en" hidden>What I built</span></p>
+  <div class="proj-body-text"><p><span class="lang-it">Ho curato adattamento e deploy su un server self-hosted: Docker multi-container, una griglia DEM locale sul Piemonte con fallback al servizio WCS di INGV, cache dei corridoi e delle tile cartografiche.</span><span class="lang-en" hidden>I handled the adaptation and deployment on a self-hosted server: multi-container Docker, a local DEM grid for Piedmont with fallback to the INGV WCS service, and caching for terrain corridors and map tiles.</span></p>
+  <p><span class="lang-it">Ho aggiunto rate limiting sulle analisi più costose e un limite alla concorrenza: le richieste in eccesso non restano in coda senza spiegazione. L'interfaccia è mobile-first, con GPS, link condivisibili e il profilo dell'orizzonte verso il Sole.</span><span class="lang-en" hidden>I added rate limiting for the most expensive analyses and a concurrency limit: excess requests don't sit in a queue without explanation. The interface is mobile-first, with GPS, shareable links and the horizon profile towards the Sun.</span></p></div>
+  <p class="proj-note"><span class="lang-it">Progetto originale di <a href="https://github.com/lucamalinverno-datapizza/orizzonte-sole" target="_blank" rel="noopener">Luca Malinverno</a>; adattamento e deploy di Luca Rivoiro.</span><span class="lang-en" hidden>Original project by <a href="https://github.com/lucamalinverno-datapizza/orizzonte-sole" target="_blank" rel="noopener">Luca Malinverno</a>; adaptation and deployment by Luca Rivoiro.</span></p>
 </section>
 
 <section class="proj-section">
@@ -77,7 +77,7 @@
   </div>
   <p class="proj-note"><span class="lang-it">La demo è stata spenta dopo l'eclissi.</span><span class="lang-en" hidden>The demo was shut down after the eclipse.</span></p>
   <div class="proj-cta-group">
-    <a href="https://github.com/Lukentony/orizzonte-sole" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Vai al repository GitHub</span><span class="lang-en" hidden>View GitHub repository</span></a>
+    <a href="https://github.com/Lukentony/orizzonte-sole" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Apri il repository su GitHub</span><span class="lang-en" hidden>Open the repository on GitHub</span></a>
   </div>
 </section>
 
@@ -86,7 +86,7 @@
 <footer class="footer">
   <div class="footer-row">
     <span>&copy; 2026 Luca Rivoiro</span>
-    <span>Software &amp; AI Developer</span>
+    <span>Python Backend &amp; AI Developer</span>
   </div>
   <nav class="footer-nav" aria-label="Footer">
     <a href="/"><span class="lang-it">Home</span><span class="lang-en" hidden>Home</span></a>

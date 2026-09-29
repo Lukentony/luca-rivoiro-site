@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>BoxBox · Luca Rivoiro</title>
-<meta name="description" content="Gestione automatizzata di logiche di punteggio complesse e session handling. La pipeline dati gira da sola ogni ora, senza intervento manuale.">
+<meta name="description" content="PWA per MotoGP 2026 e per la lega fantasy privata: pipeline Node.js oraria, rinnovo automatico della sessione, punteggi per qualifiche, sprint, gara e bonus.">
 <link rel="canonical" href="https://lukentony.it/progetti/boxbox">
 <meta property="og:title" content="BoxBox · Luca Rivoiro">
-<meta property="og:description" content="Gestione automatizzata di logiche di punteggio complesse e session handling. La pipeline dati gira da sola ogni ora, senza intervento manuale.">
+<meta property="og:description" content="PWA per MotoGP 2026 e per la lega fantasy privata: pipeline Node.js oraria, rinnovo automatico della sessione, punteggi per qualifiche, sprint, gara e bonus.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lukentony.it/progetti/boxbox">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BoxBox · Luca Rivoiro">
-<meta name="twitter:description" content="Gestione automatizzata di logiche di punteggio complesse e session handling. La pipeline dati gira da sola ogni ora, senza intervento manuale.">
+<meta name="twitter:description" content="PWA per MotoGP 2026 e per la lega fantasy privata: pipeline Node.js oraria, rinnovo automatico della sessione, punteggi per qualifiche, sprint, gara e bonus.">
 <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
 <link rel="stylesheet" href="/assets/css/style.css">
 <script>document.documentElement.classList.add('js-lang')</script>
@@ -43,7 +43,7 @@
 <section class="proj-hero">
   <p class="proj-hero-tag">Progetti / PWA</p>
   <h1 class="proj-hero-title">BoxBox</h1>
-  <p class="proj-hero-sub"><span class="lang-it">PWA per MotoGP 2026 e classifica FantasyGP della lega privata.</span><span class="lang-en" hidden>PWA for MotoGP 2026 and private FantasyGP league standings.</span></p>
+  <p class="proj-hero-sub"><span class="lang-it">PWA per seguire MotoGP 2026 e il fantasy della lega privata, con i dati aggiornati ogni ora.</span><span class="lang-en" hidden>A PWA for following MotoGP 2026 and the private league's fantasy, with hourly data updates.</span></p>
 </section>
 
 <div class="proj-gallery" tabindex="0" role="region" aria-label="Screenshot BoxBox">
@@ -53,13 +53,13 @@
 </div>
 
 <section class="proj-section">
-  <p class="proj-label"><span class="lang-it">La sfida</span><span class="lang-en" hidden>The challenge</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Seguire il fantasy MotoGP con un gruppo di amici richiede dati aggiornati ogni ora durante i weekend di gara. Le app ufficiali sono lente, piene di pubblicita e non mostrano il breakdown dei punti per componente (qualifiche, sprint, gara, bonus). Serviva qualcosa di veloce, leggero, che funzionasse offline.</span><span class="lang-en" hidden>Following MotoGP fantasy with a group of friends requires hourly data updates during race weekends. Official apps are slow, ad-heavy, and don't show per-component point breakdown (qualifying, sprint, race, bonus). Something fast, lightweight, working offline was needed.</span></p></div>
+  <p class="proj-label"><span class="lang-it">Il problema</span><span class="lang-en" hidden>The problem</span></p>
+  <div class="proj-body-text"><p><span class="lang-it">Seguire il fantasy con un gruppo di amici richiede dati aggiornati nei weekend di gara. L'app ufficiale è lenta, piena di pubblicità e non mostra da cosa è composto il punteggio: qualifiche, sprint, gara e bonus restano un numero unico.</span><span class="lang-en" hidden>Following the fantasy league with a group of friends needs fresh data on race weekends. The official app is slow, ad-heavy and doesn't show how the score is built: qualifying, sprint, race and bonus are just one number.</span></p></div>
 </section>
 
 <section class="proj-section">
-  <p class="proj-label"><span class="lang-it">La soluzione</span><span class="lang-en" hidden>The solution</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Ho costruito una PWA in vanilla HTML/CSS/JS con service worker, auto-refresh durante i weekend e notifiche push. Una pipeline Node.js zero-dipendenze gira ogni ora via cron: scarica i dati dall'API fantasy.motogp.com, rinnova automaticamente il cookie di sessione via Playwright/CDP quando scade, calcola il breakdown Q/Sprint/Gara/Bonus per ogni giocatore e fa il deploy su nginx:alpine. La pipeline dati gira da sola ogni ora, senza intervento manuale.</span><span class="lang-en" hidden>I built a PWA in vanilla HTML/CSS/JS with service worker, auto-refresh during weekends and push notifications. A zero-dependency Node.js pipeline runs hourly via cron: fetches data from fantasy.motogp.com API, auto-renews session cookies via Playwright/CDP when they expire, computes Q/Sprint/Race/Bonus breakdown for each player and deploys to nginx:alpine. The data pipeline runs on its own every hour, no manual intervention needed.</span></p></div>
+  <p class="proj-label"><span class="lang-it">Cosa ho costruito</span><span class="lang-en" hidden>What I built</span></p>
+  <div class="proj-body-text"><p><span class="lang-it">BoxBox è una PWA in HTML, CSS e JS vanilla, con service worker e aggiornamento automatico nei weekend di gara. Una pipeline Node.js senza dipendenze gira ogni ora via cron: scarica i dati pubblici e quelli autenticati dall'API fantasy, rinnova da sola il cookie di sessione via browser headless quando scade, calcola il punteggio per qualifiche, sprint, gara e bonus e pubblica i file serviti da nginx:alpine. Quando un passaggio fallisce, l'errore arriva su Discord. È un'app per una lega privata: resta in manutenzione quando l'API cambia.</span><span class="lang-en" hidden>BoxBox is a PWA in vanilla HTML, CSS and JS with a service worker and automatic refresh on race weekends. A zero-dependency Node.js pipeline runs hourly via cron: it fetches public and authenticated data from the fantasy API, renews the session cookie on its own through a headless browser when it expires, computes qualifying, sprint, race and bonus scores and publishes the files served by nginx:alpine. When a step fails, the error is reported to Discord. It's an app for a private league: it stays in maintenance as the API changes.</span></p></div>
 </section>
 
 <section class="proj-section">
@@ -73,7 +73,7 @@
     <span class="proj-tech-item">Playwright / CDP</span>
     <span class="proj-tech-item">Cron</span>
   </div>
-  <a href="https://github.com/Lukentony/boxbox" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Vai al repository GitHub</span><span class="lang-en" hidden>View GitHub repository</span></a>
+  <a href="https://github.com/Lukentony/boxbox" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Apri il repository su GitHub</span><span class="lang-en" hidden>Open the repository on GitHub</span></a>
 </section>
 
 </main>
@@ -81,7 +81,7 @@
 <footer class="footer">
   <div class="footer-row">
     <span>&copy; 2026 Luca Rivoiro</span>
-    <span>Software &amp; AI Developer</span>
+    <span>Python Backend &amp; AI Developer</span>
   </div>
   <nav class="footer-nav" aria-label="Footer">
     <a href="/"><span class="lang-it">Home</span><span class="lang-en" hidden>Home</span></a>

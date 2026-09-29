@@ -12,7 +12,7 @@
     <title>AI Guardian Lab · Luca Rivoiro</title>
     <meta
       name="description"
-      content="Prototipo di ricerca e demo: pipeline deterministica a 4 fasi che valida i comandi shell richiesti da un agente AI, con esecuzione containerizzata a privilegi ridotti e dry-run."
+      content="Middleware open source che valida i comandi shell di un agente LLM prima dell'esecuzione: allowlist, regex, coerenza con il task e verifica LLM sui casi ambigui. Prototipo di ricerca, non pronto per la produzione."
     />
     <link
       rel="canonical"
@@ -21,7 +21,7 @@
     <meta property="og:title" content="AI Guardian Lab · Luca Rivoiro" />
     <meta
       property="og:description"
-      content="Prototipo di ricerca e demo: pipeline deterministica a 4 fasi che valida i comandi shell richiesti da un agente AI, con esecuzione containerizzata a privilegi ridotti e dry-run."
+      content="Middleware open source che valida i comandi shell di un agente LLM prima dell'esecuzione: allowlist, regex, coerenza con il task e verifica LLM sui casi ambigui. Prototipo di ricerca, non pronto per la produzione."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -32,7 +32,7 @@
     <meta name="twitter:title" content="AI Guardian Lab · Luca Rivoiro" />
     <meta
       name="twitter:description"
-      content="Prototipo di ricerca e demo: pipeline deterministica a 4 fasi che valida i comandi shell richiesti da un agente AI, con esecuzione containerizzata a privilegi ridotti e dry-run."
+      content="Middleware open source che valida i comandi shell di un agente LLM prima dell'esecuzione: allowlist, regex, coerenza con il task e verifica LLM sui casi ambigui. Prototipo di ricerca, non pronto per la produzione."
     />
     <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32" />
     <link rel="stylesheet" href="/assets/css/style.css" />
@@ -106,9 +106,9 @@
           <h1 class="proj-hero-title">AI Guardian Lab</h1>
           <p class="proj-hero-sub">
             <span class="lang-it"
-              >Un prototipo di ricerca tra l&rsquo;agente AI e la shell.</span
+              >Middleware open source tra l'agente LLM e la shell.</span
             ><span class="lang-en" hidden
-              >A research prototype between the AI agent and the shell.</span
+              >Open-source middleware between the LLM agent and the shell.</span
             >
           </p>
         </section>
@@ -144,26 +144,24 @@
 
         <section class="proj-section">
           <p class="proj-label">
-            <span class="lang-it">La sfida</span
-            ><span class="lang-en" hidden>The challenge</span>
+            <span class="lang-it">Il problema</span
+            ><span class="lang-en" hidden>The problem</span>
           </p>
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Gli agenti AI possono eseguire comandi shell sulla mia
-                macchina. Nella maggior parte delle implementazioni la sicurezza
-                si basa solo sulla buona volont&agrave; del modello di seguire
-                le istruzioni di sistema, ma l'obbedienza di un modello non
-                &egrave; la stessa cosa di un vincolo di sicurezza. Serviva un
-                livello deterministico che decidesse quali comandi vengono
-                davvero eseguiti, prima che arrivino alla shell.</span
+                >Un agente LLM con accesso alla shell può eseguire qualunque
+                comando. Nella maggior parte delle implementazioni la sicurezza
+                dipende dal fatto che il modello rispetti le istruzioni di
+                sistema: l'obbedienza non è un vincolo tecnico. Serve un livello
+                deterministico che decida quali comandi arrivano davvero alla
+                shell.</span
               ><span class="lang-en" hidden
-                >AI agents can run shell commands on my machine. In most
-                implementations, security relies entirely on the model's
-                willingness to follow system instructions, but model compliance
-                is not the same thing as security enforcement. I needed a
-                deterministic layer to decide which commands actually run,
-                before they reach the shell.</span
+                >An LLM agent with shell access can run any command. In most
+                implementations, security depends on the model following its
+                system instructions: compliance is not a technical constraint.
+                What's needed is a deterministic layer that decides which
+                commands actually reach the shell.</span
               >
             </p>
           </div>
@@ -171,50 +169,47 @@
 
         <section class="proj-section">
           <p class="proj-label">
-            <span class="lang-it">La soluzione</span
-            ><span class="lang-en" hidden>The solution</span>
+            <span class="lang-it">Cosa ho costruito</span
+            ><span class="lang-en" hidden>What I built</span>
           </p>
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Ho costruito un prototipo di ricerca con una validazione
-                deterministica a 4 fasi: se una fase ha un dubbio, il comando
-                non passa. L1 &egrave; l&rsquo;allowlist dei binari ammessi:
-                &laquo;rm&raquo; non c&rsquo;&egrave; e viene bloccato subito,
-                come nel terminale qui sopra. L2 &egrave; un motore regex
-                anti-offuscamento. L3 confronta l&rsquo;intento del task con
-                l&rsquo;azione del comando: un task di lettura con un comando di
-                cancellazione viene bloccato per conflitto d&rsquo;intento,
-                anche se il binario preso da solo fosse ammesso. L4 &egrave; un
-                controllo semantico via LLM, riservato ai casi ambigui che le
-                fasi deterministiche non risolvono. L&rsquo;esecuzione avviene
-                in container con privilegi ridotti, con una modalit&agrave;
-                dry-run.</span
+                >Il middleware sta tra l'agente e la shell e applica quattro
+                controlli in sequenza: se una fase ha un dubbio, il comando non
+                passa. L1 verifica il binario contro un'allowlist: «rm» non
+                c'è, e il comando viene bloccato subito, come nel terminale qui
+                sopra. L2 cerca offuscamenti con un motore regex. L3 confronta
+                l'intento del task con l'azione del comando. L4 è una verifica
+                semantica via LLM, riservata ai casi ambigui. Il servizio gira
+                in container con utenti non privilegiati e dry-run per
+                default.</span
               ><span class="lang-en" hidden
-                >I built a research prototype with a deterministic 4-phase
-                validation: if a phase has doubt, the command doesn&rsquo;t go
-                through. L1 is the allowlist of permitted binaries:
-                &ldquo;rm&rdquo; isn&rsquo;t on it and gets blocked right away,
-                as in the terminal above. L2 is an anti-obfuscation regex
-                engine. L3 compares the task&rsquo;s intent with the
-                command&rsquo;s action: a read task with a delete command gets
-                blocked for intent conflict, even if the binary on its own would
-                be allowed. L4 is an LLM semantic check, reserved for the
-                ambiguous cases the deterministic phases can&rsquo;t resolve.
-                Execution happens in a container with reduced privileges, with a
-                dry-run mode.</span
+                >The middleware sits between the agent and the shell and
+                applies four checks in sequence: if a phase has doubt, the
+                command doesn't go through. L1 checks the binary against an
+                allowlist: &ldquo;rm&rdquo; isn't on it, so the command is
+                blocked right away, as in the terminal above. L2 looks for
+                obfuscation with a regex engine. L3 compares the task's intent
+                with the command's action. L4 is an LLM semantic check,
+                reserved for ambiguous cases. The service runs in containers
+                with non-privileged users and dry-run by default.</span
               >
             </p>
           </div>
           <p class="proj-note">
             <span class="lang-it"
-              >Prototipo di ricerca e demo: ci&ograve; che resta fuori dalla
-              pipeline non &egrave; coperto, e una sandbox forte non &egrave;
-              inclusa.</span
+              >Software Developer (open source), 2026 – presente. Repository
+              pubblico con test automatici in CI. Prototipo di ricerca: i
+              comandi fuori dalla pipeline non sono coperti, non esiste una
+              sandbox forte e il sistema non è pronto per la
+              produzione.</span
             ><span class="lang-en" hidden
-              >Research prototype and demo: whatever falls outside the pipeline
-              isn&rsquo;t covered, and a strong sandbox isn&rsquo;t
-              included.</span
+              >Software Developer (open source), 2026 – present. Public
+              repository with automated tests in CI. Research prototype:
+              commands outside the pipeline aren&rsquo;t covered, there is no
+              strong sandbox, and the system isn&rsquo;t
+              production-ready.</span
             >
           </p>
         </section>
@@ -226,7 +221,7 @@
             <span class="proj-tech-item">Flask</span>
             <span class="proj-tech-item">Docker</span>
             <span class="proj-tech-item">LLM Validation</span>
-            <span class="proj-tech-item">CI/CD</span>
+            <span class="proj-tech-item">GitHub Actions</span>
             <span class="proj-tech-item">Dry-run</span>
           </div>
           <a
@@ -234,8 +229,8 @@
             class="proj-cta"
             target="_blank"
             rel="noopener"
-            ><span class="lang-it">Vai al repository GitHub</span
-            ><span class="lang-en" hidden>View GitHub repository</span></a
+            ><span class="lang-it">Apri il repository su GitHub</span
+            ><span class="lang-en" hidden>Open the repository on GitHub</span></a
           >
         </section>
       </main>
@@ -243,7 +238,7 @@
       <footer class="footer">
         <div class="footer-row">
           <span>&copy; 2026 Luca Rivoiro</span>
-          <span>Software &amp; AI Developer</span>
+          <span>Python Backend &amp; AI Developer</span>
         </div>
         <nav class="footer-nav" aria-label="Footer">
           <a href="/"
