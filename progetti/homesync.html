@@ -1,97 +1,257 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it" data-theme="">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
-<title>HomeSync · Luca Rivoiro</title>
-<meta name="description" content="Task management self-hostato usato ogni giorno da due persone: backend FastAPI asincrono, SQLite in WAL, frontend React senza build step, punteggi e storico condivisi.">
-<link rel="canonical" href="https://lukentony.it/progetti/homesync">
-<meta property="og:title" content="HomeSync · Luca Rivoiro">
-<meta property="og:description" content="Task management self-hostato usato ogni giorno da due persone: backend FastAPI asincrono, SQLite in WAL, frontend React senza build step, punteggi e storico condivisi.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://lukentony.it/progetti/homesync">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HomeSync · Luca Rivoiro">
-<meta name="twitter:description" content="Task management self-hostato usato ogni giorno da due persone: backend FastAPI asincrono, SQLite in WAL, frontend React senza build step, punteggi e storico condivisi.">
-<link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
-<link rel="stylesheet" href="/assets/css/style.css">
-<script>document.documentElement.classList.add('js-lang')</script>
-</head>
-<body>
-<div class="container">
-<header class="topbar">
-  <a class="monogram" href="/">LR &copy; 2026</a>
-  <div class="controls">
-    <div class="topbar-links">
-      <a href="https://github.com/Lukentony" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:luca.rivoiro@gmail.com">Email</a>
-      <a href="/assets/cv/luca-rivoiro-cv.pdf" target="_blank" rel="noopener">CV</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
+    <title>HomeSync · Luca Rivoiro</title>
+    <meta
+      name="description"
+      content="Task management self-hostato usato ogni giorno da due persone: backend FastAPI asincrono, SQLite in WAL, frontend React senza build step, punteggi e storico condivisi."
+    />
+    <link rel="canonical" href="https://lukentony.it/progetti/homesync" />
+    <meta property="og:title" content="HomeSync · Luca Rivoiro" />
+    <meta
+      property="og:description"
+      content="Task management self-hostato usato ogni giorno da due persone: backend FastAPI asincrono, SQLite in WAL, frontend React senza build step, punteggi e storico condivisi."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lukentony.it/progetti/homesync" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="HomeSync · Luca Rivoiro" />
+    <meta
+      name="twitter:description"
+      content="Task management self-hostato usato ogni giorno da due persone: backend FastAPI asincrono, SQLite in WAL, frontend React senza build step, punteggi e storico condivisi."
+    />
+    <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script>
+      document.documentElement.classList.add("js-lang");
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <a class="monogram" href="/">LR &copy; 2026</a>
+        <div class="controls">
+          <div class="topbar-links">
+            <a
+              href="https://github.com/Lukentony"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              href="https://linkedin.com/in/luca-rivoiro"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+            <a href="mailto:luca.rivoiro@gmail.com">Email</a>
+            <a
+              href="/assets/cv/luca-rivoiro-cv.pdf"
+              target="_blank"
+              rel="noopener"
+              >CV</a
+            >
+          </div>
+          <button
+            class="theme-btn"
+            onclick="toggleTheme()"
+            id="theme-toggle"
+            aria-pressed="false"
+          >
+            <span id="theme-btn-label">Scuro</span>
+          </button>
+          <div class="lang-toggle">
+            <button
+              class="lang-btn active"
+              onclick="setLang('it')"
+              id="lang-it"
+              aria-pressed="true"
+            >
+              IT
+            </button>
+            <button
+              class="lang-btn"
+              onclick="setLang('en')"
+              id="lang-en"
+              aria-pressed="false"
+            >
+              EN
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main id="main">
+        <a href="/" class="back-link"
+          >&larr; <span class="lang-it">Torna alla home</span
+          ><span class="lang-en" hidden>Back to home</span></a
+        >
+
+        <section class="proj-hero">
+          <p class="proj-hero-tag">Progetti / Web App</p>
+          <h1 class="proj-hero-title">HomeSync</h1>
+          <p class="proj-hero-sub">
+            <span class="lang-it"
+              >Task management self-hostato per la casa, usato ogni giorno da
+              due persone.</span
+            ><span class="lang-en" hidden
+              >Self-hosted task management for the house, used every day by two
+              people.</span
+            >
+          </p>
+        </section>
+
+        <div
+          class="proj-gallery"
+          tabindex="0"
+          role="region"
+          aria-label="Screenshot HomeSync"
+        >
+          <img
+            src="/assets/images/projects/homesync-home.webp"
+            width="420"
+            height="935"
+            loading="lazy"
+            alt="Home: 2 task da fare oggi, punteggi dei due utenti, lista task in arrivo e completati"
+          />
+          <img
+            src="/assets/images/projects/homesync-stanze.webp"
+            width="420"
+            height="931"
+            loading="lazy"
+            alt="Stanze: griglia degli ambienti di casa con percentuale di completamento task per ognuno"
+          />
+          <img
+            src="/assets/images/projects/homesync-calendario.webp"
+            width="420"
+            height="549"
+            loading="lazy"
+            alt="Calendario: vista mensile con indicatori colorati per urgenza dei task"
+          />
+          <img
+            src="/assets/images/projects/homesync-nuovo-task.webp"
+            width="420"
+            height="937"
+            loading="lazy"
+            alt="Creazione task: stanza, data inizio, ricorrenza, difficolt&agrave; e assegnazione"
+          />
+        </div>
+
+        <section class="proj-section">
+          <p class="proj-label">
+            <span class="lang-it">Il problema</span
+            ><span class="lang-en" hidden>The problem</span>
+          </p>
+          <div class="proj-body-text">
+            <p>
+              <span class="lang-it"
+                >Le app di task management tengono i dati su server altrui. In
+                casa serviva uno strumento privato, senza abbonamenti e con poca
+                manutenzione: due utenti fissi e compiti ricorrenti.</span
+              ><span class="lang-en" hidden
+                >Task management apps keep your data on someone else's servers.
+                At home I needed something private, with no subscription and
+                little maintenance: two fixed users and recurring tasks.</span
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="proj-section">
+          <p class="proj-label">
+            <span class="lang-it">Cosa ho costruito</span
+            ><span class="lang-en" hidden>What I built</span>
+          </p>
+          <div class="proj-body-text">
+            <p>
+              <span class="lang-it"
+                >Backend FastAPI asincrono con SQLite in modalità WAL: nessun
+                database da amministrare. Il frontend è React senza build step,
+                caricato direttamente nel browser; i container girano con
+                healthcheck. L'app è installabile come PWA, con task ricorrenti,
+                punteggi e storico condivisi tra i due utenti. Il repository
+                pubblico è una copia ripulita dai dati personali; la versione in
+                uso gira sul server di casa.</span
+              ><span class="lang-en" hidden
+                >Async FastAPI backend with SQLite in WAL mode: no database to
+                administer. The frontend is React with no build step, loaded
+                straight in the browser; the containers run with healthchecks.
+                The app installs as a PWA, with recurring tasks, shared scores
+                and shared history for the two users. The public repository is a
+                copy cleaned of personal data; the version in use runs on the
+                home server.</span
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="proj-section">
+          <p class="proj-label">Tech Stack</p>
+          <div class="proj-tech-grid">
+            <span class="proj-tech-item">FastAPI</span>
+            <span class="proj-tech-item">React (no-build)</span>
+            <span class="proj-tech-item">Babel standalone</span>
+            <span class="proj-tech-item">Docker</span>
+            <span class="proj-tech-item">SQLite / WAL</span>
+            <span class="proj-tech-item">Nginx</span>
+          </div>
+          <a
+            href="https://github.com/Lukentony/homesync"
+            class="proj-cta"
+            target="_blank"
+            rel="noopener"
+            ><span class="lang-it">Apri il repository su GitHub</span
+            ><span class="lang-en" hidden
+              >Open the repository on GitHub</span
+            ></a
+          >
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <span>&copy; 2026 Luca Rivoiro</span>
+          <span>Python Backend &amp; AI Developer</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/"
+            ><span class="lang-it">Home</span
+            ><span class="lang-en" hidden>Home</span></a
+          >
+          <a href="/#projects"
+            ><span class="lang-it">Progetti</span
+            ><span class="lang-en" hidden>Projects</span></a
+          >
+          <a href="/#contact"
+            ><span class="lang-it">Contatti</span
+            ><span class="lang-en" hidden>Contact</span></a
+          >
+          <a
+            href="/assets/cv/luca-rivoiro-cv.pdf"
+            target="_blank"
+            rel="noopener"
+            >CV</a
+          >
+        </nav>
+        <p class="footer-a11y">
+          <span class="lang-it"
+            >Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;?
+            <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span
+          ><span class="lang-en" hidden
+            >WCAG 2.1 AA compliant. Found an accessibility issue?
+            <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span
+          >
+        </p>
+      </footer>
     </div>
-    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span id="theme-btn-label">Scuro</span></button>
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
-      <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
-    </div>
-  </div>
-</header>
-
-<main id="main">
-<a href="/" class="back-link">&larr; <span class="lang-it">Torna alla home</span><span class="lang-en" hidden>Back to home</span></a>
-
-<section class="proj-hero">
-  <p class="proj-hero-tag">Progetti / Web App</p>
-  <h1 class="proj-hero-title">HomeSync</h1>
-  <p class="proj-hero-sub"><span class="lang-it">Task management self-hostato per la casa, usato ogni giorno da due persone.</span><span class="lang-en" hidden>Self-hosted task management for the house, used every day by two people.</span></p>
-</section>
-
-<div class="proj-gallery" tabindex="0" role="region" aria-label="Screenshot HomeSync">
-  <img src="/assets/images/projects/homesync-home.webp" width="420" height="935" loading="lazy" alt="Home: 2 task da fare oggi, punteggi dei due utenti, lista task in arrivo e completati">
-  <img src="/assets/images/projects/homesync-stanze.webp" width="420" height="931" loading="lazy" alt="Stanze: griglia degli ambienti di casa con percentuale di completamento task per ognuno">
-  <img src="/assets/images/projects/homesync-calendario.webp" width="420" height="549" loading="lazy" alt="Calendario: vista mensile con indicatori colorati per urgenza dei task">
-  <img src="/assets/images/projects/homesync-nuovo-task.webp" width="420" height="937" loading="lazy" alt="Creazione task: stanza, data inizio, ricorrenza, difficolt&agrave; e assegnazione">
-</div>
-
-<section class="proj-section">
-  <p class="proj-label"><span class="lang-it">Il problema</span><span class="lang-en" hidden>The problem</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Le app di task management tengono i dati su server altrui. In casa serviva uno strumento privato, senza abbonamenti e con poca manutenzione: due utenti fissi e compiti ricorrenti.</span><span class="lang-en" hidden>Task management apps keep your data on someone else's servers. At home I needed something private, with no subscription and little maintenance: two fixed users and recurring tasks.</span></p></div>
-</section>
-
-<section class="proj-section">
-  <p class="proj-label"><span class="lang-it">Cosa ho costruito</span><span class="lang-en" hidden>What I built</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Backend FastAPI asincrono con SQLite in modalità WAL: nessun database da amministrare. Il frontend è React senza build step, caricato direttamente nel browser; i container girano con healthcheck. L'app è installabile come PWA, con task ricorrenti, punteggi e storico condivisi tra i due utenti. Il repository pubblico è una copia ripulita dai dati personali; la versione in uso gira sul server di casa.</span><span class="lang-en" hidden>Async FastAPI backend with SQLite in WAL mode: no database to administer. The frontend is React with no build step, loaded straight in the browser; the containers run with healthchecks. The app installs as a PWA, with recurring tasks, shared scores and shared history for the two users. The public repository is a copy cleaned of personal data; the version in use runs on the home server.</span></p></div>
-</section>
-
-<section class="proj-section">
-  <p class="proj-label">Tech Stack</p>
-  <div class="proj-tech-grid">
-    <span class="proj-tech-item">FastAPI</span>
-    <span class="proj-tech-item">React (no-build)</span>
-    <span class="proj-tech-item">Babel standalone</span>
-    <span class="proj-tech-item">Docker</span>
-    <span class="proj-tech-item">SQLite / WAL</span>
-    <span class="proj-tech-item">Nginx</span>
-  </div>
-  <a href="https://github.com/Lukentony/homesync" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Apri il repository su GitHub</span><span class="lang-en" hidden>Open the repository on GitHub</span></a>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-row">
-    <span>&copy; 2026 Luca Rivoiro</span>
-    <span>Python Backend &amp; AI Developer</span>
-  </div>
-  <nav class="footer-nav" aria-label="Footer">
-    <a href="/"><span class="lang-it">Home</span><span class="lang-en" hidden>Home</span></a>
-    <a href="/#projects"><span class="lang-it">Progetti</span><span class="lang-en" hidden>Projects</span></a>
-    <a href="/#contact"><span class="lang-it">Contatti</span><span class="lang-en" hidden>Contact</span></a>
-    <a href="/assets/cv/luca-rivoiro-cv.pdf" target="_blank" rel="noopener">CV</a>
-  </nav>
-  <p class="footer-a11y"><span class="lang-it">Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;? <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span><span class="lang-en" hidden>WCAG 2.1 AA compliant. Found an accessibility issue? <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span></p>
-</footer>
-</div>
-<script src="/assets/js/main.js"></script>
-</body>
+    <script src="/assets/js/main.js"></script>
+  </body>
 </html>

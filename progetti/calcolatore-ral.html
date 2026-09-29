@@ -1,110 +1,280 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it" data-theme="">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
-<title>Calcolatore RAL · Luca Rivoiro</title>
-<meta name="description" content="Calcolatore netto da RAL per il mercato italiano: contributi INPS, scaglioni IRPEF, detrazioni e addizionali. Scritto da zero, senza librerie, gira nel browser.">
-<link rel="canonical" href="https://lukentony.it/progetti/calcolatore-ral">
-<meta property="og:title" content="Calcolatore RAL · Luca Rivoiro">
-<meta property="og:description" content="Calcolatore netto da RAL per il mercato italiano: contributi INPS, scaglioni IRPEF, detrazioni e addizionali. Scritto da zero, senza librerie, gira nel browser.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://lukentony.it/progetti/calcolatore-ral">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Calcolatore RAL · Luca Rivoiro">
-<meta name="twitter:description" content="Calcolatore netto da RAL per il mercato italiano: contributi INPS, scaglioni IRPEF, detrazioni e addizionali. Scritto da zero, senza librerie, gira nel browser.">
-<link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
-<link rel="stylesheet" href="/assets/css/style.css">
-<script>document.documentElement.classList.add('js-lang')</script>
-</head>
-<body>
-<div class="container">
-<header class="topbar">
-  <a class="monogram" href="/">LR &copy; 2026</a>
-  <div class="controls">
-    <div class="topbar-links">
-      <a href="https://github.com/Lukentony" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:luca.rivoiro@gmail.com">Email</a>
-      <a href="/assets/cv/luca-rivoiro-cv.pdf" target="_blank" rel="noopener">CV</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
+    <title>Calcolatore RAL · Luca Rivoiro</title>
+    <meta
+      name="description"
+      content="Calcolatore netto da RAL per il mercato italiano: contributi INPS, scaglioni IRPEF, detrazioni e addizionali. Scritto da zero, senza librerie, gira nel browser."
+    />
+    <link
+      rel="canonical"
+      href="https://lukentony.it/progetti/calcolatore-ral"
+    />
+    <meta property="og:title" content="Calcolatore RAL · Luca Rivoiro" />
+    <meta
+      property="og:description"
+      content="Calcolatore netto da RAL per il mercato italiano: contributi INPS, scaglioni IRPEF, detrazioni e addizionali. Scritto da zero, senza librerie, gira nel browser."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://lukentony.it/progetti/calcolatore-ral"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Calcolatore RAL · Luca Rivoiro" />
+    <meta
+      name="twitter:description"
+      content="Calcolatore netto da RAL per il mercato italiano: contributi INPS, scaglioni IRPEF, detrazioni e addizionali. Scritto da zero, senza librerie, gira nel browser."
+    />
+    <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script>
+      document.documentElement.classList.add("js-lang");
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <a class="monogram" href="/">LR &copy; 2026</a>
+        <div class="controls">
+          <div class="topbar-links">
+            <a
+              href="https://github.com/Lukentony"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              href="https://linkedin.com/in/luca-rivoiro"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+            <a href="mailto:luca.rivoiro@gmail.com">Email</a>
+            <a
+              href="/assets/cv/luca-rivoiro-cv.pdf"
+              target="_blank"
+              rel="noopener"
+              >CV</a
+            >
+          </div>
+          <button
+            class="theme-btn"
+            onclick="toggleTheme()"
+            id="theme-toggle"
+            aria-pressed="false"
+          >
+            <span id="theme-btn-label">Scuro</span>
+          </button>
+          <div class="lang-toggle">
+            <button
+              class="lang-btn active"
+              onclick="setLang('it')"
+              id="lang-it"
+              aria-pressed="true"
+            >
+              IT
+            </button>
+            <button
+              class="lang-btn"
+              onclick="setLang('en')"
+              id="lang-en"
+              aria-pressed="false"
+            >
+              EN
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main id="main">
+        <a href="/" class="back-link"
+          >&larr; <span class="lang-it">Torna alla home</span
+          ><span class="lang-en" hidden>Back to home</span></a
+        >
+
+        <section class="proj-hero">
+          <p class="proj-hero-tag">Progetti / Tool</p>
+          <h1 class="proj-hero-title">Calcolatore RAL</h1>
+          <p class="proj-hero-sub">
+            <span class="lang-it"
+              >Calcolatore netto da RAL per il mercato italiano: contributi,
+              IRPEF e addizionali, tutto nel browser.</span
+            ><span class="lang-en" hidden
+              >Gross-to-net salary calculator for Italy: contributions, IRPEF
+              and local surcharges, all in the browser.</span
+            >
+          </p>
+        </section>
+
+        <div class="proj-mockup proj-mockup--ral">
+          <div class="proj-mockup-bar" aria-hidden="true">
+            <span class="term-dot"></span><span class="term-dot"></span
+            ><span class="term-dot"></span>
+            <span class="proj-mockup-title">calcolatore-ral</span>
+          </div>
+          <div class="proj-mockup-body" aria-hidden="true">
+            <div class="ral-form">
+              <div class="ral-field">
+                <span class="ral-field-label">RAL annua</span
+                ><span class="ral-field-value">35.000 &euro;</span>
+              </div>
+              <div class="ral-field">
+                <span class="ral-field-label">Mensilit&agrave;</span
+                ><span class="ral-field-value">13</span>
+              </div>
+            </div>
+            <div class="ral-breakdown">
+              <div class="ral-row">
+                <span>Contributi INPS (9,19%)</span
+                ><span>&minus; 3.217 &euro;</span>
+              </div>
+              <div class="ral-row">
+                <span>Imponibile fiscale</span><span>31.783 &euro;</span>
+              </div>
+              <div class="ral-row">
+                <span>IRPEF netta (scaglioni 23/33/43%)</span
+                ><span>&minus; 5.883 &euro;</span>
+              </div>
+              <div class="ral-row">
+                <span>Addizionali regionali/comunali</span
+                ><span>&minus; 636 &euro;</span>
+              </div>
+              <div class="ral-row ral-row--total">
+                <span>Netto annuo</span><span>25.264 &euro;</span>
+              </div>
+              <div class="ral-row ral-row--hl">
+                <span>Netto mensile (&times; 13)</span><span>1.943 &euro;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="proj-section">
+          <p class="proj-label">
+            <span class="lang-it">Il problema</span
+            ><span class="lang-en" hidden>The problem</span>
+          </p>
+          <div class="proj-body-text">
+            <p>
+              <span class="lang-it"
+                >Durante un test tecnico per un ruolo di Product Builder mi è
+                stato chiesto un calcolatore netto da RAL in tempi brevi. Le
+                calcolatrici che si trovano online spesso non mostrano quali
+                trattenute applicano né perché.</span
+              ><span class="lang-en" hidden
+                >During a technical test for a Product Builder role I was asked
+                to build a gross-to-net calculator at short notice. Most
+                calculators online don't show which deductions they apply or
+                why.</span
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="proj-section">
+          <p class="proj-label">
+            <span class="lang-it">Cosa ho costruito</span
+            ><span class="lang-en" hidden>What I built</span>
+          </p>
+          <div class="proj-body-text">
+            <p>
+              <span class="lang-it"
+                >L'ho scritto da zero, senza librerie di calcolo, per tenere
+                leggibile ogni formula. Il calcolo applica in ordine: contributi
+                INPS al 9,19% a carico del dipendente, imponibile fiscale,
+                scaglioni IRPEF 23/33/43%, detrazioni per reddito e addizionali
+                regionali e comunali. Il profilo di riferimento è un dipendente
+                a tempo indeterminato residente a Milano, con 12, 13 o 14
+                mensilità. Gira interamente nel browser: nessun backend, nessun
+                tracking, risultato mentre digiti la RAL.</span
+              ><span class="lang-en" hidden
+                >I wrote it from scratch, without calculation libraries, to keep
+                every formula readable. The calculation applies, in order: INPS
+                contributions at 9.19% paid by the employee, taxable income,
+                IRPEF brackets 23/33/43%, income-based deductions and
+                regional/municipal surcharges. The reference profile is a
+                permanent employee living in Milan, with 12, 13 or 14 monthly
+                payments. It runs entirely in the browser: no backend, no
+                tracking, results as you type the gross salary.</span
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="proj-section">
+          <p class="proj-label">Tech Stack</p>
+          <div class="proj-tech-grid">
+            <span class="proj-tech-item">JavaScript</span>
+            <span class="proj-tech-item">HTML/CSS</span>
+          </div>
+          <div class="proj-cta-group">
+            <a
+              href="https://jethr-calcolatore-ral.vercel.app/"
+              class="proj-cta"
+              target="_blank"
+              rel="noopener"
+              ><span class="lang-it">Apri la demo</span
+              ><span class="lang-en" hidden>Open the demo</span></a
+            >
+            <a
+              href="https://github.com/Lukentony/jethr-calcolatore-ral"
+              class="proj-cta"
+              target="_blank"
+              rel="noopener"
+              ><span class="lang-it">Apri il repository su GitHub</span
+              ><span class="lang-en" hidden
+                >Open the repository on GitHub</span
+              ></a
+            >
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <span>&copy; 2026 Luca Rivoiro</span>
+          <span>Python Backend &amp; AI Developer</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/"
+            ><span class="lang-it">Home</span
+            ><span class="lang-en" hidden>Home</span></a
+          >
+          <a href="/#projects"
+            ><span class="lang-it">Progetti</span
+            ><span class="lang-en" hidden>Projects</span></a
+          >
+          <a href="/#contact"
+            ><span class="lang-it">Contatti</span
+            ><span class="lang-en" hidden>Contact</span></a
+          >
+          <a
+            href="/assets/cv/luca-rivoiro-cv.pdf"
+            target="_blank"
+            rel="noopener"
+            >CV</a
+          >
+        </nav>
+        <p class="footer-a11y">
+          <span class="lang-it"
+            >Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;?
+            <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span
+          ><span class="lang-en" hidden
+            >WCAG 2.1 AA compliant. Found an accessibility issue?
+            <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span
+          >
+        </p>
+      </footer>
     </div>
-    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span id="theme-btn-label">Scuro</span></button>
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
-      <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
-    </div>
-  </div>
-</header>
-
-<main id="main">
-<a href="/" class="back-link">&larr; <span class="lang-it">Torna alla home</span><span class="lang-en" hidden>Back to home</span></a>
-
-<section class="proj-hero">
-  <p class="proj-hero-tag">Progetti / Tool</p>
-  <h1 class="proj-hero-title">Calcolatore RAL</h1>
-  <p class="proj-hero-sub"><span class="lang-it">Calcolatore netto da RAL per il mercato italiano: contributi, IRPEF e addizionali, tutto nel browser.</span><span class="lang-en" hidden>Gross-to-net salary calculator for Italy: contributions, IRPEF and local surcharges, all in the browser.</span></p>
-</section>
-
-<div class="proj-mockup proj-mockup--ral">
-  <div class="proj-mockup-bar" aria-hidden="true">
-    <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
-    <span class="proj-mockup-title">calcolatore-ral</span>
-  </div>
-  <div class="proj-mockup-body" aria-hidden="true">
-    <div class="ral-form">
-      <div class="ral-field"><span class="ral-field-label">RAL annua</span><span class="ral-field-value">35.000 &euro;</span></div>
-      <div class="ral-field"><span class="ral-field-label">Mensilit&agrave;</span><span class="ral-field-value">13</span></div>
-    </div>
-    <div class="ral-breakdown">
-      <div class="ral-row"><span>Contributi INPS (9,19%)</span><span>&minus; 3.217 &euro;</span></div>
-      <div class="ral-row"><span>Imponibile fiscale</span><span>31.783 &euro;</span></div>
-      <div class="ral-row"><span>IRPEF netta (scaglioni 23/33/43%)</span><span>&minus; 5.883 &euro;</span></div>
-      <div class="ral-row"><span>Addizionali regionali/comunali</span><span>&minus; 636 &euro;</span></div>
-      <div class="ral-row ral-row--total"><span>Netto annuo</span><span>25.264 &euro;</span></div>
-      <div class="ral-row ral-row--hl"><span>Netto mensile (&times; 13)</span><span>1.943 &euro;</span></div>
-    </div>
-  </div>
-</div>
-
-<section class="proj-section">
-  <p class="proj-label"><span class="lang-it">Il problema</span><span class="lang-en" hidden>The problem</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Durante un test tecnico per un ruolo di Product Builder mi è stato chiesto un calcolatore netto da RAL in tempi brevi. Le calcolatrici che si trovano online spesso non mostrano quali trattenute applicano né perché.</span><span class="lang-en" hidden>During a technical test for a Product Builder role I was asked to build a gross-to-net calculator at short notice. Most calculators online don't show which deductions they apply or why.</span></p></div>
-</section>
-
-<section class="proj-section">
-  <p class="proj-label"><span class="lang-it">Cosa ho costruito</span><span class="lang-en" hidden>What I built</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">L'ho scritto da zero, senza librerie di calcolo, per tenere leggibile ogni formula. Il calcolo applica in ordine: contributi INPS al 9,19% a carico del dipendente, imponibile fiscale, scaglioni IRPEF 23/33/43%, detrazioni per reddito e addizionali regionali e comunali. Il profilo di riferimento è un dipendente a tempo indeterminato residente a Milano, con 12, 13 o 14 mensilità. Gira interamente nel browser: nessun backend, nessun tracking, risultato mentre digiti la RAL.</span><span class="lang-en" hidden>I wrote it from scratch, without calculation libraries, to keep every formula readable. The calculation applies, in order: INPS contributions at 9.19% paid by the employee, taxable income, IRPEF brackets 23/33/43%, income-based deductions and regional/municipal surcharges. The reference profile is a permanent employee living in Milan, with 12, 13 or 14 monthly payments. It runs entirely in the browser: no backend, no tracking, results as you type the gross salary.</span></p></div>
-</section>
-
-<section class="proj-section">
-  <p class="proj-label">Tech Stack</p>
-  <div class="proj-tech-grid">
-    <span class="proj-tech-item">JavaScript</span>
-    <span class="proj-tech-item">HTML/CSS</span>
-  </div>
-  <div class="proj-cta-group">
-    <a href="https://jethr-calcolatore-ral.vercel.app/" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Apri la demo</span><span class="lang-en" hidden>Open the demo</span></a>
-    <a href="https://github.com/Lukentony/jethr-calcolatore-ral" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Apri il repository su GitHub</span><span class="lang-en" hidden>Open the repository on GitHub</span></a>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-row">
-    <span>&copy; 2026 Luca Rivoiro</span>
-    <span>Python Backend &amp; AI Developer</span>
-  </div>
-  <nav class="footer-nav" aria-label="Footer">
-    <a href="/"><span class="lang-it">Home</span><span class="lang-en" hidden>Home</span></a>
-    <a href="/#projects"><span class="lang-it">Progetti</span><span class="lang-en" hidden>Projects</span></a>
-    <a href="/#contact"><span class="lang-it">Contatti</span><span class="lang-en" hidden>Contact</span></a>
-    <a href="/assets/cv/luca-rivoiro-cv.pdf" target="_blank" rel="noopener">CV</a>
-  </nav>
-  <p class="footer-a11y"><span class="lang-it">Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;? <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span><span class="lang-en" hidden>WCAG 2.1 AA compliant. Found an accessibility issue? <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span></p>
-</footer>
-</div>
-<script src="/assets/js/main.js"></script>
-</body>
+    <script src="/assets/js/main.js"></script>
+  </body>
 </html>

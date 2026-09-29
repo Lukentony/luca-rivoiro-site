@@ -1,102 +1,276 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it" data-theme="">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>(function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
-<title>Orizzonte Sole · Luca Rivoiro</title>
-<meta name="description" content="Fork del progetto Orizzonte Sole: calcolo di visibilità del Sole eclissato con DEM TINITALY a 10 metri ed effemeridi, adattato e messo in self-hosting per l'eclissi del 12 agosto 2026.">
-<link rel="canonical" href="https://lukentony.it/progetti/orizzonte-sole">
-<meta property="og:title" content="Orizzonte Sole · Luca Rivoiro">
-<meta property="og:description" content="Fork del progetto Orizzonte Sole: calcolo di visibilità del Sole eclissato con DEM TINITALY a 10 metri ed effemeridi, adattato e messo in self-hosting per l'eclissi del 12 agosto 2026.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://lukentony.it/progetti/orizzonte-sole">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Orizzonte Sole · Luca Rivoiro">
-<meta name="twitter:description" content="Fork del progetto Orizzonte Sole: calcolo di visibilità del Sole eclissato con DEM TINITALY a 10 metri ed effemeridi, adattato e messo in self-hosting per l'eclissi del 12 agosto 2026.">
-<link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
-<link rel="stylesheet" href="/assets/css/style.css">
-<script>document.documentElement.classList.add('js-lang')</script>
-</head>
-<body>
-<div class="container">
-<header class="topbar">
-  <a class="monogram" href="/">LR &copy; 2026</a>
-  <div class="controls">
-    <div class="topbar-links">
-      <a href="https://github.com/Lukentony" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/luca-rivoiro" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:luca.rivoiro@gmail.com">Email</a>
-      <a href="/assets/cv/luca-rivoiro-cv.pdf" target="_blank" rel="noopener">CV</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
+    <title>Orizzonte Sole · Luca Rivoiro</title>
+    <meta
+      name="description"
+      content="Fork del progetto Orizzonte Sole: calcolo di visibilità del Sole eclissato con DEM TINITALY a 10 metri ed effemeridi, adattato e messo in self-hosting per l'eclissi del 12 agosto 2026."
+    />
+    <link rel="canonical" href="https://lukentony.it/progetti/orizzonte-sole" />
+    <meta property="og:title" content="Orizzonte Sole · Luca Rivoiro" />
+    <meta
+      property="og:description"
+      content="Fork del progetto Orizzonte Sole: calcolo di visibilità del Sole eclissato con DEM TINITALY a 10 metri ed effemeridi, adattato e messo in self-hosting per l'eclissi del 12 agosto 2026."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://lukentony.it/progetti/orizzonte-sole"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Orizzonte Sole · Luca Rivoiro" />
+    <meta
+      name="twitter:description"
+      content="Fork del progetto Orizzonte Sole: calcolo di visibilità del Sole eclissato con DEM TINITALY a 10 metri ed effemeridi, adattato e messo in self-hosting per l'eclissi del 12 agosto 2026."
+    />
+    <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script>
+      document.documentElement.classList.add("js-lang");
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <a class="monogram" href="/">LR &copy; 2026</a>
+        <div class="controls">
+          <div class="topbar-links">
+            <a
+              href="https://github.com/Lukentony"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              href="https://linkedin.com/in/luca-rivoiro"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+            <a href="mailto:luca.rivoiro@gmail.com">Email</a>
+            <a
+              href="/assets/cv/luca-rivoiro-cv.pdf"
+              target="_blank"
+              rel="noopener"
+              >CV</a
+            >
+          </div>
+          <button
+            class="theme-btn"
+            onclick="toggleTheme()"
+            id="theme-toggle"
+            aria-pressed="false"
+          >
+            <span id="theme-btn-label">Scuro</span>
+          </button>
+          <div class="lang-toggle">
+            <button
+              class="lang-btn active"
+              onclick="setLang('it')"
+              id="lang-it"
+              aria-pressed="true"
+            >
+              IT
+            </button>
+            <button
+              class="lang-btn"
+              onclick="setLang('en')"
+              id="lang-en"
+              aria-pressed="false"
+            >
+              EN
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main id="main">
+        <a href="/" class="back-link"
+          >&larr; <span class="lang-it">Torna alla home</span
+          ><span class="lang-en" hidden>Back to home</span></a
+        >
+
+        <section class="proj-hero">
+          <p class="proj-hero-tag">
+            <span class="lang-it">Progetti / Web App</span
+            ><span class="lang-en" hidden>Projects / Web App</span>
+          </p>
+          <h1 class="proj-hero-title">Orizzonte Sole</h1>
+          <p class="proj-hero-sub">
+            <span class="lang-it"
+              >Fork di una webapp che calcola se il Sole eclissato sarà visibile
+              dal tuo punto di osservazione.</span
+            ><span class="lang-en" hidden
+              >A fork of a webapp that calculates whether the eclipsed Sun will
+              be visible from your viewpoint.</span
+            >
+          </p>
+        </section>
+
+        <div class="proj-shot">
+          <img
+            src="/assets/images/projects/orizzonte-sole.webp"
+            width="1536"
+            height="1155"
+            alt="Orizzonte Sole: mappa con il punto di osservazione selezionato e il calcolo di visibilità del Sole eclissato sull'orizzonte"
+          />
+        </div>
+
+        <section class="proj-section">
+          <p class="proj-label">
+            <span class="lang-it">Il problema</span
+            ><span class="lang-en" hidden>The problem</span>
+          </p>
+          <div class="proj-body-text">
+            <p>
+              <span class="lang-it"
+                >L'eclissi del 12 agosto 2026 andava condivisa con altre
+                persone. Serviva un calcolo che usasse il profilo reale del
+                terreno, non una mappa piatta, che reggesse l'uso da telefono e
+                che non scaricasse l'intero mosaico DEM italiano per ogni
+                richiesta.</span
+              ><span class="lang-en" hidden
+                >The 12 August 2026 eclipse had to be shared with other people.
+                The calculation had to use the real terrain profile, not a flat
+                map, work on a phone and avoid downloading the whole Italian DEM
+                mosaic for every request.</span
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="proj-section">
+          <p class="proj-label">
+            <span class="lang-it">Cosa ho costruito</span
+            ><span class="lang-en" hidden>What I built</span>
+          </p>
+          <div class="proj-body-text">
+            <p>
+              <span class="lang-it"
+                >Ho curato adattamento e deploy su un server self-hosted: Docker
+                multi-container, una griglia DEM locale sul Piemonte con
+                fallback al servizio WCS di INGV, cache dei corridoi e delle
+                tile cartografiche.</span
+              ><span class="lang-en" hidden
+                >I handled the adaptation and deployment on a self-hosted
+                server: multi-container Docker, a local DEM grid for Piedmont
+                with fallback to the INGV WCS service, and caching for terrain
+                corridors and map tiles.</span
+              >
+            </p>
+            <p>
+              <span class="lang-it"
+                >Ho aggiunto rate limiting sulle analisi più costose e un limite
+                alla concorrenza: le richieste in eccesso non restano in coda
+                senza spiegazione. L'interfaccia è mobile-first, con GPS, link
+                condivisibili e il profilo dell'orizzonte verso il Sole.</span
+              ><span class="lang-en" hidden
+                >I added rate limiting for the most expensive analyses and a
+                concurrency limit: excess requests don't sit in a queue without
+                explanation. The interface is mobile-first, with GPS, shareable
+                links and the horizon profile towards the Sun.</span
+              >
+            </p>
+          </div>
+          <p class="proj-note">
+            <span class="lang-it"
+              >Progetto originale di
+              <a
+                href="https://github.com/lucamalinverno-datapizza/orizzonte-sole"
+                target="_blank"
+                rel="noopener"
+                >Luca Malinverno</a
+              >; adattamento e deploy di Luca Rivoiro.</span
+            ><span class="lang-en" hidden
+              >Original project by
+              <a
+                href="https://github.com/lucamalinverno-datapizza/orizzonte-sole"
+                target="_blank"
+                rel="noopener"
+                >Luca Malinverno</a
+              >; adaptation and deployment by Luca Rivoiro.</span
+            >
+          </p>
+        </section>
+
+        <section class="proj-section">
+          <p class="proj-label">Tech Stack</p>
+          <div class="proj-tech-grid">
+            <span class="proj-tech-item">React</span>
+            <span class="proj-tech-item">MapLibre GL</span>
+            <span class="proj-tech-item">FastAPI</span>
+            <span class="proj-tech-item">Python</span>
+            <span class="proj-tech-item">Docker</span>
+            <span class="proj-tech-item">Nginx</span>
+            <span class="proj-tech-item">Cloudflare Tunnel</span>
+            <span class="proj-tech-item">TINITALY 1.1</span>
+            <span class="proj-tech-item">JPL DE440s</span>
+          </div>
+          <p class="proj-note">
+            <span class="lang-it">La demo è stata spenta dopo l'eclissi.</span
+            ><span class="lang-en" hidden
+              >The demo was shut down after the eclipse.</span
+            >
+          </p>
+          <div class="proj-cta-group">
+            <a
+              href="https://github.com/Lukentony/orizzonte-sole"
+              class="proj-cta"
+              target="_blank"
+              rel="noopener"
+              ><span class="lang-it">Apri il repository su GitHub</span
+              ><span class="lang-en" hidden
+                >Open the repository on GitHub</span
+              ></a
+            >
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <span>&copy; 2026 Luca Rivoiro</span>
+          <span>Python Backend &amp; AI Developer</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="/"
+            ><span class="lang-it">Home</span
+            ><span class="lang-en" hidden>Home</span></a
+          >
+          <a href="/#projects"
+            ><span class="lang-it">Progetti</span
+            ><span class="lang-en" hidden>Projects</span></a
+          >
+          <a href="/#contact"
+            ><span class="lang-it">Contatti</span
+            ><span class="lang-en" hidden>Contact</span></a
+          >
+          <a
+            href="/assets/cv/luca-rivoiro-cv.pdf"
+            target="_blank"
+            rel="noopener"
+            >CV</a
+          >
+        </nav>
+        <p class="footer-a11y">
+          <span class="lang-it"
+            >Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;?
+            <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span
+          ><span class="lang-en" hidden
+            >WCAG 2.1 AA compliant. Found an accessibility issue?
+            <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span
+          >
+        </p>
+      </footer>
     </div>
-    <button class="theme-btn" onclick="toggleTheme()" id="theme-toggle" aria-pressed="false"><span id="theme-btn-label">Scuro</span></button>
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('it')" id="lang-it" aria-pressed="true">IT</button>
-      <button class="lang-btn" onclick="setLang('en')" id="lang-en" aria-pressed="false">EN</button>
-    </div>
-  </div>
-</header>
-
-<main id="main">
-<a href="/" class="back-link">&larr; <span class="lang-it">Torna alla home</span><span class="lang-en" hidden>Back to home</span></a>
-
-<section class="proj-hero">
-  <p class="proj-hero-tag"><span class="lang-it">Progetti / Web App</span><span class="lang-en" hidden>Projects / Web App</span></p>
-  <h1 class="proj-hero-title">Orizzonte Sole</h1>
-  <p class="proj-hero-sub"><span class="lang-it">Fork di una webapp che calcola se il Sole eclissato sarà visibile dal tuo punto di osservazione.</span><span class="lang-en" hidden>A fork of a webapp that calculates whether the eclipsed Sun will be visible from your viewpoint.</span></p>
-</section>
-
-<div class="proj-shot">
-  <img src="/assets/images/projects/orizzonte-sole.webp" width="1536" height="1155" alt="Orizzonte Sole: mappa con il punto di osservazione selezionato e il calcolo di visibilità del Sole eclissato sull'orizzonte">
-</div>
-
-<section class="proj-section">
-  <p class="proj-label"><span class="lang-it">Il problema</span><span class="lang-en" hidden>The problem</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">L'eclissi del 12 agosto 2026 andava condivisa con altre persone. Serviva un calcolo che usasse il profilo reale del terreno, non una mappa piatta, che reggesse l'uso da telefono e che non scaricasse l'intero mosaico DEM italiano per ogni richiesta.</span><span class="lang-en" hidden>The 12 August 2026 eclipse had to be shared with other people. The calculation had to use the real terrain profile, not a flat map, work on a phone and avoid downloading the whole Italian DEM mosaic for every request.</span></p></div>
-</section>
-
-<section class="proj-section">
-  <p class="proj-label"><span class="lang-it">Cosa ho costruito</span><span class="lang-en" hidden>What I built</span></p>
-  <div class="proj-body-text"><p><span class="lang-it">Ho curato adattamento e deploy su un server self-hosted: Docker multi-container, una griglia DEM locale sul Piemonte con fallback al servizio WCS di INGV, cache dei corridoi e delle tile cartografiche.</span><span class="lang-en" hidden>I handled the adaptation and deployment on a self-hosted server: multi-container Docker, a local DEM grid for Piedmont with fallback to the INGV WCS service, and caching for terrain corridors and map tiles.</span></p>
-  <p><span class="lang-it">Ho aggiunto rate limiting sulle analisi più costose e un limite alla concorrenza: le richieste in eccesso non restano in coda senza spiegazione. L'interfaccia è mobile-first, con GPS, link condivisibili e il profilo dell'orizzonte verso il Sole.</span><span class="lang-en" hidden>I added rate limiting for the most expensive analyses and a concurrency limit: excess requests don't sit in a queue without explanation. The interface is mobile-first, with GPS, shareable links and the horizon profile towards the Sun.</span></p></div>
-  <p class="proj-note"><span class="lang-it">Progetto originale di <a href="https://github.com/lucamalinverno-datapizza/orizzonte-sole" target="_blank" rel="noopener">Luca Malinverno</a>; adattamento e deploy di Luca Rivoiro.</span><span class="lang-en" hidden>Original project by <a href="https://github.com/lucamalinverno-datapizza/orizzonte-sole" target="_blank" rel="noopener">Luca Malinverno</a>; adaptation and deployment by Luca Rivoiro.</span></p>
-</section>
-
-<section class="proj-section">
-  <p class="proj-label">Tech Stack</p>
-  <div class="proj-tech-grid">
-    <span class="proj-tech-item">React</span>
-    <span class="proj-tech-item">MapLibre GL</span>
-    <span class="proj-tech-item">FastAPI</span>
-    <span class="proj-tech-item">Python</span>
-    <span class="proj-tech-item">Docker</span>
-    <span class="proj-tech-item">Nginx</span>
-    <span class="proj-tech-item">Cloudflare Tunnel</span>
-    <span class="proj-tech-item">TINITALY 1.1</span>
-    <span class="proj-tech-item">JPL DE440s</span>
-  </div>
-  <p class="proj-note"><span class="lang-it">La demo è stata spenta dopo l'eclissi.</span><span class="lang-en" hidden>The demo was shut down after the eclipse.</span></p>
-  <div class="proj-cta-group">
-    <a href="https://github.com/Lukentony/orizzonte-sole" class="proj-cta" target="_blank" rel="noopener"><span class="lang-it">Apri il repository su GitHub</span><span class="lang-en" hidden>Open the repository on GitHub</span></a>
-  </div>
-</section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-row">
-    <span>&copy; 2026 Luca Rivoiro</span>
-    <span>Python Backend &amp; AI Developer</span>
-  </div>
-  <nav class="footer-nav" aria-label="Footer">
-    <a href="/"><span class="lang-it">Home</span><span class="lang-en" hidden>Home</span></a>
-    <a href="/#projects"><span class="lang-it">Progetti</span><span class="lang-en" hidden>Projects</span></a>
-    <a href="/#contact"><span class="lang-it">Contatti</span><span class="lang-en" hidden>Contact</span></a>
-    <a href="/assets/cv/luca-rivoiro-cv.pdf" target="_blank" rel="noopener">CV</a>
-  </nav>
-  <p class="footer-a11y"><span class="lang-it">Sito conforme WCAG 2.1 AA. Problema di accessibilit&agrave;? <a href="mailto:luca.rivoiro@gmail.com">Scrivimi</a>.</span><span class="lang-en" hidden>WCAG 2.1 AA compliant. Found an accessibility issue? <a href="mailto:luca.rivoiro@gmail.com">Let me know</a>.</span></p>
-</footer>
-</div>
-<script src="/assets/js/main.js"></script>
-</body>
+    <script src="/assets/js/main.js"></script>
+  </body>
 </html>
