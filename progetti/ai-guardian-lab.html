@@ -153,15 +153,14 @@
             <p>
               <span class="lang-it"
                 >Se un agente propone «rm -rf /tmp» per analizzare lo spazio
-                disco, non voglio affidarmi alla sola istruzione data al
-                modello. Ho fatto questa demo per vedere se una regola esterna
-                all'agente ferma il comando prima della shell: «rm» non è nella
-                allowlist.</span
+                disco, non mi affido alla sola istruzione data al modello.
+                Nella demo una regola esterna ferma «rm», che non è nella
+                allowlist, prima che il comando arrivi alla shell.</span
               ><span class="lang-en" hidden
                 >If an agent proposes "rm -rf /tmp" to analyze disk usage, I
-                don't want to rely only on its instructions. I made this demo to
-                see whether a rule outside the agent stops the command before it
-                reaches the shell: "rm" isn't on the allowlist.</span
+                don't rely only on its instructions. In the demo, a rule outside
+                the agent stops "rm", which isn't on the allowlist, before the
+                command reaches the shell.</span
               >
             </p>
           </div>
@@ -175,21 +174,19 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Ho scritto un middleware Python tra l'agente e la shell. La
-                allowlist blocca il caso mostrato sopra già al primo controllo.
-                Nella pipeline ci sono anche una verifica regex degli
-                offuscamenti, un confronto tra comando e task e una verifica LLM
-                per i casi ambigui. I test automatici girano in CI; il servizio
-                usa utenti non privilegiati e parte in dry-run. Questi controlli
-                coprono soltanto i comandi che passano per la pipeline.</span
+                >Ho scritto un middleware Python tra l'agente e la shell. Nel
+                caso qui sopra basta il primo controllo, la allowlist. Dopo
+                cerco offuscamenti con regex e confronto il comando con il task.
+                Se il caso è ambiguo, interviene anche una verifica LLM. I test
+                automatici girano in CI. Il servizio usa utenti non privilegiati
+                e parte in dry-run; i comandi fuori dalla pipeline non sono coperti.</span
               ><span class="lang-en" hidden
-                >I wrote Python middleware between the agent and the shell. The
-                allowlist blocks the example above at the first check. The
-                pipeline also has regex checks for obfuscation, a comparison
-                between command and task, and an LLM check for ambiguous cases.
-                Automated tests run in CI; the service uses unprivileged users
-                and starts in dry-run. These checks only cover commands that
-                pass through the pipeline.</span
+                >I wrote Python middleware between the agent and the shell.
+                The first check, the allowlist, stops the example above. Next
+                I use regex to check for obfuscation and compare the command
+                with the task. An LLM check handles ambiguous cases. Automated tests
+                run in CI. The service uses unprivileged users and starts in
+                dry-run; commands outside the pipeline aren't covered.</span
               >
             </p>
           </div>
