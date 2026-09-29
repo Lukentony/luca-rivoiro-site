@@ -100,11 +100,11 @@
           <h1 class="proj-hero-title">BoxBox</h1>
           <p class="proj-hero-sub">
             <span class="lang-it"
-              >PWA per seguire MotoGP 2026 e il fantasy della lega privata, con
-              i dati aggiornati ogni ora.</span
+              >PWA per seguire la MotoGP 2026 e il fantasy della lega privata,
+              con i dati aggiornati ogni ora.</span
             ><span class="lang-en" hidden
-              >A PWA for following MotoGP 2026 and the private league's fantasy,
-              with hourly data updates.</span
+              >A PWA for following MotoGP 2026 and the private league's fantasy
+              game, with data refreshed every hour.</span
             >
           </p>
         </section>
@@ -146,15 +146,15 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Seguire il fantasy con un gruppo di amici richiede dati
-                aggiornati nei weekend di gara. L'app ufficiale è lenta, piena
-                di pubblicità e non mostra da cosa è composto il punteggio:
-                qualifiche, sprint, gara e bonus restano un numero unico.</span
+                >Il fantasy lo giocavamo tra amici e nei weekend di gara
+                servivano dati aggiornati. L'app ufficiale è lenta, piena di
+                pubblicità e non ti dice come nasce il punteggio: qualifiche,
+                sprint, gara e bonus restano un numero unico.</span
               ><span class="lang-en" hidden
-                >Following the fantasy league with a group of friends needs
-                fresh data on race weekends. The official app is slow, ad-heavy
-                and doesn't show how the score is built: qualifying, sprint,
-                race and bonus are just one number.</span
+                >We played the fantasy league with friends and needed fresh data
+                on race weekends. The official app is slow, full of ads, and
+                never shows how the score is put together: qualifying, sprint,
+                race and bonus stay a single number.</span
               >
             </p>
           </div>
@@ -168,25 +168,27 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >BoxBox è una PWA in HTML, CSS e JS vanilla, con service worker
-                e aggiornamento automatico nei weekend di gara. Una pipeline
-                Node.js senza dipendenze gira ogni ora via cron: scarica i dati
-                pubblici e quelli autenticati dall'API fantasy, rinnova da sola
-                il cookie di sessione via browser headless quando scade, calcola
-                il punteggio per qualifiche, sprint, gara e bonus e pubblica i
-                file serviti da nginx:alpine. Quando un passaggio fallisce,
-                l'errore arriva su Discord. È un'app per una lega privata: resta
-                in manutenzione quando l'API cambia.</span
+                >BoxBox è una PWA scritta in HTML, CSS e JS vanilla, con service
+                worker e aggiornamento automatico nei weekend di gara. Dietro
+                c'è una pipeline Node.js senza dipendenze che gira ogni ora da
+                cron: prende i dati pubblici e quelli autenticati dall'API del
+                fantasy, rinnova il cookie di sessione da sola con un browser
+                headless quando scade, calcola il punteggio di qualifiche,
+                sprint, gara e bonus e pubblica i file che poi serve
+                nginx:alpine. Se un passaggio fallisce, l'errore arriva su
+                Discord. È un'app per una lega privata, quindi vive in
+                manutenzione ogni volta che l'API cambia.</span
               ><span class="lang-en" hidden
-                >BoxBox is a PWA in vanilla HTML, CSS and JS with a service
-                worker and automatic refresh on race weekends. A zero-dependency
-                Node.js pipeline runs hourly via cron: it fetches public and
-                authenticated data from the fantasy API, renews the session
-                cookie on its own through a headless browser when it expires,
-                computes qualifying, sprint, race and bonus scores and publishes
-                the files served by nginx:alpine. When a step fails, the error
-                is reported to Discord. It's an app for a private league: it
-                stays in maintenance as the API changes.</span
+                >BoxBox is a PWA written in vanilla HTML, CSS and JS, with a
+                service worker and automatic refresh on race weekends. Behind
+                it there's a zero-dependency Node.js pipeline that runs every
+                hour from cron: it pulls public and authenticated data from the
+                fantasy API, renews the session cookie by itself with a
+                headless browser when it expires, computes the qualifying,
+                sprint, race and bonus scores, and publishes the files that
+                nginx:alpine then serves. If a step fails, the error lands on
+                Discord. It's an app for a private league, so it lives in
+                maintenance whenever the API changes.</span
               >
             </p>
           </div>

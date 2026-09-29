@@ -106,9 +106,11 @@
           <h1 class="proj-hero-title">AI Guardian Lab</h1>
           <p class="proj-hero-sub">
             <span class="lang-it"
-              >Middleware open source tra l'agente LLM e la shell.</span
+              >Un middleware open source tra l'agente LLM e la shell, prima
+              dell'esecuzione.</span
             ><span class="lang-en" hidden
-              >Open-source middleware between the LLM agent and the shell.</span
+              >Open-source middleware between the LLM agent and the shell,
+              before anything runs.</span
             >
           </p>
         </section>
@@ -150,18 +152,17 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Un agente LLM con accesso alla shell può eseguire qualunque
-                comando. Nella maggior parte delle implementazioni la sicurezza
-                dipende dal fatto che il modello rispetti le istruzioni di
-                sistema: l'obbedienza non è un vincolo tecnico. Serve un livello
-                deterministico che decida quali comandi arrivano davvero alla
-                shell.</span
+                >Un agente LLM collegato alla shell può lanciare qualsiasi
+                comando. Quasi sempre la difesa è la speranza che il modello
+                rispetti le istruzioni di sistema, e l'obbedienza non è un
+                vincolo tecnico. Mancava un livello deterministico che
+                decidesse cosa arriva davvero alla shell.</span
               ><span class="lang-en" hidden
-                >An LLM agent with shell access can run any command. In most
-                implementations, security depends on the model following its
-                system instructions: compliance is not a technical constraint.
-                What's needed is a deterministic layer that decides which
-                commands actually reach the shell.</span
+                >An LLM agent wired to a shell can run any command. Most
+                implementations defend themselves by hoping the model follows
+                its system instructions, and compliance is not a technical
+                constraint. What was missing was a deterministic layer that
+                decides what actually reaches the shell.</span
               >
             </p>
           </div>
@@ -175,39 +176,39 @@
           <div class="proj-body-text">
             <p>
               <span class="lang-it"
-                >Il middleware sta tra l'agente e la shell e applica quattro
-                controlli in sequenza: se una fase ha un dubbio, il comando non
-                passa. L1 verifica il binario contro un'allowlist: «rm» non c'è,
-                e il comando viene bloccato subito, come nel terminale qui
-                sopra. L2 cerca offuscamenti con un motore regex. L3 confronta
-                l'intento del task con l'azione del comando. L4 è una verifica
-                semantica via LLM, riservata ai casi ambigui. Il servizio gira
-                in container con utenti non privilegiati e dry-run per
-                default.</span
+                >Il middleware sta in mezzo e applica quattro controlli in fila.
+                L1 confronta il binario con un'allowlist: «rm» non c'è, quindi
+                il comando si ferma subito, come nel terminale qui sopra. L2
+                cerca offuscamenti con un motore regex. L3 guarda se il comando
+                c'entra con il task. L4 è una verifica semantica via LLM, e
+                scatta solo sui casi ambigui. Se una fase ha un dubbio, il
+                comando non passa. Il servizio gira in container, con utenti non
+                privilegiati e dry-run come impostazione predefinita.</span
               ><span class="lang-en" hidden
-                >The middleware sits between the agent and the shell and applies
-                four checks in sequence: if a phase has doubt, the command
-                doesn't go through. L1 checks the binary against an allowlist:
-                &ldquo;rm&rdquo; isn't on it, so the command is blocked right
-                away, as in the terminal above. L2 looks for obfuscation with a
-                regex engine. L3 compares the task's intent with the command's
-                action. L4 is an LLM semantic check, reserved for ambiguous
-                cases. The service runs in containers with non-privileged users
-                and dry-run by default.</span
+                >The middleware sits in between and runs four checks in a row.
+                L1 matches the binary against an allowlist: &ldquo;rm&rdquo;
+                isn't on it, so the command stops right there, as in the
+                terminal above. L2 looks for obfuscation with a regex engine.
+                L3 checks whether the command has anything to do with the task.
+                L4 is an LLM semantic check, used only on ambiguous cases. If a
+                phase has doubt, the command doesn't go through. The service
+                runs in containers, with non-privileged users and dry-run as
+                the default setting.</span
               >
             </p>
           </div>
           <p class="proj-note">
             <span class="lang-it"
-              >Software Developer (open source), 2026 – presente. Repository
-              pubblico con test automatici in CI. Prototipo di ricerca: i
-              comandi fuori dalla pipeline non sono coperti, non esiste una
-              sandbox forte e il sistema non è pronto per la produzione.</span
+              >Software Developer (open source), dal 2026. Il repository è
+              pubblico e i test automatici girano in CI. Resta un prototipo di
+              ricerca: quello che non passa dalla pipeline non è coperto, non
+              c'è una sandbox forte e non è pronto per la produzione.</span
             ><span class="lang-en" hidden
-              >Software Developer (open source), 2026 – present. Public
-              repository with automated tests in CI. Research prototype:
-              commands outside the pipeline aren&rsquo;t covered, there is no
-              strong sandbox, and the system isn&rsquo;t production-ready.</span
+              >Software Developer (open source), since 2026. The repository is
+              public and the automated tests run in CI. It stays a research
+              prototype: whatever doesn't go through the pipeline isn't
+              covered, there's no strong sandbox, and it isn't
+              production-ready.</span
             >
           </p>
         </section>
