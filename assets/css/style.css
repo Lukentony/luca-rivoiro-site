@@ -176,6 +176,34 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 }
 .hero-links a:hover { color: var(--text); border-bottom-color: var(--text); }
 
+/* ---- Disponibilità (hero) ----
+   Sede, modalità di lavoro e lingue: dati presi dal CV, non ricostruiti qui.
+   La riga "Cerco" e' lo stesso ruolo dichiarato nella sezione Chi sono. */
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md) var(--space-xl);
+  max-width: 640px;
+  margin: 0 auto var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border);
+  text-align: left;
+}
+.hero-fact { display: flex; flex-direction: column; gap: 0.15rem; }
+.hero-fact-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+.hero-fact-value { font-size: 0.85rem; color: var(--text); line-height: 1.4; }
+@media (max-width: 600px) {
+  .hero-facts { gap: var(--space-sm) var(--space-lg); }
+  .hero-fact { flex: 1 1 calc(50% - var(--space-lg)); }
+}
+
 /* ---- Terminal demo (era nell'hero, spostato sulla sottopagina AI Guardian Lab:
    troppo jargon-y come prima cosa vista da un pubblico non tecnico) ---- */
 .proj-terminal { margin: var(--space-xl) 0; text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
