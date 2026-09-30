@@ -153,9 +153,9 @@
             <p>
               <span class="lang-it"
                 >Se un agente propone «rm -rf /tmp» per analizzare lo spazio
-                disco, non mi affido alla sola istruzione data al modello.
-                Nella demo una regola esterna ferma «rm», che non è nella
-                allowlist, prima che il comando arrivi alla shell.</span
+                disco, non mi affido alla sola istruzione data al modello. Nella
+                demo una regola esterna ferma «rm», che non è nella allowlist,
+                prima che il comando arrivi alla shell.</span
               ><span class="lang-en" hidden
                 >If an agent proposes "rm -rf /tmp" to analyze disk usage, I
                 don't rely only on its instructions. In the demo, a rule outside
@@ -179,13 +179,14 @@
                 cerco offuscamenti con regex e confronto il comando con il task.
                 Se il caso è ambiguo, interviene anche una verifica LLM. I test
                 automatici girano in CI. Il servizio usa utenti non privilegiati
-                e parte in dry-run; i comandi fuori dalla pipeline non sono coperti.</span
+                e parte in dry-run; i comandi fuori dalla pipeline non sono
+                coperti.</span
               ><span class="lang-en" hidden
-                >I wrote Python middleware between the agent and the shell.
-                The first check, the allowlist, stops the example above. Next
-                I use regex to check for obfuscation and compare the command
-                with the task. An LLM check handles ambiguous cases. Automated tests
-                run in CI. The service uses unprivileged users and starts in
+                >I wrote Python middleware between the agent and the shell. The
+                first check, the allowlist, stops the example above. Next I use
+                regex to check for obfuscation and compare the command with the
+                task. An LLM check handles ambiguous cases. Automated tests run
+                in CI. The service uses unprivileged users and starts in
                 dry-run; commands outside the pipeline aren't covered.</span
               >
             </p>
