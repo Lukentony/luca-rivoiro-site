@@ -205,6 +205,91 @@
         </section>
 
         <section class="proj-section">
+          <p class="proj-label">
+            <span class="lang-it">Come l'ho verificato</span
+            ><span class="lang-en" hidden>How I verified it</span>
+          </p>
+          <div class="proj-body-text">
+            <p>
+              <span class="lang-it"
+                >Le prove stanno nel repository. I controlli della pipeline sono
+                la allowlist dei binari, le regex sul comando grezzo e
+                normalizzato, la coerenza tra il task e il comando e la verifica
+                LLM solo sui casi ambigui. Il comportamento è fail-closed: se un
+                controllo ha un dubbio il comando non passa, e se la verifica
+                LLM non risponde il comando resta bloccato.</span
+              ><span class="lang-en" hidden
+                >The evidence is in the repository. The pipeline checks are the
+                binary allowlist, regex on the raw and normalized command,
+                coherence between the task and the command, and the LLM check
+                only for ambiguous cases. It's fail-closed: if a check has a
+                doubt the command doesn't pass, and if the LLM check doesn't
+                answer the command stays blocked.</span
+              >
+            </p>
+            <p>
+              <span class="lang-it"
+                >I test automatici girano con pytest. La CI esegue pytest, una
+                scansione Bandit non bloccante e uno smoke test Docker. Nel
+                repository ci sono anche il corpus di attacchi, diviso per
+                offuscamento, esfiltrazione, reverse shell e prompt injection, e
+                la configurazione dei container: agente in dry-run di default,
+                utenti non privilegiati, cap_drop: ALL e
+                no-new-privileges.</span
+              ><span class="lang-en" hidden
+                >The automated tests run with pytest. CI runs pytest, a
+                non-blocking Bandit scan and a Docker smoke test. The repository
+                also contains the attack corpus, split into obfuscation,
+                exfiltration, reverse shells and prompt injection, and the
+                container setup: agent in dry-run by default, unprivileged
+                users, cap_drop: ALL and no-new-privileges.</span
+              >
+            </p>
+            <p>
+              <span class="lang-it"
+                >I <a
+                  href="https://github.com/Lukentony/AI-guardian-lab/tree/main/tests"
+                  target="_blank"
+                  rel="noopener"
+                  >test</a
+                >
+                e il <a
+                  href="https://github.com/Lukentony/AI-guardian-lab/tree/main/attack-corpus"
+                  target="_blank"
+                  rel="noopener"
+                  >corpus di attacchi</a
+                >
+                sono nel repository; l'esito di ogni run si vede nella <a
+                  href="https://github.com/Lukentony/AI-guardian-lab/actions/workflows/ci.yml"
+                  target="_blank"
+                  rel="noopener"
+                  >CI</a
+                >.</span
+              ><span class="lang-en" hidden
+                >The <a
+                  href="https://github.com/Lukentony/AI-guardian-lab/tree/main/tests"
+                  target="_blank"
+                  rel="noopener"
+                  >tests</a
+                >
+                and the <a
+                  href="https://github.com/Lukentony/AI-guardian-lab/tree/main/attack-corpus"
+                  target="_blank"
+                  rel="noopener"
+                  >attack corpus</a
+                >
+                are in the repository; the result of each run is in the <a
+                  href="https://github.com/Lukentony/AI-guardian-lab/actions/workflows/ci.yml"
+                  target="_blank"
+                  rel="noopener"
+                  >CI</a
+                >.</span
+              >
+            </p>
+          </div>
+        </section>
+
+        <section class="proj-section">
           <p class="proj-label">Tech Stack</p>
           <div class="proj-tech-grid">
             <span class="proj-tech-item">Python</span>
