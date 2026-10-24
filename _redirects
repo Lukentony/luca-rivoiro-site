@@ -1,0 +1,2 @@
+# Nessuna regola attiva: confermare hosting e routing prima della migrazione.
+# Gli URL esistenti sono mappati alle directory progetti/<slug>/index.html.

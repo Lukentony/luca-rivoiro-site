@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="lr-title">
+  <title id="lr-title">Luca Rivoiro — monogramma LR</title>
+  <rect width="96" height="96" rx="23" fill="#0b1118"/>
+  <!-- L e R disegnate sulla stessa griglia; il piede della L si unisce all'asta della R. -->
+  <path fill="#34d399" fill-rule="evenodd" d="M20 24h10v38h17v10H20V24ZM43 24h17c12 0 19 6 19 16 0 7-4 12-10 15l12 17H69L58 57h-5v15H43V24Zm10 9v15h7c6 0 9-3 9-8s-3-7-9-7h-7Z"/>
+</svg>

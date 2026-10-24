@@ -1,5 +1,7 @@
 Contact: mailto:luca.rivoiro@gmail.com
-Preferred-Languages: en, it
+Expires: 2027-10-22T00:00:00.000Z
+Preferred-Languages: it, en
 Canonical: https://lukentony.it/.well-known/security.txt
 
+# Segnalazioni di sicurezza per lukentony.it
 # Security disclosure for lukentony.it

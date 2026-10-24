@@ -1,22 +1,30 @@
 # Luca Rivoiro
 
-> Software & AI Developer. Costruisce siti, app, automazioni e l'infrastruttura che li fa girare, spesso con agenti AI a fare da moltiplicatore.
+> AI & Python developer a Torino. Costruisco automazioni, applicazioni e l'infrastruttura che le tiene in piedi, con gli agenti AI come moltiplicatore e la verifica sempre in mano mia.
 
-Prima di specializzarsi in AI security ha lavorato come programmatore in ambienti multi-sede (automazioni Python, gestione infrastrutture IT, deployment software per oltre 20 strutture). Ha poi approfondito LLM e agentic AI con un Master dedicato (ProfessionAI, 400h, 28/30). Lavora ogni giorno con Python, Docker, LLM: AI applicata, automazione, infrastruttura self-hosted.
+Profilo versatile su backend, automazione e sistemi. Ho lavorato come programmatore in ambienti multi-sede e mi occupo di AI applicata, agenti e infrastruttura self-hosted. Il metodo: capire il problema, scegliere lo strumento, verificare il risultato.
 
 ## Progetti
 
-- [AI Guardian Lab](https://lukentony.it/progetti/ai-guardian-lab): middleware di sicurezza per agenti AI, pipeline deterministica a 4 layer (allowlist, regex, intent coherence, LLM check) fail-closed by design.
-- [Calcolatore RAL](https://lukentony.it/progetti/calcolatore-ral): calcolatore netto da RAL per il mercato italiano (INPS, IRPEF, addizionali), scritto da zero, zero backend, zero tracking.
-- [BoxBox](https://lukentony.it/progetti/boxbox): PWA per MotoGP 2026 con classifica fantasy, pipeline Node.js zero-dipendenze, auto-renew sessione via Playwright/CDP.
-- [HomeSync](https://lukentony.it/progetti/homesync): task management self-hosted per due persone, backend FastAPI, frontend React no-build, 0.3s load time.
-- [Broom](https://lukentony.it/progetti/broom): app Android senza server per le pulizie di casa, nata da HomeSync; dati sul telefono in un documento Automerge, sync tra due telefoni a mano, quella automatica sulla stessa WiFi è il prossimo passo.
-- [n8n Ecosystem](https://lukentony.it/progetti/n8n-ecosystem): workflow di automazione self-hosted, routing intelligente via LLM, auto-healer.
-- [srv1 Infrastructure](https://lukentony.it/progetti/srv1-infrastructure): infrastruttura self-hosted con security hardening enterprise, 30 container Docker, VPN Tailscale.
-- [Orizzonte Sole](https://lukentony.it/progetti/orizzonte-sole): webapp che calcola se il Sole eclissato sarà visibile dal tuo punto di osservazione usando il profilo reale del terreno (DEM TINITALY a 10 metri). Adattamento e deploy self-hosted di un progetto di Luca Malinverno.
+- [AI Guardian Lab](https://lukentony.it/progetti/ai-guardian-lab/): Un middleware Python che controlla i comandi shell proposti dagli agenti, con una dashboard per seguire le decisioni. Le regole deterministiche arrivano prima di qualunque LLM.
+- [superPi](https://lukentony.it/progetti/superpi/): Una UI locale per seguire più conversazioni di coding agent: attività dei tool, eventi, stato e note in un unico posto.
+- [HomeSync](https://lukentony.it/progetti/homesync/): Attività di casa, ricorrenze e storico condiviso. Backend FastAPI e dati sul server di casa; SQLite evita un servizio database separato.
+- [BoxBox](https://lukentony.it/progetti/boxbox/): Una PWA per il fantasy MotoGP tra amici. Aggiornamenti adattivi, punteggi leggibili e analisi facoltativa delle notizie con LLM.
+- [n8n Ecosystem](https://lukentony.it/progetti/n8n-ecosystem/): Dai link Telegram ai servizi giusti: regole per i domini noti, LLM per quelli nuovi e una coda tra ricezione ed elaborazione.
+- [srv1 Infrastructure](https://lukentony.it/progetti/srv1-infrastructure/): Il server su cui girano i miei servizi: accessi pubblici e amministrativi separati, backup fuori sede e dashboard per i controlli.
+- [Broom](https://lukentony.it/progetti/broom/): Un’app Android per le attività domestiche, con dati sul telefono e sincronizzazione sulla stessa rete Wi-Fi.
+- [Calcolatore RAL](https://lukentony.it/progetti/calcolatore-ral/): Un calcolatore netto da RAL costruito per un test tecnico: formule leggibili, dettaglio dei passaggi e nessun backend.
+- [Orizzonte Sole](https://lukentony.it/progetti/orizzonte-sole/): Un fork del progetto di Luca Malinverno, adattato e ospitato per l’eclissi del 12 agosto 2026, con dati del terreno del Piemonte in locale.
+
+## Pagine
+
+- [Metodo](https://lukentony.it/metodo/): come scelgo gli strumenti e verifico il lavoro.
+- [Dati e contatti](https://lukentony.it/privacy/): cosa raccoglie il sito, che non usa analytics.
+- [English version](https://lukentony.it/en/)
 
 ## Contatti
 
 - Email: luca.rivoiro@gmail.com
 - GitHub: https://github.com/Lukentony
-- LinkedIn: https://linkedin.com/in/luca-rivoiro
+- LinkedIn: https://www.linkedin.com/in/luca-rivoiro
+- Profilo DataPizza: https://jobs.datapizza.tech/folio/lucarivoiro768
