@@ -1,6 +1,6 @@
 # Luca Rivoiro
 
-> AI & Python developer a Torino. Costruisco automazioni, applicazioni e l'infrastruttura che le tiene in piedi, con gli agenti AI come moltiplicatore e la verifica sempre in mano mia.
+> Python Backend & AI Developer a Torino. Costruisco automazioni, applicazioni e l'infrastruttura che le tiene in piedi, con gli agenti AI come moltiplicatore e la verifica sempre in mano mia.
 
 Profilo versatile su backend, automazione e sistemi. Ho lavorato come programmatore in ambienti multi-sede e mi occupo di AI applicata, agenti e infrastruttura self-hosted. Il metodo: capire il problema, scegliere lo strumento, verificare il risultato.
 
